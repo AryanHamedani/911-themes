@@ -1,0 +1,23 @@
+# Carrera v2.0.0 — Heritage Cockpit palette for Atuin
+# Basalt Alcantara (#15171a), Chalk (#d6d2c7), Carmine Red (#e1656c)
+# Requires Atuin PascalCase Meaning keys under [colors].
+
+[theme]
+name = "carrera"
+
+[colors]
+AlertInfo = "#89b87f"
+AlertWarn = "#dcbb6a"
+AlertError = "#e07476"
+Annotation = "#74a0d7"
+Base = "#d6d2c7"
+Guidance = "#9599a2"
+Important = "#e1656c"
+Title = "#eae6dc"
+Muted = "#838792"
+SyntaxCommand = "#89b87f"
+SyntaxFlag = "#b3afa6"
+SyntaxString = "#dcbb6a"
+SyntaxVariable = "#6fc7cb"
+SyntaxOperator = "#e8965a"
+SyntaxComment = "#838792"

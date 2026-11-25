@@ -1,0 +1,162 @@
+/* Carrera v2.0.0 Theme for Obsidian
+ * Palette: Basalt Alcantara (#15171a / #101215), Chalk (#d6d2c7), Carmine Red (#e1656c)
+ */
+
+.theme-dark {
+  color-scheme: dark;
+
+  /* Core surfaces */
+  --background-primary: #15171a;
+  --background-primary-alt: #1e2025;
+  --background-secondary: #101215;
+  --background-secondary-alt: #0b0c0e;
+  --background-modifier-form-field: #1e2025;
+  --background-modifier-border: #262930;
+  --background-modifier-border-hover: #454954;
+  --background-modifier-border-focus: #e1656c;
+  --background-modifier-hover: rgba(214, 210, 199, 0.08);
+  --background-modifier-active-hover: rgba(225, 101, 108, 0.16);
+  --divider-color: #262930;
+
+  /* Typography & selection */
+  --text-normal: #d6d2c7;
+  --text-muted: #9599a2;
+  --text-faint: #838792;
+  --text-selection: rgba(43, 46, 53, 0.85);
+  --text-on-accent: #15171a;
+  --text-error: #e07476;
+  --text-error-hover: #f28a8b;
+  --text-warning: #dcbb6a;
+  --text-success: #89b87f;
+
+  /* Accents & links */
+  --interactive-accent: #e1656c;
+  --interactive-accent-hover: #f28a8b;
+  --text-accent: #e1656c;
+  --text-accent-hover: #f28a8b;
+  --link-color: #74a0d7;
+  --link-color-hover: #8eb9f0;
+  --link-external-color: #6fc7cb;
+  --link-external-color-hover: #87d9dd;
+  --link-unresolved-color: #9599a2;
+  --text-link: #74a0d7;
+
+  /* Semantic & callout colors (Obsidian 1.x RGB variables) */
+  --color-red: #e07476;
+  --color-red-rgb: 224, 116, 118;
+  --color-orange: #e8965a;
+  --color-orange-rgb: 232, 150, 90;
+  --color-yellow: #dcbb6a;
+  --color-yellow-rgb: 220, 187, 106;
+  --color-green: #89b87f;
+  --color-green-rgb: 137, 184, 127;
+  --color-cyan: #6fc7cb;
+  --color-cyan-rgb: 111, 199, 203;
+  --color-blue: #74a0d7;
+  --color-blue-rgb: 116, 160, 215;
+  --color-purple: #b886b8;
+  --color-purple-rgb: 184, 134, 184;
+  --color-pink: #e1656c;
+  --color-pink-rgb: 225, 101, 108;
+
+  /* Headings (Obsidian 1.x + legacy aliases) */
+  --h1-color: #e07476;
+  --h2-color: #89b87f;
+  --h3-color: #dcbb6a;
+  --h4-color: #74a0d7;
+  --h5-color: #b886b8;
+  --h6-color: #ae7e62;
+  --text-title-h1: #e07476;
+  --text-title-h2: #89b87f;
+  --text-title-h3: #dcbb6a;
+  --text-title-h4: #74a0d7;
+  --text-title-h5: #b886b8;
+  --text-title-h6: #ae7e62;
+
+  /* Code & syntax */
+  --code-background: #101215;
+  --code-normal: #6fc7cb;
+  --code-comment: #838792;
+  --code-function: #74a0d7;
+  --code-keyword: #b886b8;
+  --code-operator: #8eb9f0;
+  --code-property: #6fc7cb;
+  --code-punctuation: #9599a2;
+  --code-string: #89b87f;
+  --code-tag: #dcbb6a;
+  --code-value: #e8965a;
+
+  /* Tags & blockquotes */
+  --tag-color: #6fc7cb;
+  --tag-background: rgba(111, 199, 203, 0.14);
+  --tag-background-hover: rgba(111, 199, 203, 0.24);
+  --blockquote-border-color: #e1656c;
+
+  /* Graph view */
+  --graph-line: #31353f;
+  --graph-node: #e1656c;
+  --graph-node-focused: #74a0d7;
+  --graph-node-tag: #6fc7cb;
+  --graph-node-attachment: #89b87f;
+
+  /* Chrome & scrollbars */
+  --titlebar-background: #101215;
+  --titlebar-background-focused: #101215;
+  --scrollbar-thumb-bg: rgba(131, 135, 146, 0.35);
+  --scrollbar-active-thumb-bg: rgba(225, 101, 108, 0.65);
+}
+
+/* Headings */
+.theme-dark .cm-header-1,
+.theme-dark .markdown-rendered h1 {
+  color: var(--h1-color);
+}
+.theme-dark .cm-header-2,
+.theme-dark .markdown-rendered h2 {
+  color: var(--h2-color);
+}
+.theme-dark .cm-header-3,
+.theme-dark .markdown-rendered h3 {
+  color: var(--h3-color);
+}
+.theme-dark .cm-header-4,
+.theme-dark .markdown-rendered h4 {
+  color: var(--h4-color);
+}
+.theme-dark .cm-header-5,
+.theme-dark .markdown-rendered h5 {
+  color: var(--h5-color);
+}
+.theme-dark .cm-header-6,
+.theme-dark .markdown-rendered h6 {
+  color: var(--h6-color);
+}
+
+/* Code & syntax highlighting */
+.theme-dark .markdown-rendered code {
+  color: var(--code-normal);
+  background-color: var(--code-background);
+}
+
+.theme-dark .cm-s-obsidian span.cm-keyword { color: var(--code-keyword); }
+.theme-dark .cm-s-obsidian span.cm-string { color: var(--code-string); }
+.theme-dark .cm-s-obsidian span.cm-number { color: var(--code-value); }
+.theme-dark .cm-s-obsidian span.cm-comment { color: var(--code-comment); font-style: italic; }
+.theme-dark .cm-s-obsidian span.cm-operator { color: var(--code-operator); }
+.theme-dark .cm-s-obsidian span.cm-def { color: var(--code-function); }
+
+/* Links & blockquotes */
+.theme-dark .markdown-rendered a {
+  color: var(--link-color);
+}
+
+.theme-dark .markdown-rendered blockquote {
+  border-left-color: var(--blockquote-border-color);
+}
+
+/* Active navigation & search */
+.theme-dark .workspace-leaf.mod-active .workspace-leaf-header-title,
+.theme-dark .nav-file-title.is-active,
+.theme-dark .search-result-file-title {
+  color: var(--interactive-accent);
+}

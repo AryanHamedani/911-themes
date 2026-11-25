@@ -1,0 +1,37 @@
+/* Carrera v2.0.0 — Zen Browser userContent.css
+ * Strictly scoped to internal about:* pages so external websites remain untouched.
+ */
+
+@-moz-document url-prefix("about:") {
+  :root {
+    color-scheme: dark !important;
+
+    --background-color-canvas: #15171a !important;
+    --background-color-box: #101215 !important;
+    --card-background-color: #1e2025 !important;
+    --text-color: #d6d2c7 !important;
+    --text-color-deemphasized: #9599a2 !important;
+    --border-color: #262930 !important;
+    --border-color-deemphasized: #31353f !important;
+    --color-accent-primary: #e1656c !important;
+    --color-accent-primary-hover: #f28a8b !important;
+    --link-color: #74a0d7 !important;
+
+    /* New Tab / Home / Private Browsing */
+    --newtab-background-color: #15171a !important;
+    --newtab-background-color-secondary: #1e2025 !important;
+    --newtab-background-card: #1e2025 !important;
+    --newtab-text-primary-color: #d6d2c7 !important;
+    --newtab-text-secondary-color: #9599a2 !important;
+    --newtab-primary-action-background: #e1656c !important;
+    --newtab-primary-element-text-color: #15171a !important;
+    --newtab-element-hover-color: #2b2e35 !important;
+
+    /* In-content pages (about:config, about:preferences, about:addons) */
+    --in-content-page-background: #15171a !important;
+    --in-content-page-color: #d6d2c7 !important;
+    --in-content-box-background: #1e2025 !important;
+    --in-content-primary-button-background: #e1656c !important;
+    --in-content-primary-button-text-color: #15171a !important;
+  }
+}

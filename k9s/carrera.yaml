@@ -1,0 +1,119 @@
+# Carrera v2.0.0 (Porsche 911 Heritage Cockpit) skin for K9s
+# border/frame dividers use #454954 (shared btop.theme box_border over #15171a).
+k9s:
+  body:
+    fgColor: "#d6d2c7"
+    bgColor: "#15171a"
+    logoColor: "#e1656c"
+    logoColorMsg: "#eae6dc"
+    logoColorInfo: "#89b87f"
+    logoColorWarn: "#dcbb6a"
+    logoColorError: "#e07476"
+  prompt:
+    fgColor: "#d6d2c7"
+    bgColor: "#101215"
+    suggestColor: "#74a0d7"
+    border:
+      command: "#e1656c"
+      default: "#454954"
+  help:
+    fgColor: "#d6d2c7"
+    bgColor: "#15171a"
+    sectionColor: "#e1656c"
+    keyColor: "#74a0d7"
+    numKeyColor: "#dcbb6a"
+  info:
+    fgColor: "#d6d2c7"
+    sectionColor: "#e1656c"
+    cpuColor: "#89b87f"
+    memColor: "#6fc7cb"
+    k9sRevColor: "#74a0d7"
+  dialog:
+    fgColor: "#d6d2c7"
+    bgColor: "#1e2025"
+    buttonFgColor: "#d6d2c7"
+    buttonBgColor: "#2b2e35"
+    buttonFocusFgColor: "#eae6dc"
+    buttonFocusBgColor: "#e1656c"
+    labelFgColor: "#dcbb6a"
+    fieldFgColor: "#eae6dc"
+  frame:
+    border:
+      fgColor: "#454954"
+      focusColor: "#e1656c"
+    menu:
+      fgColor: "#d6d2c7"
+      keyColor: "#e1656c"
+      numKeyColor: "#dcbb6a"
+    crumbs:
+      fgColor: "#101215"
+      bgColor: "#74a0d7"
+      activeColor: "#e1656c"
+    status:
+      newColor: "#6fc7cb"
+      modifyColor: "#74a0d7"
+      addColor: "#89b87f"
+      pendingColor: "#e8965a"
+      errorColor: "#e07476"
+      highlightColor: "#dcbb6a"
+      killColor: "#838792"
+      completedColor: "#838792"
+    title:
+      fgColor: "#eae6dc"
+      bgColor: "#15171a"
+      highlightColor: "#e1656c"
+      counterColor: "#dcbb6a"
+      filterColor: "#6fc7cb"
+  views:
+    charts:
+      bgColor: "#15171a"
+      dialBgColor: "#1e2025"
+      chartBgColor: "#15171a"
+      defaultDialColors:
+        - "#74a0d7"
+        - "#e1656c"
+      defaultChartColors:
+        - "#74a0d7"
+        - "#e1656c"
+      focusFgColor: "#eae6dc"
+      focusBgColor: "#e1656c"
+      resourceColors:
+        cpu:
+          - "#89b87f"
+          - "#74a0d7"
+        mem:
+          - "#dcbb6a"
+          - "#e1656c"
+    table:
+      fgColor: "#d6d2c7"
+      bgColor: "#15171a"
+      cursorFgColor: "#eae6dc"
+      cursorBgColor: "#2b2e35"
+      markColor: "#dcbb6a"
+      header:
+        fgColor: "#9599a2"
+        bgColor: "#15171a"
+        sorterColor: "#e1656c"
+        selectedSortColumnColor: "#eae6dc"
+    xray:
+      fgColor: "#d6d2c7"
+      bgColor: "#15171a"
+      cursorColor: "#2b2e35"
+      cursorTextColor: "#eae6dc"
+      graphicColor: "#74a0d7"
+    yaml:
+      keyColor: "#74a0d7"
+      colonColor: "#838792"
+      valueColor: "#d6d2c7"
+    picker:
+      mainColor: "#d6d2c7"
+      focusColor: "#e1656c"
+      shortcutColor: "#6fc7cb"
+    logs:
+      fgColor: "#d6d2c7"
+      bgColor: "#15171a"
+      indicator:
+        fgColor: "#eae6dc"
+        bgColor: "#1e2025"
+        toggleOnColor: "#89b87f"
+        toggleOffColor: "#838792"

@@ -1,0 +1,104 @@
+# Carrera v2.0.0 (Porsche 911 Heritage Cockpit) for eza
+colourful: true
+
+filekinds:
+  normal: { foreground: "#d6d2c7" }
+  directory: { foreground: "#74a0d7", is_bold: true }
+  symlink: { foreground: "#6fc7cb" }
+  pipe: { foreground: "#dcbb6a" }
+  block_device: { foreground: "#e8965a", is_bold: true }
+  char_device: { foreground: "#e8965a", is_bold: true }
+  socket: { foreground: "#b886b8", is_bold: true }
+  special: { foreground: "#ae7e62" }
+  executable: { foreground: "#89b87f", is_bold: true }
+  mount_point: { foreground: "#e1656c", is_bold: true, is_underline: true }
+
+perms:
+  user_read: { foreground: "#d6d2c7" }
+  user_write: { foreground: "#e8965a" }
+  user_execute_file: { foreground: "#89b87f" }
+  user_execute_other: { foreground: "#89b87f" }
+  group_read: { foreground: "#b3afa6" }
+  group_write: { foreground: "#dcbb6a" }
+  group_execute: { foreground: "#89b87f" }
+  other_read: { foreground: "#9599a2" }
+  other_write: { foreground: "#e07476" }
+  other_execute: { foreground: "#89b87f" }
+  special_user_file: { foreground: "#e1656c" }
+  special_other: { foreground: "#b886b8" }
+  attribute: { foreground: "#6fc7cb" }
+
+size:
+  major: { foreground: "#e8965a" }
+  minor: { foreground: "#dcbb6a" }
+  number_byte: { foreground: "#b3afa6" }
+  number_kilo: { foreground: "#89b87f" }
+  number_mega: { foreground: "#dcbb6a" }
+  number_giga: { foreground: "#e8965a" }
+  number_huge: { foreground: "#e1656c" }
+  unit_byte: { foreground: "#838792" }
+  unit_kilo: { foreground: "#89b87f" }
+  unit_mega: { foreground: "#dcbb6a" }
+  unit_giga: { foreground: "#e8965a" }
+  unit_huge: { foreground: "#e1656c" }
+
+users:
+  user_you: { foreground: "#eae6dc", is_bold: true }
+  user_root: { foreground: "#e1656c", is_bold: true }
+  user_other: { foreground: "#9599a2" }
+  group_yours: { foreground: "#b3afa6" }
+  group_other: { foreground: "#838792" }
+  group_root: { foreground: "#e07476" }
+
+links:
+  normal: { foreground: "#6fc7cb" }
+  multi_link_file: { foreground: "#87d9dd", is_bold: true }
+
+git:
+  new: { foreground: "#89b87f" }
+  modified: { foreground: "#dcbb6a" }
+  deleted: { foreground: "#e07476" }
+  renamed: { foreground: "#6fc7cb" }
+  typechange: { foreground: "#b886b8" }
+  ignored: { foreground: "#838792" }
+  conflicted: { foreground: "#f28a8b", is_bold: true }
+
+git_repo:
+  branch_main: { foreground: "#89b87f" }
+  branch_other: { foreground: "#74a0d7" }
+  git_clean: { foreground: "#89b87f" }
+  git_dirty: { foreground: "#e1656c" }
+
+security_context:
+  none: { foreground: "#838792" }
+  selinux:
+    colon: { foreground: "#838792" }
+    user: { foreground: "#74a0d7" }
+    role: { foreground: "#89b87f" }
+    typ: { foreground: "#dcbb6a" }
+    range: { foreground: "#6fc7cb" }
+
+file_type:
+  image: { foreground: "#b886b8" }
+  video: { foreground: "#d09fd1" }
+  music: { foreground: "#6fc7cb" }
+  lossless: { foreground: "#87d9dd" }
+  crypto: { foreground: "#a1ce97" }
+  document: { foreground: "#89b87f" }
+  compressed: { foreground: "#e07476" }
+  temp: { foreground: "#838792" }
+  compiled: { foreground: "#ae7e62" }
+  build: { foreground: "#dcbb6a", is_underline: true }
+  source: { foreground: "#edcf86" }
+
+punctuation: { foreground: "#838792" }
+date: { foreground: "#74a0d7" }
+inode: { foreground: "#9599a2" }
+blocks: { foreground: "#9599a2" }
+header: { foreground: "#eae6dc", is_bold: true, is_underline: true }
+octal: { foreground: "#6fc7cb" }
+flags: { foreground: "#b886b8" }
+symlink_path: { foreground: "#6fc7cb" }
+control_char: { foreground: "#e07476" }
+broken_symlink: { foreground: "#f28a8b" }
+broken_path_overlay: { is_underline: true }

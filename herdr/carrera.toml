@@ -1,0 +1,29 @@
+# Carrera v2.0.0 — Heritage Cockpit palette for Herdr
+# Basalt Alcantara (#15171a), Chalk (#d6d2c7), Carmine Red (#e1656c)
+
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+accent = "#e1656c"
+panel_bg = "#15171a"
+sidebar_bg = "#101215"
+active_row_bg = "#1e2025"
+selection_bg = "#2b2e35"
+surface0 = "#1e2025"
+surface1 = "#2b2e35"
+surface_dim = "#0b0c0e"
+overlay0 = "#838792"
+overlay1 = "#9599a2"
+text = "#d6d2c7"
+subtext0 = "#b3afa6"
+mauve = "#b886b8"
+green = "#89b87f"
+yellow = "#dcbb6a"
+red = "#e07476"
+blue = "#74a0d7"
+teal = "#6fc7cb"
+peach = "#e8965a"
+
+[ui]
+accent = "#e1656c"

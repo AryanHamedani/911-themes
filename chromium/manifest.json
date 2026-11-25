@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Carrera",
+  "version": "2.0.0",
+  "description": "Porsche 911 Heritage Cockpit dark theme for Chromium",
+  "theme": {
+    "colors": {
+      "frame": [16, 18, 21],
+      "frame_inactive": [11, 12, 14],
+      "frame_incognito": [11, 12, 14],
+      "frame_incognito_inactive": [11, 12, 14],
+      "toolbar": [21, 23, 26],
+      "toolbar_text": [214, 210, 199],
+      "toolbar_button_icon": [179, 175, 166],
+      "tab_text": [234, 230, 220],
+      "tab_background_text": [149, 153, 162],
+      "tab_background_text_inactive": [131, 135, 146],
+      "tab_background_text_incognito": [149, 153, 162],
+      "tab_background_text_incognito_inactive": [131, 135, 146],
+      "bookmark_text": [214, 210, 199],
+      "omnibox_background": [30, 32, 37],
+      "omnibox_text": [234, 230, 220],
+      "button_background": [30, 32, 37],
+      "ntp_background": [21, 23, 26],
+      "ntp_text": [214, 210, 199],
+      "ntp_link": [116, 160, 215],
+      "ntp_header": [30, 32, 37],
+      "ntp_section": [16, 18, 21]
+    },
+    "tints": {
+      "buttons": [-1.0, -1.0, 0.85],
+      "frame": [-1.0, -1.0, -1.0],
+      "frame_inactive": [-1.0, -1.0, -1.0],
+      "frame_incognito": [-1.0, -1.0, -1.0],
+      "frame_incognito_inactive": [-1.0, -1.0, -1.0],
+      "background_tab": [-1.0, -1.0, 0.5]
+    },
+    "properties": {
+      "ntp_background_alignment": "center",
+      "ntp_background_repeat": "no-repeat",
+      "ntp_logo_alternate": 1
+    }
+  }
+}

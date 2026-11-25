@@ -1,0 +1,53 @@
+# Carrera v2.0.0 — Heritage Cockpit palette for Alacritty
+# Basalt Alcantara (#15171a), Chalk (#d6d2c7), Carmine Red (#e1656c)
+
+[colors.primary]
+background = "#15171a"
+foreground = "#d6d2c7"
+dim_foreground = "#9599a2"
+bright_foreground = "#eae6dc"
+
+# Carmine Red cursor with Basalt text (Omarchy runtime templates use Chalk #eae6dc)
+[colors.cursor]
+text = "#15171a"
+cursor = "#e1656c"
+
+[colors.vi_mode_cursor]
+text = "#15171a"
+cursor = "#e1656c"
+
+[colors.search.matches]
+foreground = "#15171a"
+background = "#dcbb6a"
+
+[colors.search.focused_match]
+foreground = "#15171a"
+background = "#e07476"
+
+[colors.footer_bar]
+foreground = "#15171a"
+background = "#d6d2c7"
+
+[colors.selection]
+text = "#eae6dc"
+background = "#2b2e35"
+
+[colors.normal]
+black = "#15171a"
+red = "#e07476"
+green = "#89b87f"
+yellow = "#dcbb6a"
+blue = "#74a0d7"
+magenta = "#b886b8"
+cyan = "#6fc7cb"
+white = "#d6d2c7"
+
+[colors.bright]
+black = "#838792"
+red = "#f28a8b"
+green = "#a1ce97"
+yellow = "#edcf86"
+blue = "#8eb9f0"
+magenta = "#d09fd1"
+cyan = "#87d9dd"
+white = "#eae6dc"
