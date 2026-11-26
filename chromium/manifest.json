@@ -5,13 +5,13 @@
   "description": "Porsche 911 (992.2) Precision Night Cockpit dark theme for Chromium",
   "theme": {
     "colors": {
-      "frame": [12, 14, 17],
-      "frame_inactive": [10, 11, 13],
-      "frame_incognito": [10, 11, 13],
+      "frame": [15, 17, 20],
+      "frame_inactive": [12, 14, 17],
+      "frame_incognito": [12, 14, 17],
       "frame_incognito_inactive": [10, 11, 13],
       "background_tab": [15, 17, 20],
       "background_tab_inactive": [12, 14, 17],
-      "background_tab_incognito": [15, 17, 20],
+      "background_tab_incognito": [12, 14, 17],
       "background_tab_incognito_inactive": [10, 11, 13],
       "toolbar": [20, 22, 25],
       "toolbar_text": [218, 218, 214],
@@ -21,23 +21,28 @@
       "tab_background_text_inactive": [133, 138, 150],
       "tab_background_text_incognito": [146, 151, 162],
       "tab_background_text_incognito_inactive": [133, 138, 150],
-      "bookmark_text": [218, 218, 214],
+      "bookmark_text": [180, 183, 190],
       "omnibox_background": [26, 29, 35],
-      "omnibox_text": [237, 237, 233],
+      "omnibox_text": [218, 218, 214],
       "button_background": [29, 32, 38],
+      "control_background": [29, 32, 38],
+      "window_control_background": [15, 17, 20],
       "ntp_background": [20, 22, 25],
       "ntp_text": [218, 218, 214],
       "ntp_link": [111, 162, 222],
       "ntp_header": [26, 29, 35],
-      "ntp_section": [15, 17, 20]
+      "ntp_section": [15, 17, 20],
+      "ntp_section_text": [218, 218, 214],
+      "ntp_section_link": [111, 162, 222],
+      "ntp_section_header_text": [180, 183, 190]
     },
     "tints": {
-      "buttons": [-1.0, -1.0, 0.85],
+      "buttons": [-1.0, -1.0, 0.73],
       "frame": [-1.0, -1.0, -1.0],
       "frame_inactive": [-1.0, -1.0, -1.0],
       "frame_incognito": [-1.0, -1.0, -1.0],
       "frame_incognito_inactive": [-1.0, -1.0, -1.0],
-      "background_tab": [-1.0, -1.0, 0.5]
+      "background_tab": [-1.0, -1.0, -1.0]
     },
     "properties": {
       "ntp_background_alignment": "center",

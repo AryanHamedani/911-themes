@@ -1,130 +1,224 @@
 /* 911 (992.2) Precision Night Cockpit — Hyprland Preview Share Picker (GTK 4)
- * Surfaces: #0f1114 / #131519 / #141619 / #1a1d23 / #1d2026 / #261b1f
- * Typography: Ice Grey (#dadad6), Pure Highlight (#edede9), Muted (#858a96)
- * Accent: Guards/Carmine Red (#e55c5a), Filled Action (#bf3b3e / #f4f3ef, 4.84:1 AA)
+ * 4-Plane Surfaces: #0a0b0d / #0c0e11 / #0f1114 -> #131519 -> #141619 -> #1a1d23 / #1d2026 -> #261b1f / #292d36
+ * 5-Step Typography: #edede9 -> #dadad6 -> #b4b7be -> #9297a2 -> #858a96
+ * Accent Restraint (90/9/1): Guards/Carmine Red (#e55c5a), AA Filled Action (#bf3b3e / #f4f3ef, 4.84:1)
  */
 
-@define-color foreground #dadad6;
-@define-color foreground_bright #edede9;
-@define-color background #141619;
-@define-color surface_chrome #131519;
+/* Surface hierarchy */
+@define-color surface_shadow #0a0b0d;
+@define-color surface_deep #0c0e11;
 @define-color surface_well #0f1114;
+@define-color surface_chrome #131519;
+@define-color background #141619;
 @define-color card_bg #1a1d23;
+@define-color card_hover_bg #1d2026;
 @define-color card_selected_bg #261b1f;
+@define-color selection_bg #292d36;
+
+/* 5-step foreground hierarchy */
+@define-color foreground_bright #edede9;
+@define-color foreground #dadad6;
+@define-color text #dadad6;
+@define-color foreground_secondary #b4b7be;
+@define-color foreground_shadow #9297a2;
+@define-color muted #858a96;
+
+/* Borders & hairlines */
+@define-color border_subtle #252932;
+@define-color border_divider #2f3440;
+@define-color border_box #434854;
+@define-color border_carmine_dim #332024;
+
+/* Guards/Carmine Red accent & AA filled controls */
 @define-color accent #e55c5a;
 @define-color accent_fill #bf3b3e;
 @define-color accent_ink #f4f3ef;
 @define-color accent_hover #e55c5a;
-@define-color muted #858a96;
+@define-color muted_fill #363b47;
 @define-color selected_tab #e55c5a;
-@define-color text #dadad6;
-@define-color border_subtle #252932;
-@define-color border_divider #2f3440;
-@define-color border_box #434854;
 
+/* Global reset & cockpit typography */
 * {
   all: unset;
-  font-family: JetBrains Mono NF;
+  font-family: "JetBrains Mono NF", "JetBrainsMono Nerd Font", monospace;
   color: @foreground;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
 }
 
+/* Main floating cockpit window */
 .window {
-  background: alpha(@background, 0.96);
-  border: solid 2px @accent;
-  border-radius: 6px;
+  background-color: alpha(@background, 0.96);
+  border: 2px solid @accent;
+  border-radius: 8px;
   margin: 4px;
-  padding: 18px;
+  padding: 16px;
+  box-shadow: inset 0 1px 0 alpha(@foreground_bright, 0.05), 0 12px 28px alpha(@surface_shadow, 0.55);
 }
 
+/* Notebook & tab strip (Race-Tex chrome plane) */
 .notebook {
   background-color: transparent;
 }
 
+.notebook > header,
+notebook > header {
+  background-color: @surface_chrome;
+  border-bottom: 1px solid @border_divider;
+  border-radius: 6px 6px 0 0;
+  padding: 6px 10px 0 10px;
+}
+
 tabs {
-  padding: 0.5rem 1rem;
-  border-bottom: solid 1px @border_divider;
+  padding: 0;
 }
 
 tabs > tab {
-  margin-right: 1rem;
-  padding-bottom: 0.25rem;
+  margin-right: 4px;
+  padding: 8px 14px;
+  border-bottom: 2px solid transparent;
+  border-radius: 5px 5px 0 0;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+tabs > tab:hover {
+  background-color: alpha(@card_bg, 0.72);
+}
+
+tabs > tab:checked,
+tabs > tab:active {
+  background-color: alpha(@card_selected_bg, 0.55);
+  border-bottom: 2px solid @selected_tab;
+}
+
+tabs > tab:focus {
+  box-shadow: inset 0 0 0 1px @border_box;
 }
 
 .tab-label {
   color: @muted;
-  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.16s ease;
 }
 
 tabs > tab:hover > .tab-label {
-  color: @foreground;
+  color: @foreground_secondary;
 }
 
 tabs > tab:checked > .tab-label,
 tabs > tab:active > .tab-label {
-  text-decoration: underline currentColor;
-  color: @selected_tab;
+  color: @foreground_bright;
 }
 
 tabs > tab:focus > .tab-label {
   color: @foreground_bright;
 }
 
+/* Notebook content page */
 .page {
-  padding: 1rem;
+  padding: 14px 12px 10px 12px;
+  background-color: transparent;
+}
+
+/* Preview cards: resting Vanadium -> hover Vanadium Grey -> selected Smoked Carmine */
+flowboxchild > .card,
+button > .card {
+  background-color: @card_bg;
+  border: 2px solid @border_subtle;
+  border-radius: 6px;
+  padding: 8px;
+  transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+flowboxchild:hover > .card,
+button:hover > .card {
+  background-color: @card_hover_bg;
+  border: 2px solid @border_box;
+}
+
+flowboxchild:selected > .card,
+flowboxchild:active > .card,
+flowboxchild:focus > .card,
+button:selected > .card,
+button:active > .card,
+button:focus > .card {
+  background-color: @card_selected_bg;
+  border: 2px solid @accent;
+  box-shadow: 0 0 0 1px alpha(@accent, 0.28);
+}
+
+/* Thumbnail image well & caption hierarchy */
+.image {
+  border-radius: 4px;
+  background-color: @surface_well;
 }
 
 .image-label {
   font-size: 12px;
+  font-weight: 500;
+  color: @foreground_secondary;
+  padding: 6px 4px 2px 4px;
+  transition: color 0.16s ease;
+}
+
+flowboxchild:hover > .card .image-label,
+button:hover > .card .image-label {
   color: @foreground;
-  padding: 0.25rem;
 }
 
-flowboxchild > .card,
-button > .card {
-  transition: all 0.2s ease;
-  border: solid 2px @border_subtle;
-  border-radius: 5px;
-  background-color: @card_bg;
-  padding: 5px;
+flowboxchild:selected > .card .image-label,
+flowboxchild:active > .card .image-label,
+flowboxchild:focus > .card .image-label,
+button:selected > .card .image-label,
+button:active > .card .image-label,
+button:focus > .card .image-label {
+  color: @foreground_bright;
+  font-weight: 600;
 }
 
-flowboxchild:hover > .card,
-button:hover > .card,
-flowboxchild:active > .card,
-flowboxchild:selected > .card,
-button:active > .card,
-button:selected > .card,
-button:focus > .card {
-  border: solid 2px @accent;
-  background-color: @card_selected_bg;
-}
-
+/* Loading card, spinner, and muted status label (recessed carbon well) */
 .card-loading {
-  border: solid 2px @border_divider;
-  border-radius: 5px;
   background-color: @surface_well;
+  border: 2px solid @border_divider;
+  border-radius: 6px;
+  padding: 12px;
   color: @muted;
-  padding: 5px;
 }
 
-.image {
-  border-radius: 5px;
+.card-loading spinner,
+spinner {
+  color: @accent;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 8px;
 }
 
+.card-loading label,
+.card-loading .image-label {
+  color: @muted;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px;
+}
+
+/* AA action buttons (Guards Red #bf3b3e / #f4f3ef, 4.84:1 AA) */
 .region-button,
 .restore-button {
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid @accent;
   background-color: @accent_fill;
   color: @accent_ink;
-  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
 }
 
 .region-button > label,
 .restore-button > label {
   color: @accent_ink;
+  font-weight: 600;
 }
 
 .region-button:not(:disabled):hover,
@@ -132,20 +226,86 @@ button:focus > .card {
 .restore-button:not(:disabled):hover,
 .restore-button:not(:disabled):focus {
   background-color: @accent_hover;
-  color: @background;
+  border-color: @accent_hover;
+  color: @surface_shadow;
 }
 
 .region-button:not(:disabled):hover > label,
 .region-button:not(:disabled):focus > label,
 .restore-button:not(:disabled):hover > label,
 .restore-button:not(:disabled):focus > label {
-  color: @background;
+  color: @surface_shadow;
+}
+
+.region-button:not(:disabled):active,
+.restore-button:not(:disabled):active {
+  background-color: @accent_fill;
+  border-color: @border_carmine_dim;
+  color: @accent_ink;
+}
+
+.region-button:not(:disabled):active > label,
+.restore-button:not(:disabled):active > label {
+  color: @accent_ink;
 }
 
 .region-button:disabled,
 .restore-button:disabled {
-  background-color: @border_divider;
-  color: @muted;
+  background-color: @card_bg;
+  border-color: @border_subtle;
+  color: @foreground_shadow;
+}
+
+.region-button:disabled > label,
+.restore-button:disabled > label {
+  color: @foreground_shadow;
+}
+
+/* Restore token checkbox indicator inside .restore-button */
+.restore-button check,
+checkbutton check {
+  min-width: 14px;
+  min-height: 14px;
+  margin-right: 8px;
+  border-radius: 3px;
+  border: 1px solid @accent_ink;
+  background-color: transparent;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.restore-button:not(:disabled):hover check,
+.restore-button:not(:disabled):focus check {
+  border-color: @surface_shadow;
+}
+
+.restore-button check:checked,
+checkbutton check:checked {
+  background-color: @accent_ink;
+  border-color: @accent_ink;
+  color: @accent_fill;
+}
+
+.restore-button:not(:disabled):hover check:checked,
+.restore-button:not(:disabled):focus check:checked {
+  background-color: @surface_shadow;
+  border-color: @surface_shadow;
+  color: @accent_hover;
+}
+
+.restore-button:disabled check {
+  border-color: @border_box;
+  background-color: @surface_well;
+}
+
+/* Scrollbars (recessed deep carbon trough, restrained hover, Guards Red drag) */
+scrollbar {
+  background-color: transparent;
+  padding: 2px;
+}
+
+scrollbar trough {
+  background-color: alpha(@surface_deep, 0.55);
+  border-radius: 4px;
 }
 
 scrollbar slider {
@@ -153,8 +313,23 @@ scrollbar slider {
   border-radius: 4px;
   min-width: 6px;
   min-height: 6px;
+  transition: background-color 0.16s ease;
+}
+
+scrollbar.vertical slider {
+  min-width: 6px;
+  min-height: 28px;
+}
+
+scrollbar.horizontal slider {
+  min-width: 28px;
+  min-height: 6px;
 }
 
 scrollbar slider:hover {
+  background-color: @muted;
+}
+
+scrollbar slider:active {
   background-color: @accent;
 }
