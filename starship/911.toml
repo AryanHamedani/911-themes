@@ -1,52 +1,119 @@
 # 911 (992.2) Precision Night Cockpit — Starship
 # Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+#
+# Layout:
+#   Line 1 (context):   [ssh] directory  git (branch · state · status · metrics)  runtimes  infra
+#   Line 2 (input):     ❯ <command>                                     [status] [duration] [jobs] HH:MM
+#
+# Accent discipline (90/9/1):
+#   Guards Red (#e55c5a) is reserved strictly for instrument-needle alerts:
+#   failed prompt character, non-zero exit status, merge conflicts, and production k8s contexts.
+
+"$schema" = "https://starship.rs/config-schema.json"
 
 add_newline = true
-command_timeout = 200
+command_timeout = 300
 palette = "911"
 
-format = "$directory$git_branch$git_status$git_metrics$python$golang$rust$nodejs$docker_context$kubernetes$cmd_duration$jobs$status$fill$time\n$character"
+format = """\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$python\
+$golang\
+$rust\
+$nodejs\
+$docker_context\
+$kubernetes\
+$line_break\
+$character"""
 
-[fill]
-symbol = " "
-style = "divider"
+right_format = """\
+$status\
+$cmd_duration\
+$jobs\
+$time"""
 
+# ---------------------------------------------------------------------------
+# Prompt Character (Line 2 Left)
+# ---------------------------------------------------------------------------
 [character]
-success_symbol = "[❯](bold accent)"
-error_symbol = "[✗](bold red)"
+success_symbol = "[❯](bold bright_foreground)"
+error_symbol = "[✗](bold accent)"
 vimcmd_symbol = "[❮](bold yellow)"
 vimcmd_replace_one_symbol = "[❮](bold magenta)"
 vimcmd_replace_symbol = "[❮](bold magenta)"
 vimcmd_visual_symbol = "[❮](bold cyan)"
 
+# ---------------------------------------------------------------------------
+# Remote Session Context (SSH only — silent locally)
+# ---------------------------------------------------------------------------
+[username]
+show_always = false
+style_user = "light_foreground"
+style_root = "bold accent"
+format = "[$user]($style)[@](muted)"
+
+[hostname]
+ssh_only = true
+ssh_symbol = ""
+style = "cyan"
+format = "[$hostname]($style)[ ](muted)"
+
+# ---------------------------------------------------------------------------
+# Directory (Primary Focal Point)
+# ---------------------------------------------------------------------------
 [directory]
-style = "bold blue"
+style = "bold bright_foreground"
 truncation_length = 2
 truncation_symbol = "…/"
-repo_root_style = "bold accent"
-repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+truncate_to_repo = true
+repo_root_style = "bold bright_foreground"
+before_repo_root_style = "dark_foreground"
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](light_foreground)[$read_only]($read_only_style) "
 read_only = " 󰌾"
 read_only_style = "red"
 
+# ---------------------------------------------------------------------------
+# Git Telemetry (Branch · State · Semantic Status · Diff Metrics)
+# ---------------------------------------------------------------------------
 [git_branch]
-symbol = " "
-format = "[$symbol$branch]($style) "
-style = "italic green"
+symbol = " "
+truncation_length = 36
+truncation_symbol = "…"
+style = "italic cyan"
+format = "[$symbol](dark_foreground)[$branch(:$remote_branch)]($style) "
+
+[git_state]
+style = "bold orange"
+format = "[\\(](muted)[$state( $progress_current/$progress_total)]($style)[\\)](muted) "
 
 [git_status]
-format = "[$all_status]($style)"
-style = "yellow"
-ahead = "⇡${count} "
-diverged = "⇕⇡${ahead_count}⇣${behind_count} "
-behind = "⇣${count} "
-conflicted = " "
-up_to_date = " "
-untracked = "? "
-modified = " "
+format = """(\
+[$conflicted](bold accent)\
+[$staged](green)\
+[$modified](yellow)\
+[$renamed](cyan)\
+[$deleted](red)\
+[$untracked](dark_foreground)\
+[$stashed](magenta)\
+[$ahead_behind](blue)\
+)"""
+conflicted = "${count} "
 staged = "+${count} "
-renamed = "» "
-deleted = "✘ "
-stashed = "≡ "
+modified = "${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+untracked = "?${count} "
+stashed = "≡${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
 
 [git_metrics]
 disabled = false
@@ -54,52 +121,84 @@ added_style = "green"
 deleted_style = "red"
 format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
 
+# ---------------------------------------------------------------------------
+# Languages & Runtimes (Secondary Plane: pinpoint semantic icon + calm text)
+# ---------------------------------------------------------------------------
 [python]
 symbol = " "
-style = "yellow"
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = "light_foreground"
+detect_files = ["pyproject.toml", "uv.lock", "requirements.txt", "setup.py", "Pipfile", "manage.py", ".python-version"]
+format = '([$symbol](yellow)[${pyenv_prefix}${version}]($style)([ \($virtualenv\)](dark_foreground)) )'
 
 [golang]
 symbol = " "
-style = "cyan"
-format = "[$symbol($version )]($style)"
+style = "light_foreground"
+format = "([$symbol](cyan)[$version]($style) )"
 
 [rust]
 symbol = " "
-style = "orange"
-format = "[$symbol($version )]($style)"
+style = "light_foreground"
+format = "([$symbol](orange)[$version]($style) )"
 
 [nodejs]
 symbol = " "
-style = "green"
-format = "[$symbol($version )]($style)"
+style = "light_foreground"
+format = "([$symbol](green)[$version]($style) )"
 
+# ---------------------------------------------------------------------------
+# Containers & Kubernetes (Context-aware; Guards Red on prod clusters)
+# ---------------------------------------------------------------------------
 [docker_context]
 symbol = " "
-style = "blue"
-format = "[$symbol$context]($style) "
+only_with_files = true
+style = "light_foreground"
+format = "([$symbol](blue)[$context]($style) )"
 
 [kubernetes]
 disabled = false
 symbol = "󱃾 "
-style = "bright_blue"
-format = '[$symbol$context( \($namespace\))]($style) '
+style = "blue"
+detect_env_vars = ["KUBECONFIG", "KUBE_CONTEXT"]
+detect_files = ["Chart.yaml", "kustomization.yaml", "kustomization.yml", "skaffold.yaml", "helmfile.yaml", "Tiltfile"]
+detect_folders = ["k8s", "kubernetes", "helm", "charts", "deploy", "gitops", "manifests", "argocd", "infra"]
+format = '[$symbol$context]($style)([ \($namespace\)](dark_foreground)) '
+
+[[kubernetes.contexts]]
+context_pattern = "(idk-c8|.*prod.*|.*darkube.*)"
+style = "bold accent"
+
+[[kubernetes.contexts]]
+context_pattern = "(.*stag.*|.*qa.*)"
+style = "yellow"
+
+[[kubernetes.contexts]]
+context_pattern = "(.*dev.*|.*local.*|kind-.*|minikube)"
+style = "cyan"
+
+# ---------------------------------------------------------------------------
+# Right-Side Cockpit Telemetry (Line 2 Right — uncluttered input line)
+# ---------------------------------------------------------------------------
+[status]
+disabled = false
+map_symbol = true
+symbol = "✗ "
+sigint_symbol = "⚡ "
+signal_symbol = "⚡ "
+not_found_symbol = "∅ "
+style = "bold accent"
+format = "[$symbol$status]($style) "
 
 [cmd_duration]
 min_time = 2000
+show_milliseconds = false
 style = "orange"
 format = "[⏱ $duration]($style) "
 
 [jobs]
 symbol = "✦"
+number_threshold = 1
 style = "cyan"
 format = "[$symbol$number]($style) "
-
-[status]
-disabled = false
-symbol = "✗ "
-style = "bold red"
-format = "[$symbol$status]($style) "
 
 [time]
 disabled = false
@@ -107,6 +206,9 @@ time_format = "%H:%M"
 style = "muted"
 format = "[$time]($style)"
 
+# ---------------------------------------------------------------------------
+# 911 (992.2) Precision Night Cockpit Palette
+# ---------------------------------------------------------------------------
 [palettes.911]
 # Base cockpit surfaces
 darker_background = "#0a0b0d"
@@ -127,9 +229,9 @@ badge_red = "#bf3b3e"
 badge_muted = "#363b47"
 badge_ink = "#f4f3ef"
 
-# Foregrounds
-foreground = "#dadad6"
+# Foregrounds (5-step typographic hierarchy)
 bright_foreground = "#edede9"
+foreground = "#dadad6"
 light_foreground = "#b4b7be"
 dark_foreground = "#9297a2"
 muted = "#858a96"

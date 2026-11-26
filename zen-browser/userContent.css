@@ -1,26 +1,57 @@
-/* 911 (992.2) Precision Night Cockpit — Zen Browser userContent.css
- * Strictly scoped to internal about:* pages so external websites remain untouched.
- */
+/* ==========================================================================
+ * 911 (992.2) Precision Night Cockpit — Zen Browser userContent.css
+ * Strictly scoped via @-moz-document to internal about:* pages so external
+ * websites are never modified or broken.
+ * ========================================================================== */
 
+/* --------------------------------------------------------------------------
+ * 1. Shared Internal Page Design Tokens (all about:* pages)
+ * -------------------------------------------------------------------------- */
 @-moz-document url-prefix("about:") {
   :root {
     color-scheme: dark !important;
 
+    /* Core 4-plane cockpit surfaces */
     --background-color-canvas: #141619 !important;
     --background-color-box: #0f1114 !important;
+    --background-color-box-info: #1a1d23 !important;
     --card-background-color: #1a1d23 !important;
+    --table-row-background-color-alternate: #131519 !important;
+
+    /* 5-step dial typography */
     --text-color: #dadad6 !important;
     --text-color-deemphasized: #9297a2 !important;
+    --text-color-disabled: #858a96 !important;
+
+    /* 1px crisp hairlines */
     --border-color: #252932 !important;
+    --border-color-card: #252932 !important;
     --border-color-deemphasized: #2f3440 !important;
+    --border-color-interactive: #434854 !important;
+
+    /* Guards Red needle & AA filled controls */
     --color-accent-primary: #e55c5a !important;
     --color-accent-primary-hover: #f48583 !important;
     --color-accent-primary-active: #bf3b3e !important;
+    --focus-outline-color: #e55c5a !important;
     --link-color: #6fa2de !important;
     --link-color-hover: #8cb9f2 !important;
-    --focus-outline-color: #e55c5a !important;
+    --link-color-active: #6fa2de !important;
 
-    /* New Tab / Home / Private Browsing */
+    /* Buttons */
+    --button-background-color: #1d2026 !important;
+    --button-background-color-hover: #292d36 !important;
+    --button-background-color-active: #261b1f !important;
+    --button-text-color: #dadad6 !important;
+    --button-border-color: #2f3440 !important;
+    --button-background-color-primary: #bf3b3e !important;
+    --button-background-color-primary-hover: #e55c5a !important;
+    --button-background-color-primary-active: #bf3b3e !important;
+    --button-text-color-primary: #f4f3ef !important;
+    --button-background-color-destructive: #bf3b3e !important;
+    --button-text-color-destructive: #f4f3ef !important;
+
+    /* New Tab / Home / Blank tokens */
     --newtab-background-color: #141619 !important;
     --newtab-background-color-secondary: #1a1d23 !important;
     --newtab-background-card: #1a1d23 !important;
@@ -31,24 +62,53 @@
     --newtab-element-hover-color: #292d36 !important;
     --newtab-element-active-color: #261b1f !important;
     --newtab-border-color: #252932 !important;
+    --newtab-inner-box-shadow-color: rgba(47, 52, 64, 0.65) !important;
+    --newtab-focus-border: #e55c5a !important;
+    --newtab-focus-outline: rgba(229, 92, 90, 0.35) !important;
 
-    /* In-content pages (about:config, about:preferences, about:addons) */
+    /* In-content pages (about:preferences, about:addons, about:config) */
     --in-content-page-background: #141619 !important;
     --in-content-page-color: #dadad6 !important;
+    --in-content-deemphasized-text: #9297a2 !important;
     --in-content-box-background: #1a1d23 !important;
     --in-content-box-background-odd: #131519 !important;
     --in-content-box-border-color: #2f3440 !important;
+    --in-content-box-info-background: #1a1d23 !important;
     --in-content-table-background: #0f1114 !important;
     --in-content-table-border-color: #252932 !important;
+    --in-content-table-header-background: #131519 !important;
+    --in-content-table-header-color: #b4b7be !important;
     --in-content-primary-button-background: #bf3b3e !important;
     --in-content-primary-button-background-hover: #e55c5a !important;
+    --in-content-primary-button-background-active: #bf3b3e !important;
     --in-content-primary-button-text-color: #f4f3ef !important;
     --in-content-button-background: #1d2026 !important;
     --in-content-button-background-hover: #292d36 !important;
+    --in-content-button-background-active: #261b1f !important;
     --in-content-button-text-color: #dadad6 !important;
+    --in-content-item-hover: #1d2026 !important;
+    --in-content-item-hover-text: #edede9 !important;
+    --in-content-item-selected: #261b1f !important;
+    --in-content-item-selected-text: #edede9 !important;
     --in-content-focus-outline-color: #e55c5a !important;
     --in-content-link-color: #6fa2de !important;
     --in-content-link-color-hover: #8cb9f2 !important;
+    --in-content-link-color-active: #6fa2de !important;
+    --in-content-accent-color: #e55c5a !important;
+    --in-content-accent-color-active: #bf3b3e !important;
+    --in-content-danger-button-background: #bf3b3e !important;
+    --in-content-danger-button-background-hover: #e55c5a !important;
+  }
+
+  body {
+    background-color: #141619 !important;
+    color: #dadad6 !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #edede9 !important;
   }
 
   ::selection {
@@ -56,7 +116,206 @@
     color: #edede9 !important;
   }
 
+  :focus-visible {
+    outline: 2px solid #e55c5a !important;
+    outline-offset: 2px !important;
+  }
+
   * {
+    scrollbar-width: thin;
     scrollbar-color: #434854 #0f1114;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 2. New Tab, Home & Blank Pages
+ * -------------------------------------------------------------------------- */
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+  html,
+  body {
+    background-color: #141619 !important;
+    color: #dadad6 !important;
+  }
+
+  .search-wrapper .search-inner-wrapper,
+  .search-handoff-button {
+    background-color: #1a1d23 !important;
+    color: #dadad6 !important;
+    border: 1px solid #2f3440 !important;
+    box-shadow: 0 6px 20px rgba(10, 11, 13, 0.45) !important;
+  }
+
+  .search-wrapper .search-inner-wrapper:focus-within,
+  .search-handoff-button:focus-visible {
+    background-color: #1d2026 !important;
+    border-color: #e55c5a !important;
+    box-shadow: 0 0 0 2px rgba(229, 92, 90, 0.22), 0 8px 24px rgba(10, 11, 13, 0.6) !important;
+  }
+
+  .top-site-outer .tile,
+  .card-outer {
+    background-color: #1a1d23 !important;
+    border: 1px solid #252932 !important;
+    box-shadow: none !important;
+  }
+
+  .top-site-outer:hover .tile,
+  .card-outer:hover {
+    background-color: #1d2026 !important;
+    border-color: #2f3440 !important;
+  }
+
+  .top-site-outer .title {
+    color: #b4b7be !important;
+  }
+
+  .top-site-outer:hover .title {
+    color: #edede9 !important;
+  }
+
+  .customize-menu {
+    background-color: #131519 !important;
+    border-left: 1px solid #2f3440 !important;
+    color: #dadad6 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 3. Preferences & Add-ons (4-plane sidebar + Vanadium cards)
+ * -------------------------------------------------------------------------- */
+@-moz-document url-prefix("about:preferences"), url-prefix("about:addons") {
+  .navigation,
+  #categories {
+    background-color: #0f1114 !important;
+    border-inline-end: 1px solid #252932 !important;
+  }
+
+  .category {
+    color: #b4b7be !important;
+    border-radius: 6px !important;
+  }
+
+  .category:hover {
+    background-color: #1a1d23 !important;
+    color: #dadad6 !important;
+  }
+
+  .category[selected],
+  .category.selected {
+    background-color: #261b1f !important;
+    color: #edede9 !important;
+    box-shadow: inset 2px 0 0 0 #e55c5a !important;
+  }
+
+  .main-heading,
+  .sticky-container {
+    background-color: #141619 !important;
+    border-bottom: 1px solid #252932 !important;
+  }
+
+  .card,
+  addon-card .card,
+  groupbox {
+    background-color: #1a1d23 !important;
+    border: 1px solid #252932 !important;
+    border-radius: 8px !important;
+  }
+
+  .card:hover,
+  addon-card .card:hover {
+    border-color: #2f3440 !important;
+  }
+
+  search-textbox,
+  input[type="text"],
+  input[type="search"],
+  menulist {
+    background-color: #1a1d23 !important;
+    color: #edede9 !important;
+    border: 1px solid #2f3440 !important;
+  }
+
+  search-textbox[focused="true"],
+  input[type="text"]:focus,
+  input[type="search"]:focus {
+    background-color: #1d2026 !important;
+    border-color: #e55c5a !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 4. about:config (High-density engineering table)
+ * -------------------------------------------------------------------------- */
+@-moz-document url-prefix("about:config") {
+  #about-config-search-container,
+  .search-container {
+    background-color: #131519 !important;
+    border-bottom: 1px solid #252932 !important;
+  }
+
+  #about-config-search {
+    background-color: #1a1d23 !important;
+    color: #edede9 !important;
+    border: 1px solid #2f3440 !important;
+  }
+
+  #about-config-search:focus {
+    background-color: #1d2026 !important;
+    border-color: #e55c5a !important;
+  }
+
+  table#prefs {
+    background-color: #0f1114 !important;
+    border: 1px solid #252932 !important;
+  }
+
+  table#prefs tr {
+    background-color: #141619 !important;
+    border-bottom: 1px solid #252932 !important;
+  }
+
+  table#prefs tr.odd {
+    background-color: #131519 !important;
+  }
+
+  table#prefs tr:hover {
+    background-color: #1d2026 !important;
+  }
+
+  table#prefs tr.has-user-value {
+    background-color: #261b1f !important;
+    color: #edede9 !important;
+  }
+
+  table#prefs td.cell-value {
+    color: #6fa2de !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 5. Private Browsing (911 Night Cockpit + subtle Ultraviolet indicator)
+ * -------------------------------------------------------------------------- */
+@-moz-document url-prefix("about:privatebrowsing") {
+  html.private,
+  body.private {
+    background-color: #141619 !important;
+    color: #dadad6 !important;
+  }
+
+  .logo-and-wordmark .wordmark,
+  .info-title {
+    color: #edede9 !important;
+  }
+
+  .info,
+  .promo,
+  .search-inner-wrapper {
+    background-color: #1a1d23 !important;
+    border: 1px solid #2f3440 !important;
+    box-shadow: inset 2px 0 0 0 #b488cc !important;
+  }
+
+  .info a {
+    color: #caa2e0 !important;
   }
 }
