@@ -1,23 +1,19 @@
-# Carrera for Chromium
+# 911 (`992.2`) for Chromium
 
-A dark Manifest V3 browser theme inspired by the Porsche 911 Heritage Cockpit:
-recessed `#101215` frames (`[16, 18, 21]`), Basalt Alcantara `#15171a` toolbar and New Tab Page (`[21, 23, 26]`),
-elevated `#1e2025` omnibox (`[30, 32, 37]`), and Chalk (`#d6d2c7` / `#eae6dc`) typography.
+Precision Night Cockpit dark theme for Chromium, aligned with [`../colors.toml`](../colors.toml) and `omarchy-911-theme/chromium.theme`.
 
-## Install
+## Files
 
-### Unpacked MV3 Theme (Chromium / Chrome / Brave / Edge)
+- `chromium.theme` — Omarchy RGB triplet (`20,22,25` = `#141619` Race-Tex Charcoal).
+- `manifest.json` — Standalone Manifest V3 Chromium theme extension covering 25 chrome/tab/omnibox/NTP color slots (`#0a0b0d`, `#0c0e11`, `#0f1114`, `#141619`, `#1a1d23`, `#1d2026`, `#dadad6`, `#edede9`, `#6fa2de`).
 
-1. Open `chrome://extensions` (or `brave://extensions`).
-2. Enable **Developer mode** in the top-right corner.
-3. Click **Load unpacked** and select this `chromium/` directory.
+## Installation
 
-### Omarchy / Browser Policy RGB (`chromium.theme`)
+1. Open `chrome://extensions` and enable **Developer mode**.
+2. Click **Load unpacked** and select this `chromium/` directory.
 
-`chromium.theme` contains `21,23,26` (Basalt Alcantara `#15171a`) for Chromium/Omarchy browser policy theming.
+> **Omarchy note**: Omarchy's active `911` theme already applies `chromium.theme` (`20,22,25`) automatically.
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

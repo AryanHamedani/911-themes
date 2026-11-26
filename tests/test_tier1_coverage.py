@@ -42,26 +42,26 @@ def _check_format_parse(spec: DeliverableSpec, project_root: Path) -> None:
     if fid == 1:
         parse_toml(project_root / "colors.toml")
     elif fid == 2:
-        validate_tdesktop_theme(project_root / "telegram/carrera.tdesktop-theme")
+        validate_tdesktop_theme(project_root / "telegram/911.tdesktop-theme")
     elif fid == 3:
-        res = validate_luac(project_root / "neovim/colors/carrera.lua")
+        res = validate_luac(project_root / "neovim/colors/911.lua")
         if not res.ok:
             raise AssertionError(res.message)
     elif fid in (4, 24, 32, 35):
         parse_ini(project_root / spec.theme_files[0])
     elif fid == 5:
-        parse_ghostty(project_root / "ghostty/carrera")
+        parse_ghostty(project_root / "ghostty/911")
     elif fid in (6, 9, 10, 13, 25):
         parse_toml(project_root / spec.theme_files[0])
     elif fid == 7:
-        parse_kitty(project_root / "kitty/carrera.conf")
+        parse_kitty(project_root / "kitty/911.conf")
     elif fid == 8:
-        text = (project_root / "tmux/carrera.conf").read_text(encoding="utf-8")
+        text = (project_root / "tmux/911.conf").read_text(encoding="utf-8")
         if not any(
             line.strip().startswith(("set", "setw", "set-option", "set-window-option"))
             for line in text.splitlines()
         ):
-            raise AssertionError("tmux/carrera.conf contains no tmux set directives")
+            raise AssertionError("tmux/911.conf contains no tmux set directives")
     elif fid in (11, 12):
         import subprocess
 
@@ -76,21 +76,21 @@ def _check_format_parse(spec: DeliverableSpec, project_root: Path) -> None:
     elif fid in (14, 15, 16):
         parse_json(project_root / spec.theme_files[0])
     elif fid == 17:
-        parse_plist(project_root / "bat/Carrera.tmTheme")
+        parse_plist(project_root / "bat/911.tmTheme")
     elif fid == 18:
-        parse_git_config(project_root / "delta/carrera.gitconfig")
+        parse_git_config(project_root / "delta/911.gitconfig")
     elif fid in (19, 20, 21, 22, 23):
         parse_yaml(project_root / spec.theme_files[0])
     elif fid == 26:
-        parse_jsonc(project_root / "fastfetch/carrera.jsonc")
+        parse_jsonc(project_root / "fastfetch/911.jsonc")
     elif fid == 27:
-        parse_btop_theme(project_root / "btop/carrera.theme")
+        parse_btop_theme(project_root / "btop/911.theme")
     elif fid == 28:
         parse_json(project_root / "vscode/package.json")
-        parse_json(project_root / "vscode/themes/carrera-color-theme.json")
+        parse_json(project_root / "vscode/themes/911-color-theme.json")
     elif fid == 29:
-        parse_json(project_root / "obsidian/Carrera/manifest.json")
-        validate_css((project_root / "obsidian/Carrera/theme.css").read_text(encoding="utf-8"))
+        parse_json(project_root / "obsidian/911/manifest.json")
+        validate_css((project_root / "obsidian/911/theme.css").read_text(encoding="utf-8"))
     elif fid == 30:
         parse_json(project_root / "chromium/manifest.json")
         csv = (project_root / "chromium/chromium.theme").read_text(encoding="utf-8").strip()
@@ -103,7 +103,7 @@ def _check_format_parse(spec: DeliverableSpec, project_root: Path) -> None:
     elif fid == 33:
         parse_mpv_conf(project_root / "mpv/mpv.conf")
     elif fid == 36:
-        parse_hyprland_conf(project_root / "hyprland/carrera.conf")
+        parse_hyprland_conf(project_root / "hyprland/911.conf")
     else:
         raise ValueError(f"Unhandled feature_id {fid}")
 
@@ -149,7 +149,7 @@ def _attach_feature_tests(spec: DeliverableSpec) -> None:
         self.assertTrue(readme.is_file(), f"Missing README: {readme}")
         self.assertGreater(readme.stat().st_size, 0, f"Empty README: {readme}")
         content = readme.read_text(encoding="utf-8")
-        self.assertIn("Carrera", content, f"README {readme} must reference 'Carrera'")
+        self.assertIn("911", content, f"README {readme} must reference '911'")
         lower = content.lower()
         self.assertTrue(
             any(tok in lower for tok in ("install", "usage", "copy", "cp ", "ln ", "symlink", "load", "theme")),

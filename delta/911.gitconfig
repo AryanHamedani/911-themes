@@ -1,0 +1,67 @@
+# 911 (992.2) Precision Night Cockpit for git-delta
+# Canonical surfaces over #141619:
+#   #202825 (diff add line), #2d2023 (diff delete line), #1f2731 (diff change),
+#   #293646 (text-hl), #332024 (active Carmine border / delete emph),
+#   #2f3440 (divider), #434854 (box border), #5b5134 (search / grep match),
+#   #bf3b3e + #f4f3ef (Guards Red badge / whitespace error).
+# Requires ../bat/911.tmTheme installed via `bat cache --build` for syntax-theme = 911.
+
+[delta "911"]
+    dark = true
+    syntax-theme = 911
+
+    # Diff lines & inline word emphasis
+    plus-style = syntax "#202825"
+    plus-emph-style = "#98ce9f" bold "#202825"
+    plus-non-emph-style = syntax "#202825"
+    plus-empty-line-marker-style = normal "#202825"
+    minus-style = syntax "#2d2023"
+    minus-emph-style = "#f48583" bold "#332024"
+    minus-non-emph-style = syntax "#2d2023"
+    minus-empty-line-marker-style = normal "#2d2023"
+    zero-style = syntax
+    whitespace-error-style = "#f4f3ef" "#bf3b3e"
+
+    # Line numbers
+    line-numbers-plus-style = "#7fb887"
+    line-numbers-minus-style = "#e56c6a"
+    line-numbers-zero-style = "#858a96"
+    line-numbers-left-style = "#434854"
+    line-numbers-right-style = "#434854"
+
+    # File & commit headers
+    file-style = "#edede9" bold
+    file-decoration-style = "#e55c5a" ul
+    file-added-label = [+]
+    file-copied-label = [C]
+    file-modified-label = [M]
+    file-removed-label = [-]
+    file-renamed-label = [R]
+    commit-style = "#e0be66" bold
+    commit-decoration-style = "#2f3440" box
+
+    # Hunk headers
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = "#434854" box
+    hunk-header-file-style = "#6fa2de" bold
+    hunk-header-line-number-style = "#e0be66"
+
+    # Git blame
+    blame-palette = "#141619" "#1a1d23" "#1d2026" "#252932"
+    blame-code-style = syntax
+    blame-separator-style = "#2f3440"
+
+    # Grep / ripgrep output
+    grep-file-style = "#6fa2de" bold
+    grep-line-number-style = "#e0be66"
+    grep-header-file-style = "#edede9" bold
+    grep-header-decoration-style = "#434854" box
+    grep-context-line-style = syntax
+    grep-match-line-style = syntax "#1d2026"
+    grep-match-word-style = "#edede9" bold "#5b5134"
+
+    # Merge conflicts
+    merge-conflict-ours-diff-header-style = "#84d8de" bold "#1d272b"
+    merge-conflict-ours-diff-header-decoration-style = "#6ac4cb" box
+    merge-conflict-theirs-diff-header-style = "#caa2e0" bold "#261b1f"
+    merge-conflict-theirs-diff-header-decoration-style = "#b488cc" box

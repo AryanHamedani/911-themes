@@ -1,0 +1,41 @@
+# 911 (992.2) Precision Night Cockpit for Lazygit
+# inactiveBorderColor uses #2f3440 (canonical btop.theme div_line over #141619).
+gui:
+  theme:
+    activeBorderColor:
+      - "#e55c5a"
+      - bold
+    inactiveBorderColor:
+      - "#2f3440"
+    searchingActiveBorderColor:
+      - "#e0be66"
+      - bold
+    optionsTextColor:
+      - "#6fa2de"
+    selectedLineFgColor:
+      - "#edede9"
+    selectedLineBgColor:
+      - "#292d36"
+    inactiveViewSelectedLineBgColor:
+      - "#1d2026"
+    cherryPickedCommitFgColor:
+      - "#0a0b0d"
+    cherryPickedCommitBgColor:
+      - "#6ac4cb"
+    markedBaseCommitFgColor:
+      - "#0a0b0d"
+    markedBaseCommitBgColor:
+      - "#e0be66"
+    unstagedChangesColor:
+      - "#e56c6a"
+    defaultFgColor:
+      - "#dadad6"
+    authorColors:
+      "*": "#6fa2de"
+    branchColorPatterns:
+      "^main$": "#e55c5a"
+      "^master$": "#e55c5a"
+      "^release/": "#e0be66"
+      "^hotfix/": "#e89158"
+      "^feat/": "#7fb887"
+      "^fix/": "#6ac4cb"

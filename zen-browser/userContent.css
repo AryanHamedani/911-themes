@@ -1,4 +1,4 @@
-/* Carrera v2.0.0 — Zen Browser userContent.css
+/* 911 (992.2) Precision Night Cockpit — Zen Browser userContent.css
  * Strictly scoped to internal about:* pages so external websites remain untouched.
  */
 
@@ -6,32 +6,57 @@
   :root {
     color-scheme: dark !important;
 
-    --background-color-canvas: #15171a !important;
-    --background-color-box: #101215 !important;
-    --card-background-color: #1e2025 !important;
-    --text-color: #d6d2c7 !important;
-    --text-color-deemphasized: #9599a2 !important;
-    --border-color: #262930 !important;
-    --border-color-deemphasized: #31353f !important;
-    --color-accent-primary: #e1656c !important;
-    --color-accent-primary-hover: #f28a8b !important;
-    --link-color: #74a0d7 !important;
+    --background-color-canvas: #141619 !important;
+    --background-color-box: #0f1114 !important;
+    --card-background-color: #1a1d23 !important;
+    --text-color: #dadad6 !important;
+    --text-color-deemphasized: #9297a2 !important;
+    --border-color: #252932 !important;
+    --border-color-deemphasized: #2f3440 !important;
+    --color-accent-primary: #e55c5a !important;
+    --color-accent-primary-hover: #f48583 !important;
+    --color-accent-primary-active: #bf3b3e !important;
+    --link-color: #6fa2de !important;
+    --link-color-hover: #8cb9f2 !important;
+    --focus-outline-color: #e55c5a !important;
 
     /* New Tab / Home / Private Browsing */
-    --newtab-background-color: #15171a !important;
-    --newtab-background-color-secondary: #1e2025 !important;
-    --newtab-background-card: #1e2025 !important;
-    --newtab-text-primary-color: #d6d2c7 !important;
-    --newtab-text-secondary-color: #9599a2 !important;
-    --newtab-primary-action-background: #e1656c !important;
-    --newtab-primary-element-text-color: #15171a !important;
-    --newtab-element-hover-color: #2b2e35 !important;
+    --newtab-background-color: #141619 !important;
+    --newtab-background-color-secondary: #1a1d23 !important;
+    --newtab-background-card: #1a1d23 !important;
+    --newtab-text-primary-color: #dadad6 !important;
+    --newtab-text-secondary-color: #9297a2 !important;
+    --newtab-primary-action-background: #bf3b3e !important;
+    --newtab-primary-element-text-color: #f4f3ef !important;
+    --newtab-element-hover-color: #292d36 !important;
+    --newtab-element-active-color: #261b1f !important;
+    --newtab-border-color: #252932 !important;
 
     /* In-content pages (about:config, about:preferences, about:addons) */
-    --in-content-page-background: #15171a !important;
-    --in-content-page-color: #d6d2c7 !important;
-    --in-content-box-background: #1e2025 !important;
-    --in-content-primary-button-background: #e1656c !important;
-    --in-content-primary-button-text-color: #15171a !important;
+    --in-content-page-background: #141619 !important;
+    --in-content-page-color: #dadad6 !important;
+    --in-content-box-background: #1a1d23 !important;
+    --in-content-box-background-odd: #131519 !important;
+    --in-content-box-border-color: #2f3440 !important;
+    --in-content-table-background: #0f1114 !important;
+    --in-content-table-border-color: #252932 !important;
+    --in-content-primary-button-background: #bf3b3e !important;
+    --in-content-primary-button-background-hover: #e55c5a !important;
+    --in-content-primary-button-text-color: #f4f3ef !important;
+    --in-content-button-background: #1d2026 !important;
+    --in-content-button-background-hover: #292d36 !important;
+    --in-content-button-text-color: #dadad6 !important;
+    --in-content-focus-outline-color: #e55c5a !important;
+    --in-content-link-color: #6fa2de !important;
+    --in-content-link-color-hover: #8cb9f2 !important;
+  }
+
+  ::selection {
+    background-color: #292d36 !important;
+    color: #edede9 !important;
+  }
+
+  * {
+    scrollbar-color: #434854 #0f1114;
   }
 }

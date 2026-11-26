@@ -696,7 +696,7 @@ def parse_btop_theme(path: Path) -> dict[str, str]:
         line = raw_line.strip()
         if not line or line.startswith("#"):
             continue
-        m = re.fullmatch(r'theme\[([a-z_]+)\]="(#[0-9a-fA-F]{6})"', line)
+        m = re.fullmatch(r'theme\[([a-z0-9_]+)\]="(#[0-9a-fA-F]{6})"', line)
         if not m:
             raise ValueError(
                 f"Invalid btop.theme syntax at line {lineno}: {line!r}"

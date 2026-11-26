@@ -1,0 +1,29 @@
+# 911 (992.2) Precision Night Cockpit — Herdr
+# Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+accent = "#e55c5a"
+panel_bg = "#141619"
+sidebar_bg = "#0f1114"
+active_row_bg = "#1d2026"
+selection_bg = "#292d36"
+surface0 = "#1a1d23"
+surface1 = "#292d36"
+surface_dim = "#0a0b0d"
+overlay0 = "#858a96"
+overlay1 = "#9297a2"
+text = "#dadad6"
+subtext0 = "#b4b7be"
+mauve = "#b488cc"
+green = "#7fb887"
+yellow = "#e0be66"
+red = "#e56c6a"
+blue = "#6fa2de"
+teal = "#6ac4cb"
+peach = "#e89158"
+
+[ui]
+accent = "#e55c5a"

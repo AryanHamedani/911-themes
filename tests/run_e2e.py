@@ -34,9 +34,10 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--tier",
+        action="append",
         choices=("1", "2", "3", "4", "all"),
-        default="all",
-        help="Validation tier to run (default: all).",
+        default=None,
+        help="Validation tier(s) to run; may be repeated (default: all).",
     )
     parser.add_argument(
         "--project-root",
@@ -84,7 +85,15 @@ def main(argv: list[str] | None = None) -> int:
     if args.self_test:
         suite.addTests(loader.loadTestsFromName("test_self"))
     else:
-        selected = ("1", "2", "3", "4") if args.tier == "all" else (args.tier,)
+        raw_tiers = args.tier or ["all"]
+        if "all" in raw_tiers:
+            selected: tuple[str, ...] = ("1", "2", "3", "4")
+        else:
+            seen: list[str] = []
+            for t in raw_tiers:
+                if t not in seen:
+                    seen.append(t)
+            selected = tuple(seen)
         for tier_id in selected:
             suite.addTests(loader.loadTestsFromName(TIER_MODULES[tier_id]))
 

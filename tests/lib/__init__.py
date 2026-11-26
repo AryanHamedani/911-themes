@@ -6,12 +6,12 @@ import os
 from pathlib import Path
 
 DEFAULT_PROJECT_ROOT = Path("/home/aryan/teamwork_projects/carrera_themes")
-DEFAULT_NVIM_COLORSCHEME = Path("/home/aryan/.config/nvim/colors/carrera.lua")
+DEFAULT_NVIM_COLORSCHEME = Path("/home/aryan/.config/nvim/colors/911.lua")
 DEFAULT_REFERENCE_COLORS = Path(
-    "/home/aryan/Work/personal/AryanHamedani/omarchy-carrera-theme/colors.toml"
+    "/home/aryan/Work/personal/AryanHamedani/omarchy-911-theme/colors.toml"
 )
 DEFAULT_REFERENCE_REPO = Path(
-    "/home/aryan/Work/personal/AryanHamedani/omarchy-carrera-theme"
+    "/home/aryan/Work/personal/AryanHamedani/omarchy-911-theme"
 )
 
 
@@ -44,7 +44,7 @@ def get_nvim_rtp() -> Path | None:
 
 
 def get_nvim_colorscheme_name() -> str:
-    return os.environ.get("CARRERA_NVIM_COLORSCHEME_NAME", "carrera")
+    return os.environ.get("CARRERA_NVIM_COLORSCHEME_NAME", "911")
 
 
 def is_isolated_nvim_mode() -> bool:

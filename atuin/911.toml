@@ -1,0 +1,23 @@
+# 911 (992.2) Precision Night Cockpit — Atuin
+# Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+# Uses Atuin PascalCase Meaning keys under [colors].
+
+[theme]
+name = "911"
+
+[colors]
+AlertInfo = "#7fb887"
+AlertWarn = "#e0be66"
+AlertError = "#e56c6a"
+Annotation = "#6fa2de"
+Base = "#dadad6"
+Guidance = "#9297a2"
+Important = "#e55c5a"
+Title = "#edede9"
+Muted = "#858a96"
+SyntaxCommand = "#7fb887"
+SyntaxFlag = "#b4b7be"
+SyntaxString = "#e0be66"
+SyntaxVariable = "#6ac4cb"
+SyntaxOperator = "#e89158"
+SyntaxComment = "#858a96"

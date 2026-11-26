@@ -1,0 +1,79 @@
+# 911 (992.2) Precision Night Cockpit — Alacritty
+# Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+
+[colors.primary]
+background = "#141619"
+foreground = "#dadad6"
+dim_foreground = "#9297a2"
+bright_foreground = "#edede9"
+
+[colors.cursor]
+text = "#0a0b0d"
+cursor = "#e55c5a"
+
+[colors.vi_mode_cursor]
+text = "#0a0b0d"
+cursor = "#6ac4cb"
+
+[colors.search.matches]
+foreground = "#edede9"
+background = "#5b5134"
+
+[colors.search.focused_match]
+foreground = "#f4f3ef"
+background = "#bf3b3e"
+
+[colors.hints.start]
+foreground = "#0a0b0d"
+background = "#e0be66"
+
+[colors.hints.end]
+foreground = "#dadad6"
+background = "#292d36"
+
+[colors.line_indicator]
+foreground = "#0a0b0d"
+background = "#e55c5a"
+
+[colors.footer_bar]
+foreground = "#dadad6"
+background = "#131519"
+
+[colors.selection]
+text = "#edede9"
+background = "#292d36"
+
+[colors.normal]
+black = "#141619"
+red = "#e56c6a"
+green = "#7fb887"
+yellow = "#e0be66"
+blue = "#6fa2de"
+magenta = "#b488cc"
+cyan = "#6ac4cb"
+white = "#dadad6"
+
+[colors.bright]
+black = "#858a96"
+red = "#f48583"
+green = "#98ce9f"
+yellow = "#f0d282"
+blue = "#8cb9f2"
+magenta = "#caa2e0"
+cyan = "#84d8de"
+white = "#edede9"
+
+[colors.dim]
+black = "#0f1114"
+red = "#e55c5a"
+green = "#7fb887"
+yellow = "#ad7f66"
+blue = "#6fa2de"
+magenta = "#b488cc"
+cyan = "#6ac4cb"
+white = "#9297a2"
+
+[bell]
+animation = "EaseOutExpo"
+duration = 120
+color = "#e55c5a"

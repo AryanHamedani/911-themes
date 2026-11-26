@@ -1,0 +1,268 @@
+/* 911 (992.2) Precision Night Cockpit Theme for Obsidian
+ * Surfaces: #0a0b0d / #0c0e11 / #0f1114 / #131519 / #141619 / #1a1d23 / #1d2026
+ * Typography: Ice Grey (#dadad6), Pure Highlight (#edede9), GT Silver (#9297a2), Muted (#858a96)
+ * Accent: 911 Guards/Carmine Red (#e55c5a), Filled Badge (#bf3b3e / #f4f3ef, 4.84:1 AA)
+ */
+
+.theme-dark {
+  color-scheme: dark;
+
+  /* 4-plane cockpit surfaces */
+  --background-primary: #141619;
+  --background-primary-alt: #1a1d23;
+  --background-secondary: #0f1114;
+  --background-secondary-alt: #0c0e11;
+  --background-modifier-form-field: #1a1d23;
+  --background-modifier-cover: rgba(10, 11, 13, 0.82);
+  --background-modifier-border: #252932;
+  --background-modifier-border-hover: #434854;
+  --background-modifier-border-focus: #e55c5a;
+  --background-modifier-hover: rgba(218, 218, 214, 0.08);
+  --background-modifier-active-hover: rgba(229, 92, 90, 0.16);
+  --background-modifier-error: #bf3b3e;
+  --background-modifier-error-rgb: 191, 59, 62;
+  --background-modifier-error-hover: #e55c5a;
+  --background-modifier-success: #7fb887;
+  --background-modifier-success-rgb: 127, 184, 135;
+  --background-modifier-message: #131519;
+  --divider-color: #2f3440;
+  --divider-color-hover: #434854;
+
+  /* Typography & selection */
+  --text-normal: #dadad6;
+  --text-muted: #9297a2;
+  --text-faint: #858a96;
+  --text-selection: rgba(41, 45, 54, 0.88);
+  --text-highlight-bg: rgba(91, 81, 52, 0.78);
+  --text-highlight-bg-active: rgba(224, 190, 102, 0.35);
+  --text-on-accent: #f4f3ef;
+  --text-on-accent-inverted: #0a0b0d;
+  --text-error: #f48583;
+  --text-error-hover: #e56c6a;
+  --text-warning: #e0be66;
+  --text-success: #7fb887;
+  --bold-color: #edede9;
+  --italic-color: #b4b7be;
+
+  /* Interactive controls & accents */
+  --interactive-normal: #1a1d23;
+  --interactive-hover: #292d36;
+  --interactive-accent: #bf3b3e;
+  --interactive-accent-hsl: 359, 53%, 49%;
+  --interactive-accent-hover: #e55c5a;
+  --text-accent: #e55c5a;
+  --text-accent-hover: #f48583;
+  --caret-color: #e55c5a;
+
+  /* Links */
+  --link-color: #6fa2de;
+  --link-color-hover: #8cb9f2;
+  --link-external-color: #6ac4cb;
+  --link-external-color-hover: #84d8de;
+  --link-unresolved-color: #9297a2;
+  --link-unresolved-opacity: 0.75;
+  --text-link: #6fa2de;
+
+  /* Semantic & callout colors (Obsidian 1.x RGB variables) */
+  --color-red: #e56c6a;
+  --color-red-rgb: 229, 108, 106;
+  --color-orange: #e89158;
+  --color-orange-rgb: 232, 145, 88;
+  --color-yellow: #e0be66;
+  --color-yellow-rgb: 224, 190, 102;
+  --color-green: #7fb887;
+  --color-green-rgb: 127, 184, 135;
+  --color-cyan: #6ac4cb;
+  --color-cyan-rgb: 106, 196, 203;
+  --color-blue: #6fa2de;
+  --color-blue-rgb: 111, 162, 222;
+  --color-purple: #b488cc;
+  --color-purple-rgb: 180, 136, 204;
+  --color-pink: #e55c5a;
+  --color-pink-rgb: 229, 92, 90;
+
+  /* Callouts */
+  --callout-default: 111, 162, 222;
+  --callout-info: 111, 162, 222;
+  --callout-summary: 106, 196, 203;
+  --callout-tip: 106, 196, 203;
+  --callout-todo: 232, 145, 88;
+  --callout-important: 180, 136, 204;
+  --callout-success: 127, 184, 135;
+  --callout-question: 224, 190, 102;
+  --callout-warning: 224, 190, 102;
+  --callout-fail: 229, 108, 106;
+  --callout-error: 229, 92, 90;
+  --callout-bug: 244, 133, 131;
+  --callout-example: 180, 136, 204;
+  --callout-quote: 133, 138, 150;
+
+  /* Headings (Obsidian 1.x + legacy aliases) */
+  --h1-color: #f48583;
+  --h2-color: #e89158;
+  --h3-color: #e0be66;
+  --h4-color: #7fb887;
+  --h5-color: #6fa2de;
+  --h6-color: #b488cc;
+  --text-title-h1: #f48583;
+  --text-title-h2: #e89158;
+  --text-title-h3: #e0be66;
+  --text-title-h4: #7fb887;
+  --text-title-h5: #6fa2de;
+  --text-title-h6: #b488cc;
+
+  /* Code & syntax */
+  --code-background: #0f1114;
+  --code-normal: #6ac4cb;
+  --code-comment: #858a96;
+  --code-function: #6fa2de;
+  --code-important: #e89158;
+  --code-keyword: #e56c6a;
+  --code-operator: #8cb9f2;
+  --code-property: #6ac4cb;
+  --code-punctuation: #9297a2;
+  --code-string: #7fb887;
+  --code-tag: #e0be66;
+  --code-value: #e89158;
+
+  /* Tags, lists, blockquotes, checkboxes, tables */
+  --tag-color: #6ac4cb;
+  --tag-background: #1d272b;
+  --tag-background-hover: rgba(106, 196, 203, 0.24);
+  --tag-border-color: #2f3440;
+  --list-marker-color: #6ac4cb;
+  --list-marker-color-hover: #e55c5a;
+  --list-marker-color-collapsed: #e0be66;
+  --blockquote-border-color: #e55c5a;
+  --blockquote-background-color: #131519;
+  --checkbox-color: #bf3b3e;
+  --checkbox-color-hover: #e55c5a;
+  --checkbox-border-color: #434854;
+  --checkbox-border-color-hover: #e55c5a;
+  --checkbox-marker-color: #f4f3ef;
+  --checklist-done-color: #858a96;
+  --table-background: transparent;
+  --table-header-background: #1a1d23;
+  --table-header-background-hover: #1d2026;
+  --table-row-alt-background: #131519;
+  --table-border-color: #2f3440;
+  --table-selection: rgba(41, 45, 54, 0.65);
+  --table-selection-border-color: #e55c5a;
+  --hr-color: #2f3440;
+  --indentation-guide-color: #252932;
+  --indentation-guide-color-active: #434854;
+
+  /* Graph view & Canvas */
+  --graph-line: #2f3440;
+  --graph-text: #dadad6;
+  --graph-node: #e55c5a;
+  --graph-node-unresolved: #858a96;
+  --graph-node-focused: #6fa2de;
+  --graph-node-tag: #6ac4cb;
+  --graph-node-attachment: #7fb887;
+  --canvas-background: #0f1114;
+  --canvas-dot-pattern: #252932;
+  --canvas-card-label-color: #9297a2;
+
+  /* Chrome, tabs, ribbon, status bar, modals, scrollbars */
+  --ribbon-background: #0c0e11;
+  --ribbon-background-collapsed: #0c0e11;
+  --titlebar-background: #0c0e11;
+  --titlebar-background-focused: #0c0e11;
+  --titlebar-text-color: #9297a2;
+  --titlebar-text-color-focused: #dadad6;
+  --tab-background-active: #141619;
+  --tab-text-color: #858a96;
+  --tab-text-color-active: #dadad6;
+  --tab-text-color-focused: #dadad6;
+  --tab-text-color-focused-active: #edede9;
+  --tab-text-color-focused-active-current: #edede9;
+  --tab-outline-color: #252932;
+  --tab-divider-color: #252932;
+  --status-bar-background: #131519;
+  --status-bar-border-color: #252932;
+  --status-bar-text-color: #9297a2;
+  --nav-item-color: #b4b7be;
+  --nav-item-color-hover: #edede9;
+  --nav-item-color-active: #edede9;
+  --nav-item-background-hover: #1a1d23;
+  --nav-item-background-active: #261b1f;
+  --nav-item-background-selected: #292d36;
+  --modal-background: #131519;
+  --modal-border-color: #434854;
+  --prompt-border-color: #434854;
+  --tooltip-background: #1a1d23;
+  --tooltip-color: #dadad6;
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: rgba(67, 72, 84, 0.55);
+  --scrollbar-active-thumb-bg: rgba(229, 92, 90, 0.72);
+  --search-clear-button-color: #9297a2;
+  --search-icon-color: #9297a2;
+  --search-result-background: #131519;
+}
+
+/* Headings */
+.theme-dark .cm-header-1,
+.theme-dark .markdown-rendered h1 { color: var(--h1-color); }
+.theme-dark .cm-header-2,
+.theme-dark .markdown-rendered h2 { color: var(--h2-color); }
+.theme-dark .cm-header-3,
+.theme-dark .markdown-rendered h3 { color: var(--h3-color); }
+.theme-dark .cm-header-4,
+.theme-dark .markdown-rendered h4 { color: var(--h4-color); }
+.theme-dark .cm-header-5,
+.theme-dark .markdown-rendered h5 { color: var(--h5-color); }
+.theme-dark .cm-header-6,
+.theme-dark .markdown-rendered h6 { color: var(--h6-color); }
+
+/* Code & syntax highlighting */
+.theme-dark .markdown-rendered code {
+  color: var(--code-normal);
+  background-color: var(--code-background);
+}
+
+.theme-dark .cm-s-obsidian span.cm-keyword,
+.theme-dark .token.keyword { color: var(--code-keyword); }
+.theme-dark .cm-s-obsidian span.cm-string,
+.theme-dark .token.string { color: var(--code-string); }
+.theme-dark .cm-s-obsidian span.cm-number,
+.theme-dark .token.number { color: var(--code-value); }
+.theme-dark .cm-s-obsidian span.cm-comment,
+.theme-dark .token.comment { color: var(--code-comment); font-style: italic; }
+.theme-dark .cm-s-obsidian span.cm-operator,
+.theme-dark .token.operator { color: var(--code-operator); }
+.theme-dark .cm-s-obsidian span.cm-def,
+.theme-dark .token.function { color: var(--code-function); }
+.theme-dark .token.class-name,
+.theme-dark .token.builtin { color: var(--code-tag); }
+.theme-dark .token.property { color: var(--code-property); }
+
+/* Links & blockquotes */
+.theme-dark .markdown-rendered a {
+  color: var(--link-color);
+}
+
+.theme-dark .markdown-rendered blockquote {
+  border-left-color: var(--blockquote-border-color);
+  background-color: var(--blockquote-background-color);
+}
+
+/* Active navigation, tabs & search */
+.theme-dark .workspace-tab-header.is-active {
+  border-top: 2px solid #e55c5a;
+}
+
+.theme-dark .workspace-leaf.mod-active .workspace-leaf-header-title,
+.theme-dark .search-result-file-title {
+  color: var(--text-accent);
+}
+
+.theme-dark .nav-file-title.is-active {
+  background-color: var(--nav-item-background-active);
+  color: #edede9;
+}
+
+.theme-dark .search-result-file-matched-text {
+  background-color: #5b5134;
+  color: #edede9;
+}

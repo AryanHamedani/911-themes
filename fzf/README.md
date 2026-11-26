@@ -1,35 +1,32 @@
-# Carrera for fzf
+# 911 for fzf
 
-A dark, glare-free [fzf](https://github.com/junegunn/fzf) color theme inspired by the Porsche 911 Heritage Cockpit on a night drive: **Basalt Alcantara** (`#15171a`) surfaces, warm **Chalk (`Kreide`)** (`#d6d2c7`) dial numerals, and a disciplined spark of **Carmine Red** (`#e1656c`).
+A dark, glare-free [fzf](https://github.com/junegunn/fzf) fuzzy finder theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**: **Race-Tex Charcoal** (`#141619`) list plane, **Carbon Well** (`#0f1114`) preview plane, **Vanadium Grey** (`#1d2026`) active line, and **Guards/Carmine Red** (`#e55c5a`) prompt, pointer, and match highlights.
 
-Calibrated in OKLCH for long daily sessions and tuned to WCAG AA / APCA contrast targets.
+Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast targets.
 
 ## Files Included
 
-- `carrera.sh` — POSIX-compatible shell snippet (works in `sh`, `bash`, and `zsh`) that appends `--color=...` to `FZF_DEFAULT_OPTS` without clobbering existing layout flags.
+- `911.sh` — POSIX-compatible shell snippet appending 40+ `--color` roles to `FZF_DEFAULT_OPTS` (preserving any existing layout flags).
 
 ## Manual Install
 
-1. Copy `carrera.sh` to your shell config directory (for example, `~/.config/fzf/carrera.sh`):
+1. Copy `911.sh` to `~/.config/zsh/fzf-911.sh`:
 
    ```sh
-   mkdir -p ~/.config/fzf
-   cp carrera.sh ~/.config/fzf/carrera.sh
+   mkdir -p ~/.config/zsh
+   cp 911.sh ~/.config/zsh/fzf-911.sh
    ```
 
-2. Source it in `~/.zshrc` or `~/.bashrc` **after** any layout options (`--border`, `--layout`, `--pointer`, etc.) so the `--color` flags apply on top without overwriting your layout:
+2. Source it from `~/.zshrc` (or `~/.bashrc`):
 
    ```sh
-   # Example layout flags (optional):
-   # export FZF_DEFAULT_OPTS="--border=rounded --layout=reverse --info=inline-right"
-
-   . ~/.config/fzf/carrera.sh
+   source ~/.config/zsh/fzf-911.sh
    ```
 
 Palette reference: [`../colors.toml`](../colors.toml).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.
 
 License: [MIT](../LICENSE)

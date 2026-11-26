@@ -36,7 +36,7 @@ class TestTier3Consistency(unittest.TestCase):
 
     def test_neovim_copy_parity(self) -> None:
         root = get_project_root()
-        repo_lua = root / "neovim/colors/carrera.lua"
+        repo_lua = root / "neovim/colors/911.lua"
         active_lua = get_nvim_colorscheme()
         self.assertTrue(repo_lua.is_file(), f"Missing {repo_lua}")
         self.assertTrue(active_lua.is_file(), f"Missing {active_lua}")
@@ -49,7 +49,7 @@ class TestTier3Consistency(unittest.TestCase):
     def test_btop_parity_with_reference(self) -> None:
         root = get_project_root()
         ref_btop = get_reference_repo() / "btop.theme"
-        local_btop = root / "btop/carrera.theme"
+        local_btop = root / "btop/911.theme"
         self.assertTrue(local_btop.is_file(), f"Missing {local_btop}")
         self.assertTrue(ref_btop.is_file(), f"Missing {ref_btop}")
         local_map = parse_btop_theme(local_btop)
@@ -57,7 +57,7 @@ class TestTier3Consistency(unittest.TestCase):
         self.assertEqual(
             local_map,
             ref_map,
-            "btop/carrera.theme key/value map does not match reference btop.theme",
+            "btop/911.theme key/value map does not match reference btop.theme",
         )
 
     def test_inventory_md_lists_all_36_apps_and_existing_paths(self) -> None:
@@ -100,7 +100,7 @@ class TestTier3Consistency(unittest.TestCase):
     def test_root_readme_completeness_and_disclaimer(self) -> None:
         root = get_project_root()
         readme = (root / "README.md").read_text(encoding="utf-8")
-        self.assertIn("Carrera", readme)
+        self.assertIn("911", readme)
         self.assertIn("Porsche", readme)
         self.assertNotIn("omarchy-theme-set", readme)
         palette = load_palette(get_reference_colors())
@@ -117,8 +117,8 @@ class TestTier3Consistency(unittest.TestCase):
     def test_no_auto_activation_scripts_or_hooks(self) -> None:
         root = get_project_root()
         allowed_shell_files = {
-            (root / "fzf/carrera.sh").resolve(),
-            (root / "zsh-syntax-highlighting/carrera.zsh").resolve(),
+            (root / "fzf/911.sh").resolve(),
+            (root / "zsh-syntax-highlighting/911.zsh").resolve(),
         }
         disallowed_script_suffixes = {
             ".sh", ".zsh", ".bash", ".fish", ".nu", ".py", ".rb", ".pl", ".ps1",
@@ -170,7 +170,7 @@ class TestTier3Consistency(unittest.TestCase):
         ]
 
         # Foot
-        foot_sec = parse_ini(root / "foot/carrera.ini")["colors-dark"]
+        foot_sec = parse_ini(root / "foot/911.ini")["colors-dark"]
         foot_16 = [
             "#" + foot_sec[f"regular{i}"].lower() for i in range(8)
         ] + ["#" + foot_sec[f"bright{i}"].lower() for i in range(8)]
@@ -178,7 +178,7 @@ class TestTier3Consistency(unittest.TestCase):
 
         # Ghostty
         ghostty_pal = {}
-        for k, v in parse_ghostty(root / "ghostty/carrera"):
+        for k, v in parse_ghostty(root / "ghostty/911"):
             if k == "palette" and "=" in v:
                 idx, col = v.split("=", 1)
                 ghostty_pal[int(idx.strip())] = col.strip().lower()
@@ -186,7 +186,7 @@ class TestTier3Consistency(unittest.TestCase):
         self.assertEqual(ghostty_16, expected_16, "Ghostty ANSI 0..15 mismatch with colors.toml")
 
         # Alacritty
-        ala = parse_toml(root / "alacritty/carrera.toml")["colors"]
+        ala = parse_toml(root / "alacritty/911.toml")["colors"]
         order = ("black", "red", "green", "yellow", "blue", "magenta", "cyan", "white")
         ala_16 = [ala["normal"][c].lower() for c in order] + [
             ala["bright"][c].lower() for c in order
@@ -194,7 +194,7 @@ class TestTier3Consistency(unittest.TestCase):
         self.assertEqual(ala_16, expected_16, "Alacritty ANSI 0..15 mismatch with colors.toml")
 
         # Kitty
-        kit = parse_kitty(root / "kitty/carrera.conf")
+        kit = parse_kitty(root / "kitty/911.conf")
         kit_16 = [kit[f"color{i}"].lower() for i in range(16)]
         self.assertEqual(kit_16, expected_16, "Kitty ANSI 0..15 mismatch with colors.toml")
 
@@ -206,7 +206,7 @@ class TestTier3Consistency(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="carrera_t3_nvim_") as tmp:
             rtp = Path(tmp)
             (rtp / "colors").mkdir(parents=True)
-            shutil.copy2(root / "neovim/colors/carrera.lua", rtp / "colors/carrera.lua")
+            shutil.copy2(root / "neovim/colors/911.lua", rtp / "colors/911.lua")
             lua_cmd = (
                 'lua for i=0,15 do io.stdout:write("TC_"..i.."="..tostring(vim.g["terminal_color_"..i]).."\\n") end'
             )
@@ -219,7 +219,7 @@ class TestTier3Consistency(unittest.TestCase):
                     "--cmd",
                     f"set rtp^={rtp}",
                     "-c",
-                    "colorscheme carrera",
+                    "colorscheme 911",
                     "-c",
                     lua_cmd,
                     "-c",

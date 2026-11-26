@@ -1,25 +1,17 @@
-# Carrera for imv
+# 911 (`992.2`) for imv
 
-A dark Heritage Cockpit color configuration for the `imv` image viewer:
-Basalt Alcantara canvas (`15171a`), recessed overlay (`101215` at `e6` alpha), and Chalk overlay text (`d6d2c7`).
+Precision Night Cockpit dark theme for the `imv` image viewer, aligned with [`../colors.toml`](../colors.toml).
 
-## Install
+## Palette Mapping
 
-Merge the `[options]` values from `imv/carrera.ini` into your `~/.config/imv/config`, keeping your existing `[binds]` section intact:
+- **Canvas**: Race-Tex Charcoal (`141619`)
+- **Overlay Surface**: Recessed Carbon (`0f1114` at `e6` / 90% opacity)
+- **Overlay Typography**: Ice Grey (`dadad6` at `ff` opacity, `12.93:1` contrast)
 
-```ini
-[options]
-background = 15171a
-overlay_text_color = d6d2c7
-overlay_text_alpha = ff
-overlay_background_color = 101215
-overlay_background_alpha = e6
-```
+## Installation
 
-> Note: `imv` requires 6-digit hex colors **without** `#`, and `inih` does not strip inline `#` comments on `key = value` lines.
+Merge the `[options]` section from `911.ini` into `~/.config/imv/config` (keeping your existing `[binds]` section intact).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

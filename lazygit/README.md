@@ -1,27 +1,25 @@
-# Carrera for Lazygit
+# 911 for Lazygit
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) theme for [Lazygit](https://github.com/jesseduffield/lazygit) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [Lazygit](https://github.com/jesseduffield/lazygit) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.yml` — `gui.theme` configuration covering all 15 Lazygit theme keys (`activeBorderColor`, `inactiveBorderColor`, `searchingActiveBorderColor`, `optionsTextColor`, `selectedLineFgColor`, `selectedLineBgColor`, `inactiveViewSelectedLineBgColor`, `cherryPickedCommitFgColor`, `cherryPickedCommitBgColor`, `markedBaseCommitFgColor`, `markedBaseCommitBgColor`, `unstagedChangesColor`, `defaultFgColor`, `authorColors`, `branchColorPatterns`).
+- `911.yml` — Complete `gui.theme` configuration covering all 15 Lazygit theme keys (`activeBorderColor`, `inactiveBorderColor`, `searchingActiveBorderColor`, `optionsTextColor`, `selectedLineFgColor`, `selectedLineBgColor`, `inactiveViewSelectedLineBgColor`, `cherryPickedCommitFgColor`, `cherryPickedCommitBgColor`, `markedBaseCommitFgColor`, `markedBaseCommitBgColor`, `unstagedChangesColor`, `defaultFgColor`, `authorColors`, `branchColorPatterns`).
 
-### Derived Hex Notes
+## Install
 
-- `inactiveBorderColor` uses `#31353f` (`btop.theme` `div_line`).
-
-## Installation
-
-Merge the `gui.theme` block from `carrera.yml` manually into `~/.config/lazygit/config.yml` (this repository does not modify your active config), or pass it alongside your config with `lazygit --use-config-file="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/carrera.yml"`.
-
-## Verification
+Merge the `gui.theme` block from `911.yml` into `~/.config/lazygit/config.yml`, or pass it alongside your config:
 
 ```bash
-python3 -c 'import yaml; d=yaml.safe_load(open("carrera.yml")); assert len(d["gui"]["theme"])==15'
+lazygit --use-config-file="$HOME/.config/lazygit/config.yml,$PWD/911.yml"
 ```
 
-## License
+## Validate
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
+```bash
+python3 -c 'import yaml; d=yaml.safe_load(open("911.yml")); assert len(d["gui"]["theme"])==15'
+```
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+## Disclaimer
+
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

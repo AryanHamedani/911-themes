@@ -1,42 +1,28 @@
-# Carrera for OpenCode
+# 911 for OpenCode
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) TUI theme for [OpenCode](https://opencode.ai/) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [OpenCode](https://opencode.ai/) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.json` — OpenCode V1 TUI theme (`$schema: "https://opencode.ai/theme.json"`) defining `defs` and all 52 `theme` tokens plus `thinkingOpacity: 0.6`.
+- `911.json` — Complete OpenCode theme (`$schema`, `defs`, `theme`) covering UI chrome, cockpit planes, borders, diffs, Markdown, and syntax highlighting.
 
-### Derived Hex Notes
+## Install
 
-- `border` (`#31353f`) and `borderSubtle` (`#262930`) match `btop.theme` `div_line` and `colors.toml` `hyprland_inactive_border`.
-- `diffAddBg` (`#222a23`) and `diffDelBg` (`#2d1e20`) use the shared `Carrera` opaque diff tints over `#15171a`.
-- `diffAddNumBg` (`#1e2422`) and `diffDelNumBg` (`#251e21`) match the Omarchy 8% `green`/`red` over `#15171a` mix.
-
-## Installation
-
-1. Copy `carrera.json` to `~/.config/opencode/themes/carrera.json`:
+1. Copy `911.json` to `~/.config/opencode/themes/911.json`:
 
    ```bash
    mkdir -p ~/.config/opencode/themes
-   cp carrera.json ~/.config/opencode/themes/carrera.json
+   cp 911.json ~/.config/opencode/themes/911.json
    ```
 
-2. Enable it manually in `~/.config/opencode/opencode.json` (this repository does not modify your active config):
+2. Set `"theme": "911"` in `~/.config/opencode/opencode.json`.
 
-   ```json
-   {
-     "theme": "carrera"
-   }
-   ```
-
-## Verification
+## Validate
 
 ```bash
-python3 -c 'import json; d=json.load(open("carrera.json")); assert d["$schema"]=="https://opencode.ai/theme.json" and len(d["theme"])>=52'
+python3 -c 'import json; d=json.load(open("911.json")); assert "defs" in d and "theme" in d'
 ```
 
-## License
+## Disclaimer
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
-
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

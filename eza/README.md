@@ -1,33 +1,25 @@
-# Carrera for eza
+# 911 for eza
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) theme for [eza](https://eza.rocks/) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [eza](https://eza.rocks/) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `theme.yml` — Complete `eza` truecolor `UiStylesOverride` theme (`colourful`, `filekinds`, `perms`, `size`, `users`, `links`, `git`, `git_repo`, `security_context`, `file_type`, and scalar styles).
+- `theme.yml` — Complete eza theme covering `filekinds`, `perms`, `size`, `users`, `links`, `git`, `git_repo`, `security_context`, `file_type`, `punctuation`, `date`, `inode`, `blocks`, `header`, `octal`, `flags`, `symlink_path`, `control_char`, `broken_symlink`, and `broken_path_overlay`.
 
-### `LS_COLORS` Precedence Note
-
-`eza` evaluates `LS_COLORS` and `EZA_COLORS` after loading `theme.yml`, so an exported `LS_COLORS` variable (e.g., `di=01;34`, `ex=01;32`) will override `filekinds` entries in `theme.yml`. To let `theme.yml` control `filekinds` colors completely, set `export LS_COLORS=""` or `unset LS_COLORS` in your shell profile.
-
-## Installation
-
-Back up any existing `~/.config/eza/theme.yml` first (or use `cp -i`), then copy `theme.yml` to `~/.config/eza/theme.yml` (`eza` loads `$EZA_CONFIG_DIR/theme.yml` automatically on startup; this repository does not copy or activate it):
+## Install
 
 ```bash
 mkdir -p ~/.config/eza
-cp -i theme.yml ~/.config/eza/theme.yml
+cp theme.yml ~/.config/eza/theme.yml
 ```
 
-## Verification
+## Validate
 
 ```bash
-python3 -c 'import yaml; d=yaml.safe_load(open("theme.yml")); assert d["colourful"] is True and "filekinds" in d'
-env -u LS_COLORS -u EZA_COLORS EZA_CONFIG_DIR="$PWD" eza --color=always -la
+python3 -c 'import yaml; d=yaml.safe_load(open("theme.yml")); assert d["colourful"] is True'
+EZA_CONFIG_DIR="$PWD" eza -la --git --color=always >/dev/null
 ```
 
-## License
+## Disclaimer
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
-
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

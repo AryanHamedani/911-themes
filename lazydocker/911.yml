@@ -1,0 +1,13 @@
+# 911 (992.2) Precision Night Cockpit for Lazydocker
+# inactiveBorderColor uses #2f3440 (canonical btop.theme div_line over #141619).
+gui:
+  theme:
+    activeBorderColor:
+      - "#e55c5a"
+      - bold
+    inactiveBorderColor:
+      - "#2f3440"
+    selectedLineBgColor:
+      - "#292d36"
+    optionsTextColor:
+      - "#6fa2de"

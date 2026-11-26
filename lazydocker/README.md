@@ -1,27 +1,21 @@
-# Carrera for Lazydocker
+# 911 for Lazydocker
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) theme for [Lazydocker](https://github.com/jesseduffield/lazydocker) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [Lazydocker](https://github.com/jesseduffield/lazydocker) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.yml` — `gui.theme` configuration covering all 4 Lazydocker theme keys (`activeBorderColor`, `inactiveBorderColor`, `selectedLineBgColor`, `optionsTextColor`).
+- `911.yml` — `gui.theme` configuration covering all 4 Lazydocker theme keys (`activeBorderColor`, `inactiveBorderColor`, `selectedLineBgColor`, `optionsTextColor`).
 
-### Derived Hex Notes
+## Install
 
-- `inactiveBorderColor` uses `#31353f` (`btop.theme` `div_line`).
+Merge the `gui.theme` block from `911.yml` into `~/.config/lazydocker/config.yml`.
 
-## Installation
-
-Merge the `gui.theme` block from `carrera.yml` manually into `~/.config/lazydocker/config.yml` (this repository does not modify your active config).
-
-## Verification
+## Validate
 
 ```bash
-python3 -c 'import yaml; d=yaml.safe_load(open("carrera.yml")); assert set(d["gui"]["theme"])=={"activeBorderColor","inactiveBorderColor","selectedLineBgColor","optionsTextColor"}'
+python3 -c 'import yaml; d=yaml.safe_load(open("911.yml")); assert set(d["gui"]["theme"])=={"activeBorderColor","inactiveBorderColor","selectedLineBgColor","optionsTextColor"}'
 ```
 
-## License
+## Disclaimer
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
-
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

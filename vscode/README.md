@@ -1,39 +1,22 @@
-# Carrera for VS Code & Antigravity IDE
+# 911 (`992.2`) for VS Code
 
-A dark color theme inspired by the Porsche 911 Heritage Cockpit on a night drive:
-Basalt Alcantara surfaces (`#15171a` editor / `#101215` recessed panels), warm Chalk (`Kreide`, `#d6d2c7`) text,
-brushed GT Silver trim, and a single disciplined spark of Carmine Red (`#e1656c`) for active focus and selection accents.
+Precision Night Cockpit dark theme for Visual Studio Code, built from [`../colors.toml`](../colors.toml) and the derived 911 cockpit surface contract.
 
-## Install
+## Coverage
 
-Copy this `vscode/` directory into your editor's extensions folder without overwriting existing settings:
+- **670+ Workbench UI tokens**: Activity bar, sidebar, editor chrome, tabs, breadcrumbs, command center, sticky scroll, minimap, scrollbars, badges (`#bf3b3e` / `#f4f3ef` AA), notifications, diff editor, merge conflicts, peek view, debug toolbar, integrated terminal (all 16 ANSI colors), testing, and chat/inline surfaces.
+- **36 Semantic Token Colors**: Parameters, readonly variables, properties, functions, classes, interfaces, enums, namespaces, macros, decorators, regex, operators, and italic doc comments.
+- **81 TextMate Scopes**: Full syntax coverage across code, markup, JSON/YAML/TOML, CSS, HTML/JSX, and diffs.
 
-### VS Code / VSCodium
-
-```bash
-cp -r vscode ~/.vscode/extensions/carrera-theme
-# or for VSCodium:
-cp -r vscode ~/.vscode-oss/extensions/carrera-theme
-```
-
-### Antigravity IDE
+## Installation
 
 ```bash
-cp -r vscode ~/.antigravity-ide/extensions/carrera-theme
+mkdir -p ~/.vscode/extensions/911-theme
+cp -r package.json themes ~/.vscode/extensions/911-theme/
 ```
 
-Then restart the editor and select **Carrera** via **Preferences: Color Theme** (`Ctrl+K Ctrl+T`), or set `"workbench.colorTheme": "Carrera"` in your `settings.json`:
-
-- VS Code: `~/.config/Code/User/settings.json`
-- Antigravity IDE: `~/.config/Antigravity IDE/User/settings.json`
-
-## Notes
-
-- **Cursor color**: `editorCursor.foreground` and `terminalCursor.foreground` default to glare-free Chalk Highlight (`#eae6dc`). To use the Carmine Red needle (`#e1656c`) from `colors.toml`, override `"workbench.colorCustomizations"` or edit `themes/carrera-color-theme.json`.
-- **Line highlight**: Uses `#1e2025` (`lighter_background`) and `#262930` border directly from the Carrera v2.0.0 palette.
+Reload VS Code and select **911** from **Preferences: Color Theme** (`Ctrl+K Ctrl+T`).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

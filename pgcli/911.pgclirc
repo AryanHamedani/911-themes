@@ -1,0 +1,80 @@
+# 911 (992.2) Precision Night Cockpit for pgcli
+# Merge [main] and [colors] into ~/.config/pgcli/config.
+
+[main]
+syntax_style = native
+
+[colors]
+# Prompt Toolkit completion menu & scrollbar
+completion-menu.completion.current = 'bg:#292d36 #edede9 bold'
+completion-menu.completion = 'bg:#1d2026 #dadad6'
+completion-menu.meta.completion.current = 'bg:#292d36 #e55c5a'
+completion-menu.meta.completion = 'bg:#0f1114 #9297a2'
+completion-menu.multi-column-meta = 'bg:#1a1d23 #b4b7be'
+scrollbar.arrow = 'bg:#0f1114 #858a96'
+scrollbar.background = 'bg:#0f1114'
+scrollbar.button = 'bg:#434854'
+scrollbar = 'bg:#292d36'
+
+# Selection & incremental search
+selected = 'bg:#292d36 #edede9'
+search = 'bg:#5b5134 #edede9'
+search.current = 'bg:#bf3b3e #f4f3ef bold'
+
+# Bottom toolbars & transaction state
+bottom-toolbar = 'bg:#0f1114 #9297a2'
+bottom-toolbar.off = 'bg:#0f1114 #858a96'
+bottom-toolbar.on = 'bg:#0f1114 #7fb887 bold'
+search-toolbar = 'bg:#0f1114 #edede9 bold'
+search-toolbar.text = '#dadad6 nobold'
+system-toolbar = 'bg:#0f1114 #e0be66 bold'
+arg-toolbar = 'bg:#0f1114 #6fa2de bold'
+arg-toolbar.text = '#dadad6 nobold'
+bottom-toolbar.transaction.valid = 'bg:#0f1114 #7fb887 bold'
+bottom-toolbar.transaction.failed = 'bg:#0f1114 #e56c6a bold'
+
+# Prompt & tabular output
+prompt = '#e55c5a bold'
+continuation = '#858a96'
+output.header = '#edede9 bold'
+output.odd-row = '#dadad6'
+output.even-row = '#b4b7be'
+output.null = '#858a96 italic'
+
+# Core SQL syntax overrides
+keyword = '#e56c6a bold'
+literal.string = '#7fb887'
+literal.number = '#e89158'
+
+# Pygments SQL token styles (Prompt Toolkit 2.0 pygments.* classes)
+pygments.keyword = '#e56c6a bold'
+pygments.keyword.constant = '#e89158 bold'
+pygments.keyword.declaration = '#b488cc bold'
+pygments.keyword.namespace = '#ad7f66'
+pygments.keyword.pseudo = '#e56c6a'
+pygments.keyword.reserved = '#e56c6a bold'
+pygments.keyword.type = '#e0be66'
+pygments.operator = '#6ac4cb'
+pygments.operator.word = '#e56c6a bold'
+pygments.punctuation = '#9297a2'
+pygments.name = '#dadad6'
+pygments.name.builtin = '#b488cc'
+pygments.name.builtin.pseudo = '#b488cc italic'
+pygments.name.class = '#e0be66'
+pygments.name.constant = '#f0d282'
+pygments.name.function = '#6fa2de'
+pygments.name.namespace = '#f0d282'
+pygments.name.variable = '#dadad6'
+pygments.literal.string = '#7fb887'
+pygments.literal.string.single = '#7fb887'
+pygments.literal.string.double = '#8cb9f2'
+pygments.literal.string.backtick = '#6ac4cb'
+pygments.literal.string.escape = '#84d8de'
+pygments.literal.number = '#e89158'
+pygments.literal.number.integer = '#e89158'
+pygments.literal.number.float = '#e89158'
+pygments.comment = '#858a96 italic'
+pygments.comment.single = '#858a96 italic'
+pygments.comment.multiline = '#858a96 italic'
+pygments.error = 'bg:#bf3b3e #f4f3ef'
+pygments.generic.error = '#e56c6a bold'

@@ -1,48 +1,34 @@
-# Carrera for Ghostty
+# 911 for Ghostty
 
-A dark, glare-free [Ghostty](https://ghostty.org) terminal theme inspired by the Porsche 911 Heritage Cockpit on a night drive: **Basalt Alcantara** (`#15171a`) surfaces, warm **Chalk (`Kreide`)** (`#d6d2c7`) dial numerals, and a disciplined spark of **Carmine Red** (`#e1656c`).
+A dark, glare-free [Ghostty](https://ghostty.org) terminal theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**: **Race-Tex Charcoal** (`#141619`) surfaces, **Ice Grey (Crayon)** (`#dadad6`) dial typography, and a disciplined spark of **Guards/Carmine Red** (`#e55c5a`).
 
-Calibrated in OKLCH for long daily sessions and tuned to WCAG AA / APCA contrast targets.
+Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast targets.
 
 ## Files Included
 
-- `carrera` — Standalone Ghostty theme file (no extension).
-
-## Cursor Note
-
-By default, `carrera` sets `cursor-color = #e1656c` and `cursor-text = #15171a` (Carmine Red cursor, matching `colors.toml`). If you prefer the Chalk (`Kreide`) cursor rendered by Omarchy runtime templates, set `cursor-color = #eae6dc`.
+- `911` — Complete Ghostty theme covering background/foreground, cursor, selection, split divider, unfocused split fill, search match/selected-match highlights, and all 16 ANSI palette entries.
 
 ## Manual Install
 
-1. Copy `carrera` to your Ghostty themes directory:
+1. Copy `911` to your Ghostty themes directory:
 
    ```sh
    mkdir -p ~/.config/ghostty/themes
-   cp carrera ~/.config/ghostty/themes/carrera
+   cp 911 ~/.config/ghostty/themes/911
    ```
 
-2. Reference it in `~/.config/ghostty/config`:
+2. Enable it in `~/.config/ghostty/config`:
 
    ```ini
-   theme = carrera
+   theme = 911
    ```
 
-   Or load it directly as an optional config file:
-
-   ```ini
-   config-file = ?"~/.config/ghostty/themes/carrera"
-   ```
-
-3. Validate the theme file:
-
-   ```sh
-   ghostty +validate-config --config-file=~/.config/ghostty/themes/carrera
-   ```
+> On Omarchy with the active `911` theme, `~/.config/ghostty/config` already includes `~/.local/state/omarchy/current/theme/ghostty.conf`.
 
 Palette reference: [`../colors.toml`](../colors.toml).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.
 
 License: [MIT](../LICENSE)

@@ -1,17 +1,26 @@
-/* Carrera v2.0.0 — Hyprland Preview Share Picker (GTK 4)
- * Basalt Alcantara (#15171a / #1e2025), Chalk (#d6d2c7), Carmine Red (#e1656c)
+/* 911 (992.2) Precision Night Cockpit — Hyprland Preview Share Picker (GTK 4)
+ * Surfaces: #0f1114 / #131519 / #141619 / #1a1d23 / #1d2026 / #261b1f
+ * Typography: Ice Grey (#dadad6), Pure Highlight (#edede9), Muted (#858a96)
+ * Accent: Guards/Carmine Red (#e55c5a), Filled Action (#bf3b3e / #f4f3ef, 4.84:1 AA)
  */
 
-@define-color foreground #d6d2c7;
-@define-color background #15171a;
-@define-color accent #e1656c;
-@define-color muted #838792;
-@define-color card_bg #1e2025;
-@define-color text_dark #15171a;
-@define-color accent_hover #8eb9f0;
-@define-color selected_tab #e1656c;
-@define-color text #d6d2c7;
-@define-color border_subtle #262930;
+@define-color foreground #dadad6;
+@define-color foreground_bright #edede9;
+@define-color background #141619;
+@define-color surface_chrome #131519;
+@define-color surface_well #0f1114;
+@define-color card_bg #1a1d23;
+@define-color card_selected_bg #261b1f;
+@define-color accent #e55c5a;
+@define-color accent_fill #bf3b3e;
+@define-color accent_ink #f4f3ef;
+@define-color accent_hover #e55c5a;
+@define-color muted #858a96;
+@define-color selected_tab #e55c5a;
+@define-color text #dadad6;
+@define-color border_subtle #252932;
+@define-color border_divider #2f3440;
+@define-color border_box #434854;
 
 * {
   all: unset;
@@ -22,8 +31,9 @@
 }
 
 .window {
-  background: alpha(@background, 0.95);
+  background: alpha(@background, 0.96);
   border: solid 2px @accent;
+  border-radius: 6px;
   margin: 4px;
   padding: 18px;
 }
@@ -34,15 +44,21 @@
 
 tabs {
   padding: 0.5rem 1rem;
+  border-bottom: solid 1px @border_divider;
 }
 
 tabs > tab {
   margin-right: 1rem;
+  padding-bottom: 0.25rem;
 }
 
 .tab-label {
-  color: @text;
+  color: @muted;
   transition: all 0.2s ease;
+}
+
+tabs > tab:hover > .tab-label {
+  color: @foreground;
 }
 
 tabs > tab:checked > .tab-label,
@@ -52,7 +68,7 @@ tabs > tab:active > .tab-label {
 }
 
 tabs > tab:focus > .tab-label {
-  color: @foreground;
+  color: @foreground_bright;
 }
 
 .page {
@@ -61,13 +77,14 @@ tabs > tab:focus > .tab-label {
 
 .image-label {
   font-size: 12px;
+  color: @foreground;
   padding: 0.25rem;
 }
 
 flowboxchild > .card,
 button > .card {
   transition: all 0.2s ease;
-  border: solid 2px @background;
+  border: solid 2px @border_subtle;
   border-radius: 5px;
   background-color: @card_bg;
   padding: 5px;
@@ -81,12 +98,13 @@ button:active > .card,
 button:selected > .card,
 button:focus > .card {
   border: solid 2px @accent;
+  background-color: @card_selected_bg;
 }
 
 .card-loading {
-  border: solid 2px @border_subtle;
+  border: solid 2px @border_divider;
   border-radius: 5px;
-  background-color: @card_bg;
+  background-color: @surface_well;
   color: @muted;
   padding: 5px;
 }
@@ -99,14 +117,14 @@ button:focus > .card {
 .restore-button {
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  background-color: @accent;
-  color: @text_dark;
+  background-color: @accent_fill;
+  color: @accent_ink;
   transition: all 0.2s ease;
 }
 
 .region-button > label,
 .restore-button > label {
-  color: @text_dark;
+  color: @accent_ink;
 }
 
 .region-button:not(:disabled):hover,
@@ -114,11 +132,29 @@ button:focus > .card {
 .restore-button:not(:disabled):hover,
 .restore-button:not(:disabled):focus {
   background-color: @accent_hover;
-  color: @text_dark;
+  color: @background;
+}
+
+.region-button:not(:disabled):hover > label,
+.region-button:not(:disabled):focus > label,
+.restore-button:not(:disabled):hover > label,
+.restore-button:not(:disabled):focus > label {
+  color: @background;
 }
 
 .region-button:disabled,
 .restore-button:disabled {
-  background-color: @muted;
-  color: @background;
+  background-color: @border_divider;
+  color: @muted;
+}
+
+scrollbar slider {
+  background-color: @border_box;
+  border-radius: 4px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+scrollbar slider:hover {
+  background-color: @accent;
 }

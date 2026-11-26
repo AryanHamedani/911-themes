@@ -1,30 +1,24 @@
-# Carrera for Fastfetch
+# 911 for Fastfetch
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) theme for [Fastfetch](https://github.com/fastfetch-cli/fastfetch) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [Fastfetch](https://github.com/fastfetch-cli/fastfetch) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.jsonc` — Fastfetch JSONC color configuration (`logo.color`, `display.color`, `display.percent.color`, `display.bar.color`, `display.temp.color`) using exact `colors.toml` hex values (requires Fastfetch >= v2.42.0).
+- `911.jsonc` — Fastfetch JSONC color configuration (`logo.color`, `display.color`, `display.percent.color`, `display.bar.color`, `display.temp.color`) using exact `911` palette hex values (requires Fastfetch >= v2.42.0).
 
-## Installation
-
-1. Copy `carrera.jsonc` to `~/.config/fastfetch/carrera.jsonc`:
-
-   ```bash
-   mkdir -p ~/.config/fastfetch
-   cp carrera.jsonc ~/.config/fastfetch/carrera.jsonc
-   ```
-
-2. Run with `fastfetch --config ~/.config/fastfetch/carrera.jsonc`, or merge the `logo` and `display` blocks manually into `~/.config/fastfetch/config.jsonc` (this repository does not modify your active config).
-
-## Verification
+## Install
 
 ```bash
-fastfetch --config carrera.jsonc --logo none --structure Title:OS:CPU:Memory
+mkdir -p ~/.config/fastfetch
+cp 911.jsonc ~/.config/fastfetch/config.jsonc
 ```
 
-## License
+## Validate
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
+```bash
+fastfetch --config 911.jsonc --logo none --structure Title:OS:CPU:Memory
+```
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+## Disclaimer
+
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

@@ -1,40 +1,21 @@
-# Carrera for Pi Coding Agent
+# 911 for Pi
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) theme for [Pi Coding Agent](https://pi.dev/) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [Pi](https://pi.dev/) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.json` — Pi theme (`$schema: "https://pi.dev/schemas/theme.schema.json"`, `appearance: "dark"`) with 31 `vars`, all 56 `ThemeJsonSchema` color tokens (51 required + 5 optional), and `export` backgrounds.
+- `911.json` — Complete Pi theme (`vars`, `colors`, `export`) covering cockpit surfaces, borders, scrollbars, search matches, tool states, diffs, Markdown, syntax tokens, and thinking levels.
 
-### Derived Hex Notes
+## Install
 
-Derived panel, selection, border, and muted/dim tokens in `vars` and `export` follow Omarchy's theme templates (`pi.json.tpl`) using linear sRGB `mix(start, end, amount)` over `colors.toml` v2.0.0 (`selectedBackground` `#42282c` 22%, `panel` `#212224` 6%, `panelAlt` `#282a2b` 10%, `panelPending`/`Success`/`Error` `#2d2024`/`#232a26`/`#2d2225` 12%, `border` `#4f4f4e` 30%, `borderMuted` `#3c3c3d` 20%, `mutedText` `#94928c` 34%, `dimText` `#72716d` 52%).
+Copy `911.json` to `~/.pi/agent/themes/911.json` and set `"theme": "911"` in `~/.pi/agent/settings.json` (on Omarchy with the `911` theme active, `~/.pi/agent/themes/omarchy-system.json` is automatically kept in sync).
 
-## Installation
-
-1. Copy `carrera.json` to `~/.pi/agent/themes/carrera.json`:
-
-   ```bash
-   mkdir -p ~/.pi/agent/themes
-   cp carrera.json ~/.pi/agent/themes/carrera.json
-   ```
-
-2. Select `carrera` via `/settings` inside Pi, or set it manually in `~/.pi/agent/settings.json` (this repository does not modify your active config):
-
-   ```json
-   {
-     "theme": "carrera"
-   }
-   ```
-
-## Verification
+## Validate
 
 ```bash
-python3 -c 'import json; d=json.load(open("carrera.json")); assert d["name"]=="carrera" and d["appearance"]=="dark" and all(v in d["vars"] or v.startswith("#") for v in d["colors"].values())'
+python3 -c 'import json; d=json.load(open("911.json")); assert d["name"]=="911" and "colors" in d and "export" in d'
 ```
 
-## License
+## Disclaimer
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
-
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

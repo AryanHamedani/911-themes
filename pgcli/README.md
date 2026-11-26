@@ -1,30 +1,26 @@
-# Carrera for pgcli
+# 911 for pgcli
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) color scheme for [pgcli](https://www.pgcli.com/) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [pgcli](https://www.pgcli.com/) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.pgclirc` — `[colors]` section defining all 29 supported `pgcli` `PROMPT_STYLE_TO_TOKEN` keys using exact `colors.toml` hex values.
+- `911.pgclirc` — Complete `[main]` and `[colors]` configuration covering all Prompt Toolkit UI elements (completion menu, scrollbar, search/selection, toolbars, transaction states, tabular output) and Pygments SQL token styles (`pygments.*`).
 
-## Installation
-
-1. Copy the `[colors]` section from `carrera.pgclirc` into `~/.config/pgcli/config` (this repository does not modify your active config), and optionally set `syntax_style = native` under `[main]`:
-
-   ```ini
-   [main]
-   syntax_style = native
-   ```
-
-2. Or launch `pgcli` with `--pgclirc path/to/carrera.pgclirc` on a dedicated copy containing your `[main]` settings.
-
-## Verification
+## Install
 
 ```bash
-python3 -c 'import configparser; cp=configparser.ConfigParser(); cp.read("carrera.pgclirc"); assert len(cp["colors"])==29'
+mkdir -p ~/.config/pgcli
+cp 911.pgclirc ~/.config/pgcli/config
 ```
 
-## License
+(If you already have a `~/.config/pgcli/config`, merge the `[colors]` section and `syntax_style = native` under `[main]`.)
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
+## Validate
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+```bash
+python3 -c 'import configparser; c=configparser.ConfigParser(); c.read("911.pgclirc"); assert "colors" in c and len(c["colors"]) >= 45'
+```
+
+## Disclaimer
+
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

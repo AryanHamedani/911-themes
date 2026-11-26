@@ -1,48 +1,40 @@
-# Carrera for Delta
+# 911 for Delta
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) theme for [delta](https://github.com/dandavison/delta) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [delta](https://github.com/dandavison/delta) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.gitconfig` — Named `[delta "carrera"]` feature include defining diff, line-number, file, hunk-header, commit, blame, and whitespace styles.
+- `911.gitconfig` — Named `[delta "911"]` feature include defining diff lines, inline word emphasis, line numbers, file/commit/hunk headers, blame palette, grep/ripgrep styling, merge-conflict headers, and whitespace error highlights.
 
-### Derived Hex Notes
+## Palette Notes
 
-- `plus-style` (`#222a23`) and `minus-style` (`#2d1e20`) use the shared `Carrera` opaque diff tints over `#15171a`; `plus-emph-style` (`#3a4b3a`) and `minus-emph-style` (`#563537`) use the 32% `green`/`red` over `#15171a` mixes from Omarchy's theme templates.
-- `commit-decoration-style` uses `#31353f` (`btop.theme` `div_line`).
-- `syntax-theme = ansi` is set so `carrera.gitconfig` runs without warnings standalone. If you also install `../bat/Carrera.tmTheme` and rebuild `bat cache --build`, override with `syntax-theme = Carrera` under `[delta]`.
+- `plus-style` (`#202825`) and `minus-style` (`#2d2023`) use the canonical `911` opaque diff tints over `#141619`; inline emphasis highlights with `bright_green` (`#98ce9f`) and `bright_red` (`#f48583`) over `#202825` and `#332024`.
+- `syntax-theme = 911` pairs directly with `../bat/911.tmTheme` (install via `bat cache --build`).
 
-## Installation
+## Install
 
-1. Copy `carrera.gitconfig` to `~/.config/git/carrera.gitconfig`:
+1. Copy `911.gitconfig` to `~/.config/git/911-delta.gitconfig`:
 
    ```bash
    mkdir -p ~/.config/git
-   cp carrera.gitconfig ~/.config/git/carrera.gitconfig
+   cp 911.gitconfig ~/.config/git/911-delta.gitconfig
    ```
 
-2. Include it and enable the `carrera` feature manually in `~/.config/git/config` (this repository does not modify your active config):
+2. Include it and enable the `911` feature in `~/.config/git/config`:
 
    ```ini
    [include]
-       path = ~/.config/git/carrera.gitconfig
-
+       path = ~/.config/git/911-delta.gitconfig
    [delta]
-       features = carrera
+       features = 911
    ```
 
-## Verification
+## Validate
 
 ```bash
-git config --file carrera.gitconfig --list | grep -q '^delta\.carrera\.'
-TMP=$(mktemp -d)
-printf '[include]\n    path = %s/carrera.gitconfig\n[delta]\n    features = carrera\n' "$PWD" > "$TMP/delta.gitconfig"
-printf 'diff --git a/a b/a\n--- a/a\n+++ b/a\n@@ -1 +1 @@\n-old\n+new\n' | HOME="$TMP" XDG_CONFIG_HOME="$TMP/xdg" delta --config "$TMP/delta.gitconfig" --true-color=always --paging=never
-rm -rf "$TMP"
+git config --file 911.gitconfig --list | grep -q '^delta\.911\.'
 ```
 
-## License
+## Disclaimer
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
-
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

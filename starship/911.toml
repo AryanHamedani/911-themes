@@ -1,0 +1,154 @@
+# 911 (992.2) Precision Night Cockpit — Starship
+# Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+
+add_newline = true
+command_timeout = 200
+palette = "911"
+
+format = "$directory$git_branch$git_status$git_metrics$python$golang$rust$nodejs$docker_context$kubernetes$cmd_duration$jobs$status$fill$time\n$character"
+
+[fill]
+symbol = " "
+style = "divider"
+
+[character]
+success_symbol = "[❯](bold accent)"
+error_symbol = "[✗](bold red)"
+vimcmd_symbol = "[❮](bold yellow)"
+vimcmd_replace_one_symbol = "[❮](bold magenta)"
+vimcmd_replace_symbol = "[❮](bold magenta)"
+vimcmd_visual_symbol = "[❮](bold cyan)"
+
+[directory]
+style = "bold blue"
+truncation_length = 2
+truncation_symbol = "…/"
+repo_root_style = "bold accent"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+read_only = " 󰌾"
+read_only_style = "red"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "italic green"
+
+[git_status]
+format = "[$all_status]($style)"
+style = "yellow"
+ahead = "⇡${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+behind = "⇣${count} "
+conflicted = " "
+up_to_date = " "
+untracked = "? "
+modified = " "
+staged = "+${count} "
+renamed = "» "
+deleted = "✘ "
+stashed = "≡ "
+
+[git_metrics]
+disabled = false
+added_style = "green"
+deleted_style = "red"
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+
+[python]
+symbol = " "
+style = "yellow"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[golang]
+symbol = " "
+style = "cyan"
+format = "[$symbol($version )]($style)"
+
+[rust]
+symbol = " "
+style = "orange"
+format = "[$symbol($version )]($style)"
+
+[nodejs]
+symbol = " "
+style = "green"
+format = "[$symbol($version )]($style)"
+
+[docker_context]
+symbol = " "
+style = "blue"
+format = "[$symbol$context]($style) "
+
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+style = "bright_blue"
+format = '[$symbol$context( \($namespace\))]($style) '
+
+[cmd_duration]
+min_time = 2000
+style = "orange"
+format = "[⏱ $duration]($style) "
+
+[jobs]
+symbol = "✦"
+style = "cyan"
+format = "[$symbol$number]($style) "
+
+[status]
+disabled = false
+symbol = "✗ "
+style = "bold red"
+format = "[$symbol$status]($style) "
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "muted"
+format = "[$time]($style)"
+
+[palettes.911]
+# Base cockpit surfaces
+darker_background = "#0a0b0d"
+dark_background = "#0f1114"
+background = "#141619"
+lighter_background = "#1d2026"
+selection = "#292d36"
+
+# Derived cockpit planes, borders & badges
+deep_carbon = "#0c0e11"
+chrome = "#131519"
+elevated = "#1a1d23"
+smoked_carmine = "#261b1f"
+hairline = "#252932"
+divider = "#2f3440"
+border = "#434854"
+badge_red = "#bf3b3e"
+badge_muted = "#363b47"
+badge_ink = "#f4f3ef"
+
+# Foregrounds
+foreground = "#dadad6"
+bright_foreground = "#edede9"
+light_foreground = "#b4b7be"
+dark_foreground = "#9297a2"
+muted = "#858a96"
+
+# Accent & semantic hues
+accent = "#e55c5a"
+red = "#e56c6a"
+orange = "#e89158"
+yellow = "#e0be66"
+green = "#7fb887"
+cyan = "#6ac4cb"
+blue = "#6fa2de"
+magenta = "#b488cc"
+brown = "#ad7f66"
+
+# Bright semantic hues
+bright_red = "#f48583"
+bright_yellow = "#f0d282"
+bright_green = "#98ce9f"
+bright_cyan = "#84d8de"
+bright_blue = "#8cb9f2"
+bright_magenta = "#caa2e0"

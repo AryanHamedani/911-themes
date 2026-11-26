@@ -1,0 +1,36 @@
+# 911 (992.2) Precision Night Cockpit — Ghostty
+# Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+
+background = #141619
+foreground = #dadad6
+
+cursor-color = #e55c5a
+cursor-text = #0a0b0d
+
+selection-background = #292d36
+selection-foreground = #edede9
+
+split-divider-color = #252932
+unfocused-split-fill = #0f1114
+
+search-foreground = #edede9
+search-background = #5b5134
+search-selected-foreground = #f4f3ef
+search-selected-background = #bf3b3e
+
+palette = 0=#141619
+palette = 1=#e56c6a
+palette = 2=#7fb887
+palette = 3=#e0be66
+palette = 4=#6fa2de
+palette = 5=#b488cc
+palette = 6=#6ac4cb
+palette = 7=#dadad6
+palette = 8=#858a96
+palette = 9=#f48583
+palette = 10=#98ce9f
+palette = 11=#f0d282
+palette = 12=#8cb9f2
+palette = 13=#caa2e0
+palette = 14=#84d8de
+palette = 15=#edede9

@@ -1,51 +1,36 @@
-# Carrera for Neovim
+# 911 (`992.2`) for Neovim
 
-Standalone Porsche 911 Heritage Cockpit (`v2.0.0`) Neovim colorscheme (`colors/carrera.lua`) built directly from [`../colors.toml`](../colors.toml).
+Standalone, zero-dependency Lua colorscheme for Neovim aligned with the **911 (`992.2`) Precision Night Cockpit** palette (`../colors.toml`).
 
-> **Note**: This colorscheme is intentionally standalone and does **not** activate itself on startup. Your existing LazyVim / Neovim configuration remains untouched until you explicitly invoke `:colorscheme carrera` or configure it yourself.
+## Coverage
 
-## Design Philosophy
+- **Core UI & Chrome**: 4-plane cockpit surfaces (`#0a0b0d` / `#0f1114` / `#141619` / `#1d2026`), Race-Tex chrome (`#131519`), Vanadium elevated (`#1a1d23`), Smoked Carmine (`#261b1f`), Guards Red badges (`#bf3b3e` / `#f4f3ef`, `4.84:1` AA), cursorline, floats, popups, folds, spellchecks.
+- **Syntax, TreeSitter & LSP Semantic Tokens**: Full `@keyword`, `@function`, `@type`, `@string`, `@number`, `@variable`, `@property`, `@markup`, `@tag`, and `@lsp.type.*` / `@lsp.typemod.*` coverage.
+- **Diagnostics & Diffs**: Canonical opaque `alpha-over-#141619` tints for `DiagnosticVirtualText*`, `DiffAdd`, `DiffDelete`, `DiffChange`, `DiffText`, `GitSigns*`, and `Diffview*`.
+- **Plugins**: Telescope, Snacks, Neo-tree, Oil, Blink.cmp, nvim-cmp, Which-Key, Noice, nvim-notify, Trouble, Indent-blankline (`Ibl*` & legacy), Lualine (`package.preload["lualine.themes.911"]`), Flash, Lazy, Mason, RenderMarkdown, `obsidian.nvim`, GrugFar, Mini.
+- **Terminal**: Complete ANSI 16 `vim.g.terminal_color_0..15`.
 
-- **Colour carries meaning, weight stays regular**: Only `CursorLineNr` (`#e1656c`) and `MatchParen` (`#f28a8b`) use bold in normal editing chrome; red is reserved for keywords (`#e07476`) and errors (`#f28a8b`).
-- **OKLCH Ergonomic Contrast**: Basalt Alcantara (`#15171a`), recessed instrument wells (`#101215`), Chalk foregrounds (`#d6d2c7` at `11.89:1`), Carmine Red (`#e1656c`) rev-needle accents, and derived `alpha-over-#15171a` diff and diagnostic backgrounds.
-- **Broad Ecosystem Support**: Core UI, standard Vim syntax, Treesitter (`@...`), LSP semantic tokens (`@lsp.*`), Diagnostics (`undercurl` + tinted virtual text), Diff/GitSigns/Diffview, Telescope, Snacks, Neo-tree, Oil, Blink.cmp, nvim-cmp, WhichKey, Noice, Trouble, Flash, Lazy, Mason, RenderMarkdown, GrugFar, Mini, Lualine `"auto"` compatibility, and `terminal_color_0..15`.
-
-## Manual Installation (Non-Activating)
-
-1. Copy `neovim/colors/carrera.lua` to your Neovim runtime directory:
-
-   ```bash
-   mkdir -p ~/.config/nvim/colors
-   cp neovim/colors/carrera.lua ~/.config/nvim/colors/carrera.lua
-   ```
-
-2. Try it temporarily inside Neovim without changing your default configuration:
-
-   ```vim
-   :colorscheme carrera
-   ```
-
-3. Optional — make it your default in LazyVim (`~/.config/nvim/lua/plugins/colorscheme.lua`):
-
-   ```lua
-   return {
-     {
-       "LazyVim/LazyVim",
-       opts = {
-         colorscheme = "carrera",
-       },
-     },
-   }
-   ```
-
-## Verification
-
-Test loading in headless Neovim without touching your startup config:
+## Installation
 
 ```bash
-nvim --headless -c 'colorscheme carrera' -c 'lua print(vim.g.colors_name)' -c 'qa!'
+mkdir -p ~/.config/nvim/colors
+cp colors/911.lua ~/.config/nvim/colors/911.lua
 ```
+
+Activate in Neovim:
+
+```vim
+:colorscheme 911
+```
+
+Or with Lualine:
+
+```lua
+require("lualine").setup({ options = { theme = "911" } })
+```
+
+> **Omarchy note**: Omarchy's active `911` theme manages `~/.config/nvim/lua/plugins/theme.lua` via `aether.nvim`. Installing `~/.config/nvim/colors/911.lua` makes `:colorscheme 911` available without breaking Omarchy theme hot-reload.
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG. Licensed under [MIT](../LICENSE).
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

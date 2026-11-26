@@ -1,36 +1,34 @@
-# Carrera for Kitty
+# 911 for Kitty
 
-A dark, glare-free [Kitty](https://sw.kovidgoyal.net/kitty/) terminal theme inspired by the Porsche 911 Heritage Cockpit on a night drive: **Basalt Alcantara** (`#15171a`) surfaces, warm **Chalk (`Kreide`)** (`#d6d2c7`) dial numerals, and a disciplined spark of **Carmine Red** (`#e1656c`).
+A dark, glare-free [Kitty](https://sw.kovidgoyal.net/kitty/) terminal theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**: **Race-Tex Charcoal** (`#141619`) surfaces, **Ice Grey (Crayon)** (`#dadad6`) dial typography, and a disciplined spark of **Guards/Carmine Red** (`#e55c5a`).
 
-Calibrated in OKLCH for long daily sessions and tuned to WCAG AA / APCA contrast targets.
+Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast targets.
 
 ## Files Included
 
-- `carrera.conf` — Kitty color, cursor, tab bar, border, and 16-color ANSI palette definitions.
-
-## Cursor Note
-
-By default, `carrera.conf` sets `cursor #e1656c` and `cursor_text_color #15171a` (Carmine Red cursor, matching `colors.toml`). If you prefer the Chalk (`Kreide`) cursor rendered by Omarchy runtime templates, set `cursor #eae6dc`.
+- `911.conf` — Complete Kitty color theme covering foreground/background, selection, cursor, URL highlight, visual bell, active/inactive/bell split borders, Wayland/macOS titlebar, tab bar (with AA Guards Red active tab badge), marks 1–3, and all 16 ANSI colors.
 
 ## Manual Install
 
-1. Copy `carrera.conf` to your Kitty themes directory:
+1. Copy `911.conf` to your Kitty themes directory:
 
    ```sh
    mkdir -p ~/.config/kitty/themes
-   cp carrera.conf ~/.config/kitty/themes/carrera.conf
+   cp 911.conf ~/.config/kitty/themes/911.conf
    ```
 
 2. Include it in `~/.config/kitty/kitty.conf`:
 
    ```conf
-   include themes/carrera.conf
+   include themes/911.conf
    ```
+
+> On Omarchy with the active `911` theme, `~/.config/kitty/kitty.conf` already includes `~/.local/state/omarchy/current/theme/kitty.conf`.
 
 Palette reference: [`../colors.toml`](../colors.toml).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.
 
 License: [MIT](../LICENSE)

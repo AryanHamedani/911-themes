@@ -1,38 +1,39 @@
-# Carrera for btop
+# 911 for btop
 
-Porsche 911 Heritage Cockpit (`Carrera v2.0.0`) theme for [btop](https://github.com/aristocratos/btop) — Basalt Alcantara (`#15171a`), Chalk (`#d6d2c7`), GT Silver (`#9599a2`), and Carmine Red (`#e1656c`).
+Porsche 911 (`992.2`) Precision Night Cockpit theme for [btop](https://github.com/aristocratos/btop) — Race-Tex Charcoal (`#141619`), Ice Grey (`#dadad6`), GT Silver (`#9297a2`), and 911 Guards/Carmine Red (`#e55c5a`).
 
 ## Files
 
-- `carrera.theme` — Standalone copy of `omarchy-carrera-theme/btop.theme` defining all 42 `theme[...]` keys.
+- `911.theme` — Standalone copy of `omarchy-911-theme/btop.theme` defining all 50 `theme[...]` keys including `gradient_color_0..7`.
 
-### Derived Hex Notes
+## Palette Notes
 
-- Box borders (`cpu_box`, `mem_box`, `net_box`, `proc_box`) use `#454954` and `div_line` uses `#31353f`, matching `omarchy-carrera-theme/btop.theme`.
+- Box borders (`cpu_box`, `mem_box`, `net_box`, `proc_box`) use `#434854` and `div_line` uses `#2f3440`, matching `omarchy-911-theme/btop.theme`.
+- Graphs sweep like a 992.2 tachometer from Oak Green Metallic Neo (`#7fb887`) through PCCB Racing Gold (`#e0be66`) to 911 Guards/Carmine Red (`#e55c5a`).
 
-## Installation
+## Install
 
-1. Copy `carrera.theme` to `~/.config/btop/themes/carrera.theme`:
+1. Copy `911.theme` to `~/.config/btop/themes/911.theme`:
 
    ```bash
    mkdir -p ~/.config/btop/themes
-   cp carrera.theme ~/.config/btop/themes/carrera.theme
+   cp 911.theme ~/.config/btop/themes/911.theme
    ```
 
-2. Enable it manually in `~/.config/btop/btop.conf` (this repository does not modify your active config):
+2. Set in `~/.config/btop/btop.conf`:
 
    ```ini
-   color_theme = "carrera"
+   color_theme = "911"
    ```
 
-## Verification
+   (On Omarchy with the `911` theme active, `~/.config/btop/themes/current.theme` already symlinks to `omarchy-911-theme/btop.theme`.)
+
+## Validate
 
 ```bash
-grep -E '^theme\[[a-z_]+\]="#[0-9a-fA-F]{6}"$' carrera.theme | wc -l
+grep -E '^theme\[[a-z0-9_]+\]="#[0-9a-fA-F]{6}"$' 911.theme | wc -l
 ```
 
-## License
+## Disclaimer
 
-[MIT](../LICENSE) — Copyright (c) 2026 Aryan Hamedani.
-
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.

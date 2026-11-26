@@ -1,29 +1,20 @@
-# Carrera for GTK 3 & GTK 4
+# 911 (`992.2`) for GTK 3 & GTK 4 / libadwaita
 
-A unified `@define-color` stylesheet for GTK 3, GTK 4, and libadwaita applications:
-Basalt Alcantara windows (`#15171a`), recessed views and sidebars (`#101215`),
-elevated headerbars/cards/popovers (`#1e2025`), Chalk (`#d6d2c7`) text, and Carmine Red (`#e1656c`) accents
-with `#15171a` accent foreground (`5.37:1` WCAG AA contrast).
+Shared `@define-color` stylesheet for GTK 3 and GTK 4 / libadwaita applications, aligned with the **911 (`992.2`) Precision Night Cockpit** palette (`../colors.toml`).
 
-## Install
+## Coverage
 
-Copy `gtk.css` to your GTK 3 and GTK 4 user config directories (back up any existing `gtk.css` first):
+- Complete libadwaita 1.x tokens: `accent_*` (`#bf3b3e` / `#f4f3ef` `4.84:1` AA, `#e55c5a` text accent), `destructive_*`, `success_*`, `warning_*`, `error_*`, `window_*`, `view_*`, `headerbar_*`, `sidebar_*`, `secondary_sidebar_*`, `card_*`, `dialog_*`, `popover_*`, `thumbnail_*`, `shade_color`, and `scrollbar_outline_color`.
+- Full GTK 3 Adwaita-dark aliases: `theme_*`, `insensitive_*`, `theme_unfocused_*`, `borders`, `content_view_bg`, `text_view_bg`, `wm_*`, `osd_*`, and `tooltip_*`.
+
+## Installation
 
 ```bash
 mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0
-cp gtk/gtk.css ~/.config/gtk-3.0/gtk.css
-cp gtk/gtk.css ~/.config/gtk-4.0/gtk.css
-```
-
-Ensure dark mode is preferred in your desktop session:
-
-```bash
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+cp gtk.css ~/.config/gtk-3.0/gtk.css
+cp gtk.css ~/.config/gtk-4.0/gtk.css
 ```
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

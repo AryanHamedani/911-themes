@@ -1,23 +1,31 @@
--- Carrera v2.0.0 — Porsche 911 Heritage Cockpit colorscheme for Neovim
--- Source palette: /home/aryan/Work/personal/AryanHamedani/omarchy-carrera-theme/colors.toml
--- Rule: colour carries meaning, weight stays regular. Only the cursor line number and
--- matching brackets are bold; red is for keywords and errors only.
+-- 911 (992.2) Precision Night Cockpit — colorscheme for Neovim
+-- Source palette: /home/aryan/Work/personal/AryanHamedani/omarchy-911-theme/colors.toml
+-- Rule: colour carries meaning, weight stays regular. Only the cursor line number,
+-- matching brackets, and key UI titles are bold; red is for keywords, errors, and
+-- the single disciplined spark of 911 Guards/Carmine Red.
 --
--- Derived opaque surface/tint hexes (sRGB alpha-over-#15171a):
---   div_line          = #31353f (from omarchy-carrera-theme/btop.theme)
---   box_border        = #454954 (from omarchy-carrera-theme/btop.theme)
---   inactive_border   = #262930 (from colors.toml hyprland_inactive_border)
---   active_border_dim = #3a2429 (from colors.toml hyprland_active_border stop 2)
---   diff_add          = #222a23 (~11% green #89b87f over #15171a)
---   diff_delete       = #2d1e20 (~12% red/accent over #15171a)
---   diff_change       = #202731 (12% blue #74a0d7 over #15171a)
---   diff_text         = #2b3646 (~23% blue #74a0d7 over #15171a)
---   diag_error_bg     = #2b2225 (10% bright_red #f28a8b over #15171a)
---   diag_warn_bg      = #292722 (10% yellow #dcbb6a over #15171a)
---   diag_info_bg      = #1e252d (10% blue #74a0d7 over #15171a)
---   diag_hint_bg      = #1e292c (10% cyan #6fc7cb over #15171a)
---   diag_ok_bg        = #212724 (10% green #89b87f over #15171a)
---   search_bg         = #5b5036 (35% yellow #dcbb6a over #15171a)
+-- Derived cockpit planes, borders & opaque sRGB alpha-over-#141619 tints:
+--   deep_carbon       = #0c0e11 (recessed cockpit plane)
+--   racetex_chrome    = #131519 (chrome surface)
+--   vanadium_elevated = #1a1d23 (elevated panel)
+--   smoked_carmine    = #261b1f (Smoked Carmine tint, 11.90:1 w/ #dadad6)
+--   inactive_border   = #252932 (Hyprland inactive hairline)
+--   active_border_dim = #332024 (Hyprland active border stop 2)
+--   div_line          = #2f3440 (divider, btop.theme div_line)
+--   box_border        = #434854 (box border, btop.theme *_box)
+--   badge_red         = #bf3b3e (filled Guards Red badge)
+--   badge_ink         = #f4f3ef (badge foreground, 4.84:1 AA on #bf3b3e)
+--   badge_muted       = #363b47 (muted badge fill, 10.10:1 w/ #f4f3ef)
+--   diff_add          = #202825 (11% green #7fb887 over #141619)
+--   diff_delete       = #2d2023 (12% red #e56c6a over #141619)
+--   diff_change       = #1f2731 (12% blue #6fa2de over #141619)
+--   diff_text         = #293646 (23% blue #6fa2de over #141619)
+--   diag_error_bg     = #2a2124 (10% bright_red #f48583 over #141619)
+--   diag_warn_bg      = #282721 (10% yellow #e0be66 over #141619)
+--   diag_info_bg      = #1d242d (10% blue #6fa2de over #141619)
+--   diag_hint_bg      = #1d272b (10% cyan #6ac4cb over #141619)
+--   diag_ok_bg        = #1f2624 (10% green #7fb887 over #141619)
+--   search_bg         = #5b5134 (35% yellow #e0be66 over #141619, 6.70:1 w/ #edede9)
 
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") == 1 then
@@ -26,51 +34,58 @@ end
 
 vim.o.termguicolors = true
 vim.o.background = "dark"
-vim.g.colors_name = "carrera"
+vim.g.colors_name = "911"
 
 local p = {
-  bg = "#15171a",
-  dark_bg = "#101215",
-  darker_bg = "#0b0c0e",
-  lighter_bg = "#1e2025",
-  selection = "#2b2e35",
-  fg = "#d6d2c7",
-  bright_fg = "#eae6dc",
-  light_fg = "#b3afa6",
-  dark_fg = "#9599a2",
-  muted = "#838792",
-  accent = "#e1656c",
-  red = "#e07476",
-  orange = "#e8965a",
-  yellow = "#dcbb6a",
-  green = "#89b87f",
-  cyan = "#6fc7cb",
-  blue = "#74a0d7",
-  magenta = "#b886b8",
-  brown = "#ae7e62",
-  bright_red = "#f28a8b",
-  bright_yellow = "#edcf86",
-  bright_green = "#a1ce97",
-  bright_cyan = "#87d9dd",
-  bright_blue = "#8eb9f0",
-  bright_magenta = "#d09fd1",
+  bg = "#141619",
+  dark_bg = "#0f1114",
+  darker_bg = "#0a0b0d",
+  lighter_bg = "#1d2026",
+  selection = "#292d36",
+  fg = "#dadad6",
+  bright_fg = "#edede9",
+  light_fg = "#b4b7be",
+  dark_fg = "#9297a2",
+  muted = "#858a96",
+  accent = "#e55c5a",
+  red = "#e56c6a",
+  orange = "#e89158",
+  yellow = "#e0be66",
+  green = "#7fb887",
+  cyan = "#6ac4cb",
+  blue = "#6fa2de",
+  magenta = "#b488cc",
+  brown = "#ad7f66",
+  bright_red = "#f48583",
+  bright_yellow = "#f0d282",
+  bright_green = "#98ce9f",
+  bright_cyan = "#84d8de",
+  bright_blue = "#8cb9f2",
+  bright_magenta = "#caa2e0",
 }
 
 local d = {
-  div_line = "#31353f",
-  box_border = "#454954",
-  inactive_border = "#262930",
-  active_border_dim = "#3a2429",
-  diff_add = "#222a23",
-  diff_delete = "#2d1e20",
-  diff_change = "#202731",
-  diff_text = "#2b3646",
-  diag_error_bg = "#2b2225",
-  diag_warn_bg = "#292722",
-  diag_info_bg = "#1e252d",
-  diag_hint_bg = "#1e292c",
-  diag_ok_bg = "#212724",
-  search_bg = "#5b5036",
+  deep_carbon = "#0c0e11",
+  racetex_chrome = "#131519",
+  vanadium_elevated = "#1a1d23",
+  smoked_carmine = "#261b1f",
+  inactive_border = "#252932",
+  active_border_dim = "#332024",
+  div_line = "#2f3440",
+  box_border = "#434854",
+  badge_red = "#bf3b3e",
+  badge_ink = "#f4f3ef",
+  badge_muted = "#363b47",
+  diff_add = "#202825",
+  diff_delete = "#2d2023",
+  diff_change = "#1f2731",
+  diff_text = "#293646",
+  diag_error_bg = "#2a2124",
+  diag_warn_bg = "#282721",
+  diag_info_bg = "#1d242d",
+  diag_hint_bg = "#1d272b",
+  diag_ok_bg = "#1f2624",
+  search_bg = "#5b5134",
 }
 
 local groups = {
@@ -84,7 +99,7 @@ local groups = {
   FloatFooter = { fg = p.dark_fg, bg = p.dark_bg },
   WinSeparator = { fg = d.div_line },
   VertSplit = { fg = d.div_line },
-  ColorColumn = { bg = p.darker_bg },
+  ColorColumn = { bg = d.deep_carbon },
   EndOfBuffer = { fg = p.bg },
   Conceal = { fg = p.dark_fg },
   NonText = { fg = d.div_line },
@@ -106,7 +121,7 @@ local groups = {
   Search = { fg = p.bright_fg, bg = d.search_bg },
   IncSearch = { fg = p.darker_bg, bg = p.yellow },
   CurSearch = { fg = p.darker_bg, bg = p.yellow },
-  Substitute = { fg = p.darker_bg, bg = p.accent },
+  Substitute = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   MatchParen = { fg = p.bright_red, bold = true, underline = true },
   Pmenu = { fg = p.fg, bg = p.dark_bg },
   PmenuSel = { fg = p.bright_fg, bg = p.selection, bold = true },
@@ -116,14 +131,14 @@ local groups = {
   PmenuThumb = { bg = d.box_border },
   PmenuExtra = { fg = p.dark_fg, bg = p.dark_bg },
   PmenuExtraSel = { fg = p.light_fg, bg = p.selection },
-  StatusLine = { fg = p.fg, bg = p.dark_bg },
+  StatusLine = { fg = p.fg, bg = d.racetex_chrome },
   StatusLineNC = { fg = p.muted, bg = p.dark_bg },
-  WinBar = { link = "StatusLine" },
-  WinBarNC = { link = "StatusLineNC" },
+  WinBar = { fg = p.light_fg, bg = p.bg },
+  WinBarNC = { fg = p.muted, bg = p.bg },
   TabLine = { fg = p.muted, bg = p.dark_bg },
   TabLineFill = { bg = p.darker_bg },
-  TabLineSel = { fg = p.darker_bg, bg = p.accent, bold = true },
-  Folded = { fg = p.dark_fg, bg = p.lighter_bg, italic = true },
+  TabLineSel = { fg = d.badge_ink, bg = d.badge_red, bold = true },
+  Folded = { fg = p.dark_fg, bg = d.vanadium_elevated, italic = true },
   FoldColumn = { fg = p.muted, bg = p.bg },
   SignColumn = { fg = p.muted, bg = p.bg },
   SignColumnSB = { fg = p.muted, bg = p.dark_bg },
@@ -256,7 +271,7 @@ local groups = {
   ["@comment.hint"] = { fg = p.darker_bg, bg = p.blue, bold = true },
   ["@comment.info"] = { fg = p.darker_bg, bg = p.blue, bold = true },
   ["@comment.warning"] = { fg = p.darker_bg, bg = p.orange, bold = true },
-  ["@comment.error"] = { fg = p.darker_bg, bg = p.accent, bold = true },
+  ["@comment.error"] = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   ["@tag"] = { fg = p.red },
   ["@tag.attribute"] = { fg = p.cyan },
   ["@tag.delimiter"] = { fg = p.dark_fg },
@@ -315,9 +330,12 @@ local groups = {
   ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
   ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
   ["@lsp.typemod.variable.readonly"] = { fg = p.orange },
+  ["@lsp.typemod.variable.static"] = { fg = p.bright_yellow },
+  ["@lsp.typemod.class.defaultLibrary"] = { fg = p.yellow },
+  ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
   LspReferenceText = { bg = p.selection },
   LspReferenceRead = { bg = p.selection },
-  LspReferenceWrite = { bg = p.selection, underline = true },
+  LspReferenceWrite = { bg = d.smoked_carmine, underline = true },
   LspSignatureActiveParameter = { fg = p.orange, bold = true },
   LspCodeLens = { fg = p.muted },
   LspCodeLensSeparator = { fg = d.div_line },
@@ -352,7 +370,7 @@ local groups = {
   DiagnosticSignHint = { fg = p.cyan, bg = p.bg },
   DiagnosticSignOk = { fg = p.green, bg = p.bg },
 
-  -- Diff & Git
+  -- Diff & Git (Gitsigns + Diffview)
   DiffAdd = { bg = d.diff_add },
   DiffDelete = { bg = d.diff_delete },
   DiffChange = { bg = d.diff_change },
@@ -371,6 +389,12 @@ local groups = {
   GitSignsAdd = { fg = p.green },
   GitSignsChange = { fg = p.blue },
   GitSignsDelete = { fg = p.red },
+  GitSignsTopdelete = { fg = p.red },
+  GitSignsChangedelete = { fg = p.orange },
+  GitSignsUntracked = { fg = p.cyan },
+  GitSignsAddInline = { bg = d.diff_add },
+  GitSignsChangeInline = { bg = d.diff_text },
+  GitSignsDeleteInline = { bg = d.diff_delete },
   GitSignsCurrentLineBlame = { fg = p.muted, italic = true },
 
   -- Diffview
@@ -398,13 +422,15 @@ local groups = {
   TelescopeBorder = { link = "FloatBorder" },
   TelescopeSelection = { fg = p.bright_fg, bg = p.lighter_bg },
   TelescopeSelectionCaret = { fg = p.accent, bg = p.lighter_bg },
-  TelescopeMultiSelection = { fg = p.bright_fg, bg = p.lighter_bg },
+  TelescopeMultiSelection = { fg = p.bright_fg, bg = d.smoked_carmine },
   TelescopeMatching = { fg = p.accent, bold = true },
-  TelescopePromptNormal = { bg = p.dark_bg },
-  TelescopePromptBorder = { fg = d.box_border, bg = p.dark_bg },
-  TelescopePromptTitle = { fg = p.accent, bg = p.dark_bg, bold = true },
-  TelescopePreviewTitle = { fg = p.blue, bg = p.dark_bg, bold = true },
-  TelescopeResultsTitle = { fg = p.bright_red, bg = p.dark_bg, bold = true },
+  TelescopePromptNormal = { fg = p.bright_fg, bg = d.vanadium_elevated },
+  TelescopePromptBorder = { fg = d.box_border, bg = d.vanadium_elevated },
+  TelescopePromptPrefix = { fg = p.accent, bg = d.vanadium_elevated },
+  TelescopePromptCounter = { fg = p.muted, bg = d.vanadium_elevated },
+  TelescopePromptTitle = { fg = d.badge_ink, bg = d.badge_red, bold = true },
+  TelescopePreviewTitle = { fg = p.darker_bg, bg = p.blue, bold = true },
+  TelescopeResultsTitle = { fg = d.badge_ink, bg = d.badge_muted, bold = true },
 
   -- Snacks
   SnacksNormal = { fg = p.fg, bg = p.dark_bg },
@@ -458,18 +484,27 @@ local groups = {
   SnacksPickerMatch = { fg = p.accent, bold = true },
   SnacksPickerSelected = { fg = p.bright_fg, bg = p.selection, bold = true },
   SnacksPickerPickWin = { fg = p.darker_bg, bg = p.blue, bold = true },
-  SnacksPickerPickWinCurrent = { fg = p.darker_bg, bg = p.accent, bold = true },
+  SnacksPickerPickWinCurrent = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   SnacksPickerDirectory = { fg = p.blue },
   SnacksPickerDir = { fg = p.dark_fg },
   SnacksPickerFile = { fg = p.fg },
   SnacksPickerPathHidden = { fg = p.muted },
   SnacksPickerPathIgnored = { fg = p.muted },
-  SnacksPickerToggle = { fg = p.darker_bg, bg = p.accent, bold = true },
+  SnacksPickerToggle = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   SnacksPickerGitStatusAdded = { fg = p.green },
   SnacksPickerGitStatusModified = { fg = p.blue },
   SnacksPickerGitStatusDeleted = { fg = p.bright_red },
   SnacksPickerGitStatusUntracked = { fg = p.cyan },
   SnacksPickerGitStatusRenamed = { fg = p.yellow },
+
+  -- Indent-blankline (v2 & v3)
+  IblIndent = { fg = d.inactive_border, nocombine = true },
+  IblWhitespace = { fg = d.inactive_border, nocombine = true },
+  IblScope = { fg = d.box_border, nocombine = true },
+  IndentBlanklineChar = { fg = d.inactive_border, nocombine = true },
+  IndentBlanklineSpaceChar = { fg = d.inactive_border, nocombine = true },
+  IndentBlanklineContextChar = { fg = d.box_border, nocombine = true },
+  IndentBlanklineContextStart = { sp = d.box_border, underline = true },
 
   -- Neo-tree & Oil
   NeoTreeNormal = { fg = p.fg, bg = p.dark_bg },
@@ -482,6 +517,10 @@ local groups = {
   NeoTreeFileNameOpened = { fg = p.bright_fg },
   NeoTreeIndentMarker = { fg = d.div_line },
   NeoTreeWinSeparator = { fg = d.div_line, bg = p.dark_bg },
+  NeoTreeTabActive = { fg = p.bright_fg, bg = d.vanadium_elevated, bold = true },
+  NeoTreeTabInactive = { fg = p.muted, bg = p.dark_bg },
+  NeoTreeTabSeparatorActive = { fg = d.div_line, bg = d.vanadium_elevated },
+  NeoTreeTabSeparatorInactive = { fg = d.inactive_border, bg = p.dark_bg },
   NeoTreeGitAdded = { fg = p.green },
   NeoTreeGitConflict = { fg = p.bright_red },
   NeoTreeGitDeleted = { fg = p.bright_red },
@@ -502,13 +541,18 @@ local groups = {
   BlinkCmpMenu = { fg = p.fg, bg = p.dark_bg },
   BlinkCmpMenuBorder = { fg = d.box_border, bg = p.dark_bg },
   BlinkCmpMenuSelection = { bg = p.selection },
+  BlinkCmpScrollBarThumb = { bg = d.box_border },
+  BlinkCmpScrollBarGutter = { bg = p.dark_bg },
   BlinkCmpLabel = { fg = p.fg },
   BlinkCmpLabelDeprecated = { fg = p.muted, strikethrough = true },
   BlinkCmpLabelMatch = { fg = p.accent, bold = true },
   BlinkCmpLabelDescription = { fg = p.dark_fg },
   BlinkCmpLabelDetail = { fg = p.muted },
+  BlinkCmpSource = { fg = p.muted },
+  BlinkCmpGhostText = { fg = p.muted, italic = true },
   BlinkCmpDoc = { fg = p.fg, bg = p.dark_bg },
   BlinkCmpDocBorder = { fg = d.box_border, bg = p.dark_bg },
+  BlinkCmpDocSeparator = { fg = d.div_line, bg = p.dark_bg },
   BlinkCmpSignatureHelp = { fg = p.fg, bg = p.dark_bg },
   BlinkCmpSignatureHelpBorder = { fg = d.box_border, bg = p.dark_bg },
   BlinkCmpSignatureHelpActiveParameter = { fg = p.orange, bold = true },
@@ -542,6 +586,7 @@ local groups = {
   -- nvim-cmp
   CmpDocumentation = { fg = p.fg, bg = p.dark_bg },
   CmpDocumentationBorder = { fg = d.box_border, bg = p.dark_bg },
+  CmpGhostText = { fg = p.muted, italic = true },
   CmpItemAbbr = { fg = p.fg },
   CmpItemAbbrDeprecated = { fg = p.muted, strikethrough = true },
   CmpItemAbbrMatch = { fg = p.accent, bold = true },
@@ -581,6 +626,7 @@ local groups = {
   WhichKeySeparator = { fg = p.muted },
   WhichKeyFloat = { bg = p.dark_bg },
   WhichKeyBorder = { fg = d.box_border, bg = p.dark_bg },
+  WhichKeyTitle = { fg = p.accent, bg = p.dark_bg, bold = true },
   WhichKeyValue = { fg = p.muted },
 
   -- Noice
@@ -590,8 +636,12 @@ local groups = {
   NoiceCmdlinePopup = { bg = p.dark_bg },
   NoiceCmdlinePopupBorder = { fg = d.box_border, bg = p.dark_bg },
   NoiceCmdlinePopupBorderSearch = { fg = p.yellow, bg = p.dark_bg },
+  NoiceCmdlinePopupTitle = { fg = p.accent, bg = p.dark_bg, bold = true },
   NoiceConfirm = { bg = p.dark_bg },
   NoiceConfirmBorder = { fg = d.box_border, bg = p.dark_bg },
+  NoiceMini = { fg = p.light_fg, bg = d.racetex_chrome },
+  NoiceFormatProgressDone = { fg = d.badge_ink, bg = d.badge_red, bold = true },
+  NoiceFormatProgressTodo = { fg = p.muted, bg = d.vanadium_elevated },
   NoiceCompletionItemKindDefault = { fg = p.dark_fg },
   NoiceCompletionItemKindKeyword = { fg = p.red },
   NoiceCompletionItemKindVariable = { fg = p.fg },
@@ -615,10 +665,34 @@ local groups = {
   NoiceCompletionItemKindOperator = { fg = p.cyan },
   NoiceCompletionItemKindSnippet = { fg = p.green },
 
+  -- nvim-notify
+  NotifyBackground = { bg = p.dark_bg },
+  NotifyERRORBorder = { fg = p.bright_red, bg = p.dark_bg },
+  NotifyWARNBorder = { fg = p.yellow, bg = p.dark_bg },
+  NotifyINFOBorder = { fg = p.blue, bg = p.dark_bg },
+  NotifyDEBUGBorder = { fg = p.muted, bg = p.dark_bg },
+  NotifyTRACEBorder = { fg = p.magenta, bg = p.dark_bg },
+  NotifyERRORIcon = { fg = p.bright_red },
+  NotifyWARNIcon = { fg = p.yellow },
+  NotifyINFOIcon = { fg = p.blue },
+  NotifyDEBUGIcon = { fg = p.muted },
+  NotifyTRACEIcon = { fg = p.magenta },
+  NotifyERRORTitle = { fg = p.bright_red, bold = true },
+  NotifyWARNTitle = { fg = p.yellow, bold = true },
+  NotifyINFOTitle = { fg = p.blue, bold = true },
+  NotifyDEBUGTitle = { fg = p.muted, bold = true },
+  NotifyTRACETitle = { fg = p.magenta, bold = true },
+  NotifyERRORBody = { fg = p.fg, bg = p.dark_bg },
+  NotifyWARNBody = { fg = p.fg, bg = p.dark_bg },
+  NotifyINFOBody = { fg = p.fg, bg = p.dark_bg },
+  NotifyDEBUGBody = { fg = p.fg, bg = p.dark_bg },
+  NotifyTRACEBody = { fg = p.fg, bg = p.dark_bg },
+
   -- Trouble
   TroubleText = { fg = p.dark_fg },
-  TroubleCount = { fg = p.bright_fg, bg = p.selection },
+  TroubleCount = { fg = d.badge_ink, bg = d.badge_muted, bold = true },
   TroubleNormal = { fg = p.fg, bg = p.dark_bg },
+  TroubleNormalNC = { fg = p.fg, bg = p.dark_bg },
   TroubleTextInformation = { fg = p.blue },
   TroubleSignWarning = { fg = p.yellow },
   TroubleSignInformation = { fg = p.blue },
@@ -634,18 +708,21 @@ local groups = {
   -- Flash
   FlashBackdrop = { fg = p.muted },
   FlashCurrent = { fg = p.darker_bg, bg = p.orange, bold = true },
-  FlashLabel = { fg = p.darker_bg, bg = p.accent, bold = true },
+  FlashLabel = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   FlashMatch = { fg = p.cyan, bg = p.lighter_bg, bold = true },
   FlashPrompt = { link = "NormalFloat" },
 
   -- Lazy & Mason
   LazyProgressDone = { fg = p.accent, bold = true },
   LazyProgressTodo = { fg = d.div_line, bold = true },
-  LazyH1 = { fg = p.darker_bg, bg = p.accent, bold = true },
+  LazyH1 = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   LazyH2 = { fg = p.blue, bold = true },
   LazyButton = { fg = p.fg, bg = p.lighter_bg },
-  LazyButtonActive = { fg = p.darker_bg, bg = p.accent, bold = true },
-  MasonHeader = { fg = p.darker_bg, bg = p.accent, bold = true },
+  LazyButtonActive = { fg = d.badge_ink, bg = d.badge_red, bold = true },
+  LazyNormal = { fg = p.fg, bg = p.dark_bg },
+  LazySpecial = { fg = p.cyan },
+  LazyComment = { fg = p.muted },
+  MasonHeader = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   MasonHeaderSecondary = { fg = p.darker_bg, bg = p.blue, bold = true },
   MasonHighlight = { fg = p.blue },
   MasonHighlightBlock = { fg = p.darker_bg, bg = p.blue },
@@ -654,13 +731,13 @@ local groups = {
   MasonHighlightBlockSecondary = { fg = p.darker_bg, bg = p.magenta },
   MasonHighlightBlockBoldSecondary = { fg = p.darker_bg, bg = p.magenta, bold = true },
   MasonMuted = { fg = p.muted },
-  MasonMutedBlock = { fg = p.fg, bg = p.dark_bg },
-  MasonMutedBlockBold = { fg = p.fg, bg = p.dark_bg, bold = true },
+  MasonMutedBlock = { fg = p.fg, bg = d.vanadium_elevated },
+  MasonMutedBlockBold = { fg = p.fg, bg = d.vanadium_elevated, bold = true },
   MasonError = { fg = p.bright_red },
   MasonWarning = { fg = p.yellow },
   MasonHeading = { fg = p.blue, bold = true },
 
-  -- RenderMarkdown
+  -- RenderMarkdown & obsidian.nvim
   RenderMarkdownH1 = { fg = p.bright_red, bold = true },
   RenderMarkdownH2 = { fg = p.orange, bold = true },
   RenderMarkdownH3 = { fg = p.yellow, bold = true },
@@ -674,10 +751,33 @@ local groups = {
   RenderMarkdownH5Bg = { fg = p.blue, bg = d.diag_info_bg, bold = true },
   RenderMarkdownH6Bg = { fg = p.magenta, bg = d.diag_info_bg, bold = true },
   RenderMarkdownCode = { bg = p.dark_bg },
-  RenderMarkdownCodeInline = { fg = p.blue, bg = p.lighter_bg },
+  RenderMarkdownCodeInline = { fg = p.cyan, bg = p.lighter_bg },
   RenderMarkdownBullet = { fg = p.cyan },
   RenderMarkdownQuote = { fg = p.muted, italic = true },
   RenderMarkdownLink = { fg = p.blue, underline = true },
+  RenderMarkdownTableHead = { fg = p.bright_fg, bg = d.vanadium_elevated, bold = true },
+  RenderMarkdownTableRow = { fg = p.fg },
+  ObsidianTodo = { fg = p.orange, bold = true },
+  ObsidianDone = { fg = p.green, bold = true },
+  ObsidianRightArrow = { fg = p.accent, bold = true },
+  ObsidianTilde = { fg = p.magenta, bold = true },
+  ObsidianImportant = { fg = p.bright_red, bold = true },
+  ObsidianBullet = { fg = p.cyan, bold = true },
+  ObsidianRefText = { fg = p.blue, underline = true },
+  ObsidianExtLinkIcon = { fg = p.cyan },
+  ObsidianTag = { fg = p.cyan, bg = d.diag_hint_bg, italic = true },
+  ObsidianBlockID = { fg = p.muted, italic = true },
+  ObsidianHighlightText = { fg = p.bright_fg, bg = d.search_bg },
+  markdownH1 = { fg = p.bright_red, bold = true },
+  markdownH2 = { fg = p.orange, bold = true },
+  markdownH3 = { fg = p.yellow, bold = true },
+  markdownH4 = { fg = p.green, bold = true },
+  markdownH5 = { fg = p.blue, bold = true },
+  markdownH6 = { fg = p.magenta, bold = true },
+  markdownCode = { fg = p.cyan, bg = p.dark_bg },
+  markdownCodeBlock = { fg = p.fg, bg = p.dark_bg },
+  markdownUrl = { fg = p.cyan, underline = true },
+  markdownLinkText = { fg = p.blue, underline = true },
 
   -- GrugFar
   GrugFarResultsHeader = { fg = p.blue, bold = true },
@@ -713,6 +813,47 @@ local groups = {
 
 for group, spec in pairs(groups) do
   vim.api.nvim_set_hl(0, group, spec)
+end
+
+-- Register built-in Lualine theme (`require("lualine").setup({ options = { theme = "911" } })`)
+package.preload["lualine.themes.911"] = function()
+  return {
+    normal = {
+      a = { fg = d.badge_ink, bg = d.badge_red, gui = "bold" },
+      b = { fg = p.bright_fg, bg = d.vanadium_elevated },
+      c = { fg = p.fg, bg = d.racetex_chrome },
+    },
+    insert = {
+      a = { fg = p.darker_bg, bg = p.green, gui = "bold" },
+      b = { fg = p.bright_fg, bg = d.vanadium_elevated },
+      c = { fg = p.fg, bg = d.racetex_chrome },
+    },
+    visual = {
+      a = { fg = p.darker_bg, bg = p.magenta, gui = "bold" },
+      b = { fg = p.bright_fg, bg = d.vanadium_elevated },
+      c = { fg = p.fg, bg = d.racetex_chrome },
+    },
+    replace = {
+      a = { fg = p.darker_bg, bg = p.orange, gui = "bold" },
+      b = { fg = p.bright_fg, bg = d.vanadium_elevated },
+      c = { fg = p.fg, bg = d.racetex_chrome },
+    },
+    command = {
+      a = { fg = p.darker_bg, bg = p.yellow, gui = "bold" },
+      b = { fg = p.bright_fg, bg = d.vanadium_elevated },
+      c = { fg = p.fg, bg = d.racetex_chrome },
+    },
+    terminal = {
+      a = { fg = p.darker_bg, bg = p.cyan, gui = "bold" },
+      b = { fg = p.bright_fg, bg = d.vanadium_elevated },
+      c = { fg = p.fg, bg = d.racetex_chrome },
+    },
+    inactive = {
+      a = { fg = p.muted, bg = p.dark_bg, gui = "bold" },
+      b = { fg = p.muted, bg = p.dark_bg },
+      c = { fg = p.muted, bg = p.dark_bg },
+    },
+  }
 end
 
 -- ANSI 16 Terminal Palette (matches colors.toml)

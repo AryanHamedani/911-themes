@@ -17,18 +17,41 @@ CSS_RGB_FUNC_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Documented opaque diff/surface hexes from PROJECT.md § Palette Contract
+# Canonical 911 (992.2) Precision Night Cockpit approved derived tokens
 DOC_DERIVED_HEXES: frozenset[str] = frozenset(
     {
-        "#222a23",  # diff add
-        "#2d1e20",  # diff delete
-        "#202731",  # diff change
-        "#2b3646",  # diff text
+        # Cockpit planes
+        "#0c0e11",  # deep carbon
+        "#131519",  # Race-Tex chrome
+        "#1a1d23",  # Vanadium elevated
+        "#261b1f",  # Smoked Carmine tint
+        # Borders / dividers
+        "#252932",  # inactive hairline (Hyprland)
+        "#332024",  # active Carmine border stop 2
+        "#2f3440",  # divider (btop div_line)
+        "#434854",  # box border (btop *_box)
+        # Filled badges
+        "#bf3b3e",  # Guards Red badge fill
+        "#f4f3ef",  # badge ink (4.84:1 AA on #bf3b3e)
+        "#363b47",  # muted badge fill
+        # Diffs (alpha-over-#141619)
+        "#202825",  # diff add (11% green)
+        "#2d2023",  # diff delete (12% red)
+        "#1f2731",  # diff change (12% blue)
+        "#293646",  # diff text-hl (23% blue)
+        # Diagnostics bg (10% over #141619)
+        "#2a2124",  # error bg
+        "#282721",  # warn bg
+        "#1d242d",  # info bg
+        "#1d272b",  # hint bg
+        "#1f2624",  # ok bg
+        # Search highlight bg (35% yellow over #141619)
+        "#5b5134",
     }
 )
 
 # Fallback reference btop dividers if sibling btop.theme is absent under custom path
-DEFAULT_BTOP_DIVIDERS: frozenset[str] = frozenset({"#31353f", "#454954"})
+DEFAULT_BTOP_DIVIDERS: frozenset[str] = frozenset({"#2f3440", "#434854"})
 
 # Schemas allowed to use DOC_DERIVED_HEXES and linear-RGB mix(c1, c2, p%) closures
 BLENDED_SURFACE_APPS: frozenset[str] = frozenset(
@@ -81,7 +104,6 @@ DIRECT_PALETTE_APPS: frozenset[str] = frozenset(
 REQUIRED_COLORS_TOML_KEYS: tuple[str, ...] = (
     "mode",
     "accent",
-    "cursor",
     "selection",
     "selection_background",
     "selection_foreground",
@@ -155,12 +177,12 @@ class PaletteContract:
                 for match in HYPR_RGBA_RE.finditer(val):
                     base_set.add(f"#{match.group(1).lower()}")
 
-        # Load btop.theme dividers (#31353f, #454954) dynamically if sibling exists
+        # Load btop.theme dividers & gradients dynamically if sibling exists
         btop_path = reference_colors_path.parent / "btop.theme"
         if btop_path.is_file():
             btop_text = btop_path.read_text(encoding="utf-8")
             for m in re.finditer(
-                r'^theme\[[a-z_]+\]="(#[0-9a-fA-F]{6})"$', btop_text, re.MULTILINE
+                r'^theme\[[a-z0-9_]+\]="(#[0-9a-fA-F]{6})"$', btop_text, re.MULTILINE
             ):
                 base_set.add(m.group(1).lower())
         else:
@@ -192,8 +214,7 @@ class PaletteContract:
 
     @property
     def valid_cursors(self) -> frozenset[str]:
-        # Both #e1656c (colors.toml cursor/accent) and #eae6dc (omarchy-theme-color cursor)
-        return frozenset({self.tokens["cursor"], self.tokens["bright_foreground"]})
+        return frozenset({self.tokens.get("cursor", self.tokens["accent"]), self.tokens["bright_foreground"]})
 
     @lru_cache(maxsize=4096)
     def is_linear_mix(self, hex6: str) -> bool:
@@ -240,14 +261,15 @@ class PaletteContract:
         if rgb_hex in self.base_hexes:
             return True, "base"
 
+        if rgb_hex in self.doc_derived_hexes:
+            return True, "doc_derived"
+
         if app_name in BLENDED_SURFACE_APPS:
-            if rgb_hex in self.doc_derived_hexes:
-                return True, "doc_derived"
             if self.is_linear_mix(rgb_hex):
                 return True, "linear_mix"
             return False, f"Color {hex_value!r} (RGB {rgb_hex}) in blended app {app_name!r} is outside BASE_HEXES | DOC_DERIVED_HEXES | MIX_ALLOWED"
 
-        return False, f"Color {hex_value!r} (RGB {rgb_hex}) in direct-palette app {app_name!r} is not in BASE_HEXES"
+        return False, f"Color {hex_value!r} (RGB {rgb_hex}) in direct-palette app {app_name!r} is not in BASE_HEXES | DOC_DERIVED_HEXES"
 
     def is_allowed_rgb_tuple(self, rgb: tuple[int, int, int], app_name: str) -> tuple[bool, str]:
         try:

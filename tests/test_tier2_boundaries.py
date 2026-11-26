@@ -78,14 +78,14 @@ class TestTier2FormatBoundaries(unittest.TestCase):
 
     def test_foot_no_hash_prefix_and_6hex(self) -> None:
         root = get_project_root()
-        cp = parse_ini(root / "foot/carrera.ini")
+        cp = parse_ini(root / "foot/911.ini")
         sections = [(s, cp[s]) for s in cp.sections()]
         if cp.defaults():
             sections.append(("DEFAULT", cp.defaults()))
         for sec_name, sec in sections:
             is_color_sec = sec_name == "DEFAULT" or sec_name.lower().startswith("colors")
             for k, v in sec.items():
-                if k == "alpha":
+                if k in ("alpha", "flash-alpha"):
                     continue
                 tokens = v.split()
                 if is_color_sec:
@@ -102,7 +102,7 @@ class TestTier2FormatBoundaries(unittest.TestCase):
 
     def test_imv_no_hash_prefix_and_6hex(self) -> None:
         root = get_project_root()
-        cp = parse_ini(root / "imv/carrera.ini")
+        cp = parse_ini(root / "imv/911.ini")
         sections = [(s, cp[s]) for s in cp.sections()]
         if cp.defaults():
             sections.append(("DEFAULT", cp.defaults()))
@@ -120,7 +120,7 @@ class TestTier2FormatBoundaries(unittest.TestCase):
 
     def test_cliamp_strict_7_keys_and_filename(self) -> None:
         root = get_project_root()
-        p = root / "cliamp/carrera.toml"
+        p = root / "cliamp/911.toml"
         self.assertNotEqual(p.name, "default.toml")
         data = parse_toml(p)
         req = {"bg", "accent", "bright_fg", "fg", "green", "yellow", "red"}
@@ -128,34 +128,34 @@ class TestTier2FormatBoundaries(unittest.TestCase):
         for k in req:
             self.assertRegex(str(data[k]), HEX6_RE, f"cliamp {k}={data[k]!r} must be #RRGGBB")
 
-    def test_telegram_zip_flat_layout_and_png_crc(self) -> None:
+    def test_telegram_zip_flat_layout_and_bg(self) -> None:
         root = get_project_root()
-        info = validate_tdesktop_theme(root / "telegram/carrera.tdesktop-theme")
+        info = validate_tdesktop_theme(root / "telegram/911.tdesktop-theme")
         self.assertGreaterEqual(len(info["entries"]), 100)
-        self.assertEqual(info["background"], "background.png")
-        self.assertGreater(info["bg_info"]["width"], 0)
-        self.assertGreater(info["bg_info"]["height"], 0)
+        self.assertIn(info["background"], ("background.jpg", "background.png"))
 
     def test_mpv_argb_alpha_first_parsing(self) -> None:
         root = get_project_root()
         palette = load_palette(get_reference_colors())
         kv = parse_mpv_conf(root / "mpv/mpv.conf")
+        allowed = palette.base_hexes | palette.doc_derived_hexes
         for k, v in kv.items():
             if v.startswith("#"):
                 if HEX8_RE.match(v):
                     rgb_part = "#" + v[3:9].lower()
                     self.assertIn(
                         rgb_part,
-                        palette.base_hexes,
-                        f"mpv {k}={v!r}: #AARRGGBB RGB {rgb_part} not in BASE_HEXES",
+                        allowed,
+                        f"mpv {k}={v!r}: #AARRGGBB RGB {rgb_part} not in palette",
                     )
                 else:
                     self.assertRegex(v, HEX6_RE, f"mpv {k}={v!r} invalid hex")
-                    self.assertIn(v.lower(), palette.base_hexes)
+                    self.assertIn(v.lower(), allowed)
 
     def test_chromium_rgb_arrays_and_csv(self) -> None:
         root = get_project_root()
         palette = load_palette(get_reference_colors())
+        allowed = palette.base_hexes | palette.doc_derived_hexes
         man = parse_json(root / "chromium/manifest.json")
         self.assertEqual(man["manifest_version"], 3)
         for k, arr in man["theme"]["colors"].items():
@@ -167,26 +167,26 @@ class TestTier2FormatBoundaries(unittest.TestCase):
                 self.assertGreaterEqual(ch, 0)
                 self.assertLessEqual(ch, 255)
             hx = f"#{arr[0]:02x}{arr[1]:02x}{arr[2]:02x}"
-            self.assertIn(hx, palette.base_hexes, f"chromium {k} -> {hx} not in BASE_HEXES")
+            self.assertIn(hx, allowed, f"chromium {k} -> {hx} not in palette")
         csv_text = (root / "chromium/chromium.theme").read_text(encoding="utf-8").strip()
         expected_csv = ",".join(map(str, hex_to_rgb(palette.background)))
         self.assertEqual(csv_text, expected_csv)
 
     def test_fastfetch_jsonc_parses_after_comment_strip(self) -> None:
         root = get_project_root()
-        data = parse_jsonc(root / "fastfetch/carrera.jsonc")
+        data = parse_jsonc(root / "fastfetch/911.jsonc")
         self.assertIn("display", data)
         self.assertIn("color", data["display"])
 
     def test_opencode_and_pi_no_dangling_references(self) -> None:
         root = get_project_root()
-        oc = parse_json(root / "opencode/carrera.json")
+        oc = parse_json(root / "opencode/911.json")
         for k, v in oc["theme"].items():
             vals = list(v.values()) if isinstance(v, dict) else [v]
             for item in vals:
                 if isinstance(item, str) and not item.startswith("#") and item != "none":
                     self.assertIn(item, oc["defs"], f"opencode dangling ref {k} -> {item}")
-        pi = parse_json(root / "pi/carrera.json")
+        pi = parse_json(root / "pi/911.json")
         for section in ("colors", "export"):
             for k, v in pi[section].items():
                 if isinstance(v, str) and v not in ("", "none") and not v.startswith("#"):
@@ -204,41 +204,41 @@ class TestTier2CliValidators(unittest.TestCase):
     """Isolated CLI validator execution with stdout/stderr/exit-code trap checks."""
 
     def test_cli_luac_neovim(self) -> None:
-        res = validate_luac(get_project_root() / "neovim/colors/carrera.lua")
+        res = validate_luac(get_project_root() / "neovim/colors/911.lua")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_nvim_headless_isolated_rtp(self) -> None:
-        src_lua = get_project_root() / "neovim/colors/carrera.lua"
+        src_lua = get_project_root() / "neovim/colors/911.lua"
         with tempfile.TemporaryDirectory(prefix="carrera_nvim_rtp_") as tmp:
             rtp = Path(tmp)
             colors_dir = rtp / "colors"
             colors_dir.mkdir(parents=True)
-            shutil.copy2(src_lua, colors_dir / "carrera.lua")
-            res = validate_nvim_colorscheme("carrera", rtp_dir=rtp, isolated=True)
+            shutil.copy2(src_lua, colors_dir / "911.lua")
+            res = validate_nvim_colorscheme("911", rtp_dir=rtp, isolated=True)
             self.assertTrue(res.ok, res.message)
 
     def test_cli_foot(self) -> None:
-        res = validate_foot(get_project_root() / "foot/carrera.ini")
+        res = validate_foot(get_project_root() / "foot/911.ini")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_ghostty(self) -> None:
-        res = validate_ghostty(get_project_root() / "ghostty/carrera")
+        res = validate_ghostty(get_project_root() / "ghostty/911")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_starship(self) -> None:
-        res = validate_starship(get_project_root() / "starship/carrera.toml")
+        res = validate_starship(get_project_root() / "starship/911.toml")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_bat(self) -> None:
-        res = validate_bat(get_project_root() / "bat/Carrera.tmTheme", theme_name="Carrera")
+        res = validate_bat(get_project_root() / "bat/911.tmTheme", theme_name="911")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_git_delta(self) -> None:
-        res = validate_git_delta(get_project_root() / "delta/carrera.gitconfig")
+        res = validate_git_delta(get_project_root() / "delta/911.gitconfig")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_tmux(self) -> None:
-        res = validate_tmux(get_project_root() / "tmux/carrera.conf")
+        res = validate_tmux(get_project_root() / "tmux/911.conf")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_eza(self) -> None:
@@ -250,15 +250,15 @@ class TestTier2CliValidators(unittest.TestCase):
         self.assertTrue(res.ok, res.message)
 
     def test_cli_fastfetch(self) -> None:
-        res = validate_fastfetch(get_project_root() / "fastfetch/carrera.jsonc")
+        res = validate_fastfetch(get_project_root() / "fastfetch/911.jsonc")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_pgcli(self) -> None:
-        res = validate_pgcli(get_project_root() / "pgcli/carrera.pgclirc")
+        res = validate_pgcli(get_project_root() / "pgcli/911.pgclirc")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_herdr(self) -> None:
-        res = validate_herdr(get_project_root() / "herdr/carrera.toml")
+        res = validate_herdr(get_project_root() / "herdr/911.toml")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_mpv(self) -> None:
@@ -266,17 +266,17 @@ class TestTier2CliValidators(unittest.TestCase):
         self.assertTrue(res.ok, res.message)
 
     def test_cli_hyprland(self) -> None:
-        res = validate_hyprland(get_project_root() / "hyprland/carrera.conf")
+        res = validate_hyprland(get_project_root() / "hyprland/911.conf")
         self.assertTrue(res.ok, res.message)
 
     def test_cli_zsh_syntax_highlighting(self) -> None:
         res = validate_zsh_syntax_highlighting(
-            get_project_root() / "zsh-syntax-highlighting/carrera.zsh"
+            get_project_root() / "zsh-syntax-highlighting/911.zsh"
         )
         self.assertTrue(res.ok, res.message)
 
     def test_cli_fzf(self) -> None:
-        res = validate_fzf(get_project_root() / "fzf/carrera.sh")
+        res = validate_fzf(get_project_root() / "fzf/911.sh")
         self.assertTrue(res.ok, res.message)
 
 

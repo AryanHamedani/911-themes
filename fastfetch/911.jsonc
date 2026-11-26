@@ -1,0 +1,56 @@
+// 911 (992.2) Precision Night Cockpit for Fastfetch
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "color": {
+      "1": "#e55c5a",
+      "2": "#edede9",
+      "3": "#dadad6",
+      "4": "#6fa2de",
+      "5": "#6ac4cb",
+      "6": "#7fb887",
+      "7": "#e0be66",
+      "8": "#b488cc",
+      "9": "#858a96"
+    }
+  },
+  "display": {
+    "separator": " › ",
+    "color": {
+      "keys": "#e55c5a",
+      "title": "#edede9",
+      "output": "#dadad6",
+      "separator": "#858a96"
+    },
+    "percent": {
+      "type": 3,
+      "color": {
+        "green": "#7fb887",
+        "yellow": "#e0be66",
+        "red": "#e56c6a"
+      }
+    },
+    "bar": {
+      "char": {
+        "elapsed": "■",
+        "total": "─"
+      },
+      "border": {
+        "left": "[",
+        "right": "]"
+      },
+      "color": {
+        "elapsed": "#e55c5a",
+        "total": "#292d36",
+        "border": "#434854"
+      }
+    },
+    "temp": {
+      "color": {
+        "green": "#7fb887",
+        "yellow": "#e0be66",
+        "red": "#e56c6a"
+      }
+    }
+  }
+}

@@ -1,33 +1,26 @@
-# Carrera for mpv
+# 911 (`992.2`) for mpv
 
-A dark Heritage Cockpit color configuration for `mpv` (`v0.41.0+`):
-Basalt Alcantara canvas (`#15171a`), recessed OSD/subtitle backing (`#cc101215` in `#AARRGGBB`),
-Chalk (`#d6d2c7` / `#eae6dc`) typography, and Carmine Red (`#e1656c`) active OSD selection.
+Precision Night Cockpit dark theme for `mpv`, aligned with [`../colors.toml`](../colors.toml).
 
-## Install
+## Coverage
 
-Include `mpv.conf` from your `~/.config/mpv/mpv.conf` without overwriting existing playback settings:
+- **Canvas**: Race-Tex Charcoal (`#141619`).
+- **OSD & Interactive Menus**: Ice Grey (`#dadad6`), recessed carbon backdrop (`#e00f1114`), deep diffuser outline & drop shadow (`#0a0b0d`), Guards/Carmine Red active menu selection (`#e55c5a`), and calibrated progress bar geometry.
+- **Subtitles**: Pure Dial Highlight (`#edede9`) with recessed carbon box (`#cc0f1114`) and deep diffuser outline/shadow (`#0a0b0d`).
+
+## Installation
 
 ```bash
-cp mpv/mpv.conf ~/.config/mpv/carrera.conf
+mkdir -p ~/.config/mpv
+cp mpv.conf ~/.config/mpv/mpv.conf
 ```
 
-Then add this line to `~/.config/mpv/mpv.conf`:
+Or include it from an existing `~/.config/mpv/mpv.conf`:
 
 ```ini
-include=~~/carrera.conf
+include=/path/to/mpv/mpv.conf
 ```
-
-Or test one-off from the command line:
-
-```bash
-mpv --include=/path/to/mpv/mpv.conf video.mp4
-```
-
-> Note: `mpv` uses **alpha-first** `#AARRGGBB` for 8-digit hex colors, and `#` values must be quoted so they are not treated as inline comments.
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

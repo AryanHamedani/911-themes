@@ -1,41 +1,32 @@
-# Carrera for tmux
+# 911 for tmux
 
-A dark, glare-free [tmux](https://github.com/tmux/tmux) theme inspired by the Porsche 911 Heritage Cockpit on a night drive: **Basalt Alcantara** (`#15171a` / `#101215`) instrument wells, warm **Chalk (`Kreide`)** (`#d6d2c7`) dial numerals, and a disciplined spark of **Carmine Red** (`#e1656c`).
+A dark, glare-free [tmux](https://github.com/tmux/tmux) theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**: **Race-Tex Chrome** (`#131519`) status bar, **Guards Red** (`#bf3b3e`) session badge with `#f4f3ef` ink (`4.84:1` AA), **Vanadium Grey** (`#1d2026`) active window tab, and **Guards/Carmine Red** (`#e55c5a`) active pane borders.
 
-Calibrated in OKLCH for long daily sessions and tuned to WCAG AA / APCA contrast targets.
+Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast targets.
 
 ## Files Included
 
-- `carrera.conf` — Standalone tmux 24-bit RGB theme snippet covering status bar, window tabs, pane borders, copy mode, popups, menus, and clock mode.
+- `911.conf` — Complete tmux styling covering status bar, session/mode indicators, active/last/activity/bell window tabs, pane borders and display-panes overlays, messages, command prompt, copy-mode selection/match/current-match/mark highlights, 24-hour clock mode, and rounded popups/menus.
 
 ## Manual Install
 
-1. Copy `carrera.conf` to your tmux themes directory:
+1. Copy `911.conf` to `~/.config/tmux/911.conf`:
 
    ```sh
-   mkdir -p ~/.config/tmux/themes
-   cp carrera.conf ~/.config/tmux/themes/carrera.conf
+   mkdir -p ~/.config/tmux
+   cp 911.conf ~/.config/tmux/911.conf
    ```
 
-2. Ensure truecolor (RGB) is enabled and source the theme in `~/.config/tmux/tmux.conf`:
+2. Source it from `~/.config/tmux/tmux.conf`:
 
    ```tmux
-   set -g default-terminal "tmux-256color"
-   set -ag terminal-overrides ",*:RGB"
-
-   source-file ~/.config/tmux/themes/carrera.conf
-   ```
-
-3. Reload tmux when you are ready:
-
-   ```sh
-   tmux source-file ~/.config/tmux/tmux.conf
+   source-file ~/.config/tmux/911.conf
    ```
 
 Palette reference: [`../colors.toml`](../colors.toml).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.
 
 License: [MIT](../LICENSE)

@@ -1,31 +1,17 @@
-# Carrera for Zen Browser
+# 911 (`992.2`) for Zen Browser
 
-A dark stylesheet pair (`userChrome.css` and `userContent.css`) inspired by the Porsche 911 Heritage Cockpit:
-recessed `#101215` toolbars and sidebars, Basalt Alcantara `#15171a` browser canvas, elevated `#1e2025` URL bar and cards,
-Chalk (`#d6d2c7`) text, and Carmine Red (`#e1656c`) focus accents.
+Precision Night Cockpit dark theme for Zen Browser (`userChrome.css` + `userContent.css`), aligned with [`../colors.toml`](../colors.toml).
 
-## Install
+## Coverage
 
-1. Locate your Zen Browser profile directory (e.g. `~/.config/zen/<profile>/` or `~/.zen/<profile>/`, check `about:profiles`).
-2. Copy `userChrome.css` and `userContent.css` into the profile's `chrome/` folder without overwriting `zen-themes.css` (which is managed by Zen Mods):
+- `userChrome.css`: Full Zen & Firefox LWT tokens, 4-plane cockpit surfaces (`#0a0b0d`, `#0c0e11`, `#0f1114`, `#131519`, `#141619`, `#1a1d23`, `#1d2026`), Guards Red focus & active tab indicator (`#e55c5a`), Smoked Carmine URL bar selection (`#261b1f`), AA badges (`#bf3b3e` / `#f4f3ef`), findbar, context menus, splitters, and scrollbars.
+- `userContent.css`: Strictly scoped to `@-moz-document url-prefix("about:")` (New Tab, Preferences, Add-ons, `about:config`) so external websites remain untouched.
 
-   ```bash
-   mkdir -p ~/.config/zen/<your-profile>/chrome
-   cp zen-browser/userChrome.css zen-browser/userContent.css ~/.config/zen/<your-profile>/chrome/
-   ```
+## Installation
 
-3. Open `about:config` in Zen Browser and set:
-
-   ```text
-   toolkit.legacyUserProfileCustomizations.stylesheets = true
-   ```
-
-4. Restart Zen Browser.
-
-> Note: `userContent.css` is strictly scoped inside `@-moz-document url-prefix("about:")` so external websites are not styled.
+1. Copy `userChrome.css` and `userContent.css` into your Zen profile's `chrome/` directory (`~/.config/zen/<profile>/chrome/`).
+2. In `about:config`, set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true` and restart Zen Browser.
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

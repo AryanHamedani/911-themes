@@ -1,95 +1,110 @@
-/* Carrera v2.0.0 — Shared GTK 3 & GTK 4 / libadwaita palette
- * Basalt Alcantara (#15171a / #101215), Chalk (#d6d2c7), Carmine Red (#e1656c)
+/* 911 (992.2) Precision Night Cockpit — Shared GTK 3 & GTK 4 / libadwaita palette
+ * Surfaces: #0a0b0d / #0c0e11 / #0f1114 / #131519 / #141619 / #1a1d23 / #1d2026
+ * Typography: Ice Grey (#dadad6), Pure Highlight (#edede9), GT Silver (#9297a2), Muted (#858a96)
+ * Accent: 911 Guards/Carmine Red (#e55c5a), Filled Badge/Control (#bf3b3e / #f4f3ef, 4.84:1 AA)
  * Pure @define-color rules for cross-compatibility with GTK 3 and GTK 4.
  */
 
 /* Accent & semantic colors */
-@define-color accent_bg_color #e1656c;
-@define-color accent_fg_color #15171a;
-@define-color accent_color #e1656c;
+@define-color accent_bg_color #bf3b3e;
+@define-color accent_fg_color #f4f3ef;
+@define-color accent_color #e55c5a;
 
-@define-color destructive_bg_color #e07476;
-@define-color destructive_fg_color #15171a;
-@define-color destructive_color #e07476;
+@define-color destructive_bg_color #bf3b3e;
+@define-color destructive_fg_color #f4f3ef;
+@define-color destructive_color #f48583;
 
-@define-color success_bg_color #89b87f;
-@define-color success_fg_color #15171a;
-@define-color success_color #89b87f;
+@define-color success_bg_color #7fb887;
+@define-color success_fg_color #0a0b0d;
+@define-color success_color #7fb887;
 
-@define-color warning_bg_color #dcbb6a;
-@define-color warning_fg_color #15171a;
-@define-color warning_color #dcbb6a;
+@define-color warning_bg_color #e0be66;
+@define-color warning_fg_color #0a0b0d;
+@define-color warning_color #e0be66;
 
-@define-color error_bg_color #e07476;
-@define-color error_fg_color #15171a;
-@define-color error_color #f28a8b;
+@define-color error_bg_color #bf3b3e;
+@define-color error_fg_color #f4f3ef;
+@define-color error_color #f48583;
 
 /* Window & view surfaces */
-@define-color window_bg_color #15171a;
-@define-color window_fg_color #d6d2c7;
-@define-color view_bg_color #101215;
-@define-color view_fg_color #d6d2c7;
+@define-color window_bg_color #141619;
+@define-color window_fg_color #dadad6;
+@define-color view_bg_color #0f1114;
+@define-color view_fg_color #dadad6;
 
 /* Headerbar */
-@define-color headerbar_bg_color #1e2025;
-@define-color headerbar_fg_color #d6d2c7;
-@define-color headerbar_border_color #31353f;
-@define-color headerbar_backdrop_color #15171a;
-@define-color headerbar_shade_color rgba(11, 12, 14, 0.36);
-@define-color headerbar_darker_shade_color rgba(11, 12, 14, 0.72);
+@define-color headerbar_bg_color #131519;
+@define-color headerbar_fg_color #dadad6;
+@define-color headerbar_border_color #2f3440;
+@define-color headerbar_backdrop_color #0c0e11;
+@define-color headerbar_shade_color rgba(10, 11, 13, 0.36);
+@define-color headerbar_darker_shade_color rgba(10, 11, 13, 0.72);
 
 /* Sidebars */
-@define-color sidebar_bg_color #101215;
-@define-color sidebar_fg_color #d6d2c7;
-@define-color sidebar_backdrop_color #0b0c0e;
-@define-color sidebar_shade_color rgba(11, 12, 14, 0.36);
-@define-color sidebar_border_color #262930;
+@define-color sidebar_bg_color #0f1114;
+@define-color sidebar_fg_color #dadad6;
+@define-color sidebar_backdrop_color #0c0e11;
+@define-color sidebar_shade_color rgba(10, 11, 13, 0.36);
+@define-color sidebar_border_color #252932;
 
-@define-color secondary_sidebar_bg_color #15171a;
-@define-color secondary_sidebar_fg_color #b3afa6;
-@define-color secondary_sidebar_backdrop_color #101215;
-@define-color secondary_sidebar_shade_color rgba(11, 12, 14, 0.25);
-@define-color secondary_sidebar_border_color #262930;
+@define-color secondary_sidebar_bg_color #131519;
+@define-color secondary_sidebar_fg_color #b4b7be;
+@define-color secondary_sidebar_backdrop_color #0f1114;
+@define-color secondary_sidebar_shade_color rgba(10, 11, 13, 0.25);
+@define-color secondary_sidebar_border_color #252932;
 
 /* Cards, dialogs, popovers, thumbnails */
-@define-color card_bg_color #1e2025;
-@define-color card_fg_color #d6d2c7;
-@define-color card_shade_color rgba(11, 12, 14, 0.36);
+@define-color card_bg_color #1a1d23;
+@define-color card_fg_color #dadad6;
+@define-color card_shade_color rgba(10, 11, 13, 0.36);
 
-@define-color dialog_bg_color #1e2025;
-@define-color dialog_fg_color #d6d2c7;
+@define-color dialog_bg_color #131519;
+@define-color dialog_fg_color #dadad6;
 
-@define-color popover_bg_color #1e2025;
-@define-color popover_fg_color #d6d2c7;
-@define-color popover_shade_color rgba(11, 12, 14, 0.36);
+@define-color popover_bg_color #1a1d23;
+@define-color popover_fg_color #dadad6;
+@define-color popover_shade_color rgba(10, 11, 13, 0.42);
 
-@define-color thumbnail_bg_color #1e2025;
-@define-color thumbnail_fg_color #d6d2c7;
+@define-color thumbnail_bg_color #1a1d23;
+@define-color thumbnail_fg_color #dadad6;
 
-@define-color shade_color rgba(11, 12, 14, 0.36);
-@define-color scrollbar_outline_color rgba(11, 12, 14, 0.90);
+@define-color shade_color rgba(10, 11, 13, 0.36);
+@define-color scrollbar_outline_color rgba(10, 11, 13, 0.90);
 
-/* GTK 3 Adwaita-dark compatibility aliases */
+/* GTK 3 Adwaita-dark & OSD compatibility aliases */
 @define-color theme_bg_color @window_bg_color;
 @define-color theme_fg_color @window_fg_color;
 @define-color theme_base_color @view_bg_color;
 @define-color theme_text_color @view_fg_color;
-@define-color theme_selected_bg_color #2b2e35;
-@define-color theme_selected_fg_color #eae6dc;
+@define-color theme_selected_bg_color #292d36;
+@define-color theme_selected_fg_color #edede9;
 
-@define-color insensitive_bg_color #15171a;
-@define-color insensitive_fg_color #838792;
-@define-color insensitive_base_color #101215;
-@define-color unfocused_insensitive_color #838792;
+@define-color insensitive_bg_color #141619;
+@define-color insensitive_fg_color #858a96;
+@define-color insensitive_base_color #0f1114;
+@define-color unfocused_insensitive_color #858a96;
 
 @define-color theme_unfocused_bg_color @window_bg_color;
-@define-color theme_unfocused_fg_color #9599a2;
+@define-color theme_unfocused_fg_color #9297a2;
 @define-color theme_unfocused_base_color @view_bg_color;
 @define-color theme_unfocused_text_color @view_fg_color;
-@define-color theme_unfocused_selected_bg_color #2b2e35;
-@define-color theme_unfocused_selected_fg_color #d6d2c7;
+@define-color theme_unfocused_selected_bg_color #292d36;
+@define-color theme_unfocused_selected_fg_color #dadad6;
 
-@define-color borders #262930;
-@define-color unfocused_borders #1e2025;
-@define-color content_view_bg #101215;
-@define-color text_view_bg #101215;
+@define-color borders #2f3440;
+@define-color unfocused_borders #252932;
+@define-color content_view_bg #0f1114;
+@define-color text_view_bg #0f1114;
+
+@define-color wm_bg #131519;
+@define-color wm_unfocused_bg #0c0e11;
+@define-color wm_title #dadad6;
+@define-color wm_unfocused_title #9297a2;
+@define-color wm_border #2f3440;
+@define-color wm_unfocused_border #252932;
+
+@define-color osd_bg rgba(15, 17, 20, 0.92);
+@define-color osd_fg #dadad6;
+@define-color osd_border #434854;
+@define-color tooltip_bg_color #1a1d23;
+@define-color tooltip_fg_color #edede9;

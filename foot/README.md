@@ -1,47 +1,35 @@
-# Carrera for foot
+# 911 for foot
 
-A dark, glare-free [foot](https://codeberg.org/dnkl/foot) terminal theme inspired by the Porsche 911 Heritage Cockpit on a night drive: **Basalt Alcantara** (`#15171a`) surfaces, warm **Chalk (`Kreide`)** (`#d6d2c7`) dial numerals, and a disciplined spark of **Carmine Red** (`#e1656c`).
+A dark, glare-free [foot](https://codeberg.org/dnkl/foot) terminal theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**: **Race-Tex Charcoal** (`#141619`) surfaces, **Ice Grey (Crayon)** (`#dadad6`) dial typography, and a disciplined spark of **Guards/Carmine Red** (`#e55c5a`).
 
-Calibrated in OKLCH for long daily sessions and tuned to WCAG AA / APCA contrast targets.
+Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast targets.
 
 ## Files Included
 
-- `carrera.ini` — `[colors-dark]` palette definition using 6-digit hex values (without `#`, as required by `foot.ini(5)`).
-
-## Cursor Note
-
-By default, `carrera.ini` sets `cursor=15171a e1656c` (Carmine Red cursor with Basalt text, matching `colors.toml`). If you prefer the Chalk (`Kreide`) cursor rendered by Omarchy runtime templates, replace the `cursor` line with:
-
-```ini
-cursor=15171a eae6dc
-```
+- `911.ini` — Complete `[colors-dark]` + `[csd]` INI theme covering foreground/background, selection, cursor, jump labels, scrollback indicator, search match/no-match badges, URL highlight, bell flash, normal/bright/dim ANSI 0–15, and client-side decorations.
 
 ## Manual Install
 
-1. Copy `carrera.ini` to your foot themes directory:
+1. Copy `911.ini` to your foot themes directory:
 
    ```sh
    mkdir -p ~/.config/foot/themes
-   cp carrera.ini ~/.config/foot/themes/carrera.ini
+   cp 911.ini ~/.config/foot/themes/911.ini
    ```
 
-2. Add the include path under `[main]` in `~/.config/foot/foot.ini`:
+2. Include it in `~/.config/foot/foot.ini` under `[main]`:
 
    ```ini
    [main]
-   include=~/.config/foot/themes/carrera.ini
+   include=~/.config/foot/themes/911.ini
    ```
 
-3. Validate your configuration without applying it live:
-
-   ```sh
-   foot -c ~/.config/foot/foot.ini --check-config
-   ```
+> On Omarchy with the active `911` theme, `~/.config/foot/foot.ini` already includes `~/.local/state/omarchy/current/theme/foot.ini`.
 
 Palette reference: [`../colors.toml`](../colors.toml).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.
 
 License: [MIT](../LICENSE)

@@ -1,9 +1,9 @@
 {
-  "name": "carrera-theme",
-  "displayName": "Carrera",
-  "description": "Porsche 911 Heritage Cockpit dark theme (Basalt Alcantara, Chalk, Carmine Red)",
+  "name": "911-theme",
+  "displayName": "911 (992.2)",
+  "description": "Porsche 911 (992.2) Precision Night Cockpit dark theme (Race-Tex Charcoal, Ice Grey, Guards/Carmine Red)",
   "publisher": "aryanhamedani",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "engines": {
     "vscode": "^1.70.0"
@@ -14,9 +14,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "Carrera",
+        "label": "911",
         "uiTheme": "vs-dark",
-        "path": "./themes/carrera-color-theme.json"
+        "path": "./themes/911-color-theme.json"
       }
     ]
   }

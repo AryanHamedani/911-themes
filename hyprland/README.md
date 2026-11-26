@@ -1,27 +1,24 @@
-# Carrera for Hyprland
+# 911 (`992.2`) for Hyprland
 
-A native Hyprlang color configuration for Hyprland (`0.56.2+`) inspired by the Porsche 911 Heritage Cockpit:
-smoked Carmine Red tail-light gradient (`rgba(e1656ccc) rgba(3a2429cc) 135deg`) on focused windows,
-dark graphite (`rgba(262930aa)`) on inactive borders, Cognac Amber (`rgba(e8965acc)`) for locked groups,
-and deep Basalt (`rgb(15171a)`) background fill.
+Precision Night Cockpit border, shadow, groupbar, and canvas configuration for Hyprland, aligned with [`../colors.toml`](../colors.toml) and `omarchy-911-theme/hyprland.lua`.
 
-## Install
+## Coverage
 
-Copy `carrera.conf` to `~/.config/hypr/carrera.conf` and source it at the end of `~/.config/hypr/hyprland.conf`:
+- **Borders (`general`)**: Guards/Carmine Red gradient (`rgba(e55c5acc) rgba(332024cc) 135deg`) for active & nogroup-active windows; inactive hairline (`rgba(252932aa)`).
+- **Shadows (`decoration.shadow`)**: Deep diffuser shadow (`#0a0b0d`) for active and inactive windows.
+- **Groups (`group` & `groupbar`)**: Active, inactive, locked-active (Lava Orange `#e89158` gradient + Smoked Carmine `#261b1f` bar), and locked-inactive states with Ice Grey / Pure Highlight text.
+- **Canvas (`misc`)**: Race-Tex Charcoal background (`rgb(141619)`) and muted splash (`#858a96`).
+
+## Installation
 
 ```bash
-cp hyprland/carrera.conf ~/.config/hypr/carrera.conf
+cp 911.conf ~/.config/hypr/911.conf
 ```
 
-```ini
-# In ~/.config/hypr/hyprland.conf
-source = ~/.config/hypr/carrera.conf
-```
+Then add `source = ~/.config/hypr/911.conf` to `~/.config/hypr/hyprland.conf` and reload with `hyprctl reload`.
 
-> Note: On Omarchy setups using `hyprland.lua`, Omarchy's theme template generator already derives `hyprland_active_border` and `hyprland_inactive_border` from `omarchy-carrera-theme/colors.toml`.
+> **Omarchy note**: Omarchy's active `911` theme already applies `~/.local/state/omarchy/current/theme/hyprland.lua`.
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

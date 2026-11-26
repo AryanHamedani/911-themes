@@ -1,99 +1,112 @@
-# Carrera v2.0.0 — Workstation Software & Theme Inventory
+# 911 (`992.2`) Precision Night Cockpit — Workstation Software & Theme Inventory
 
-## 1. Source Contract & R4 Isolation Guarantee
+## 1. Source Contract & Workstation Safety Guarantee
 
-- **Authoritative Palette**: [`colors.toml`](colors.toml) — exact byte-for-byte copy of `/home/aryan/Work/personal/AryanHamedani/omarchy-carrera-theme/colors.toml` (SHA-256: `0787d5a2381a649ab857c2c9634a470bd59dc9ac275cec0ad61b98ff29745f7a`).
-- **License**: [`LICENSE`](LICENSE) — exact byte-for-byte copy of `/home/aryan/Work/personal/AryanHamedani/omarchy-carrera-theme/LICENSE` (MIT License, Copyright (c) 2026 Aryan Hamedani).
-- **R4 Generate-Only Isolation**: No files inside `/home/aryan/Work/personal/AryanHamedani/omarchy-carrera-theme/` and no existing active user configs under `~/.config/`, `~/.claude/`, `~/.pi/`, `~/.codex/`, `~/.local/`, or `~/.zshrc` are modified or activated. Neovim's standalone colorscheme is placed at `~/.config/nvim/colors/carrera.lua` without changing the active startup colorscheme (`aether`).
+- **Authoritative Palette**: [`colors.toml`](colors.toml) — exact byte-for-byte copy of `/home/aryan/Work/personal/AryanHamedani/omarchy-911-theme/colors.toml` (SHA-256: `d4938495cdc44ad1f5f5ecce48dc1bf656b0666cf263134b47e913d4824fc187`).
+- **License**: [`LICENSE`](LICENSE) — exact byte-for-byte copy of `/home/aryan/Work/personal/AryanHamedani/omarchy-911-theme/LICENSE` (MIT License, Copyright (c) 2026 Aryan Hamedani).
+- **Workstation Rollout Safety**: No files inside `/home/aryan/Work/personal/AryanHamedani/omarchy-911-theme/` or `~/.local/state/omarchy/current/theme/` were modified. All Omarchy-managed app themes (`alacritty`, `foot`, `ghostty`, `kitty`, `btop`, `claude-code`, `pi`, `chromium`, `fcitx5`, `hyprland`, `hyprland-preview-share-picker`, `neovim/theme.lua`) were preserved untouched. Every existing user config updated for 911 was backed up to `<file>.bak-911` beforehand.
 
 ## 2. Palette Derivation Rules
 
-All generated theme files derive colors strictly from [`colors.toml`](colors.toml) according to these canonical rules:
+All generated theme files derive colors strictly from [`colors.toml`](colors.toml) and the approved cockpit extensions below:
 
 ### 2.1 Base Palette Tokens (`colors.toml`)
 - `mode = "dark"`
-- Surfaces: `background = "#15171a"`, `dark_background = "#101215"`, `darker_background = "#0b0c0e"`, `lighter_background = "#1e2025"`, `selection = "#2b2e35"`, `selection_background = "#2b2e35"`
-- Foregrounds: `foreground = "#d6d2c7"`, `bright_foreground = "#eae6dc"`, `selection_foreground = "#eae6dc"`, `light_foreground = "#b3afa6"`, `dark_foreground = "#9599a2"`, `muted = "#838792"`
-- Accent & Cursor: `accent = "#e1656c"`, `cursor = "#e1656c"`
-- Hyprland Borders: `hyprland_active_border = "rgba(e1656ccc) rgba(3a2429cc) 135deg"`, `hyprland_inactive_border = "rgba(262930aa)"`
-- Semantic / Normal ANSI 1–6 + Extras: `red = "#e07476"`, `orange = "#e8965a"`, `yellow = "#dcbb6a"`, `green = "#89b87f"`, `cyan = "#6fc7cb"`, `blue = "#74a0d7"`, `magenta = "#b886b8"`, `brown = "#ae7e62"`
-- Bright ANSI 9–14: `bright_red = "#f28a8b"`, `bright_yellow = "#edcf86"`, `bright_green = "#a1ce97"`, `bright_cyan = "#87d9dd"`, `bright_blue = "#8eb9f0"`, `bright_magenta = "#d09fd1"`
+- Surfaces: `background = "#141619"`, `dark_background = "#0f1114"`, `darker_background = "#0a0b0d"`, `lighter_background = "#1d2026"`, `selection = "#292d36"`, `selection_background = "#292d36"`
+- Foregrounds: `foreground = "#dadad6"` (`12.93:1`), `bright_foreground = "#edede9"` (`15.44:1`), `selection_foreground = "#edede9"`, `light_foreground = "#b4b7be"`, `dark_foreground = "#9297a2"`, `muted = "#858a96"` (`5.24:1` on bg / `4.72:1` on elev)
+- Accent & Cursor: `accent = "#e55c5a"` (`5.19:1` on bg / `4.67:1` on elev)
+- Hyprland Borders: `hyprland_active_border = "rgba(e55c5acc) rgba(332024cc) 135deg"`, `hyprland_inactive_border = "rgba(252932aa)"`
+- Semantic / Normal ANSI 1–6 + Extras: `red = "#e56c6a"`, `orange = "#e89158"`, `yellow = "#e0be66"`, `green = "#7fb887"`, `cyan = "#6ac4cb"`, `blue = "#6fa2de"`, `magenta = "#b488cc"`, `brown = "#ad7f66"` (`5.18:1` on bg / `4.67:1` on elev)
+- Bright ANSI 9–14: `bright_red = "#f48583"`, `bright_yellow = "#f0d282"`, `bright_green = "#98ce9f"`, `bright_cyan = "#84d8de"`, `bright_blue = "#8cb9f2"`, `bright_magenta = "#caa2e0"`
 
 ### 2.2 Format Encoding Rules
 - **Standard hex**: `#rrggbb` (lowercase or case-insensitive `#RRGGBB` when required, e.g., Cliamp strict `^#[0-9a-fA-F]{6}$`).
-- **Translucent overlays (`#rrggbbaa` / `rgba(...)`)**: Exact `colors.toml` RGB combined with an explicit alpha channel (e.g., `#e1656c33`, `#0b0c0e99`, `rgba(225, 101, 108, 0.2)`), used in `.tdesktop-theme`, CSS `rgba(...)`, VS Code `#rrggbbaa`, and Hyprland `rgba(rrggbbaa)`.
-- **No-`#` 6-digit hex (`rrggbb`)**: Required by **Foot** (`[colors-dark]`) and **imv** (`[options]`).
-- **Decimal `[r, g, b]` arrays**: Required by **Chromium** (`manifest.json` `theme.colors` and `chromium.theme`), e.g., `[21, 23, 26]` for `#15171a`.
+- **Translucent overlays (`#rrggbbaa` / `#AARRGGBB` / `rgba(...)`)**: Exact 911 RGB combined with an explicit alpha channel (e.g., `#e55c5a33`, `#0a0b0d99`, `rgba(229, 92, 90, 0.2)`), used in `.tdesktop-theme`, CSS `rgba(...)`, VS Code `#rrggbbaa`, `mpv` `#AARRGGBB`, and Hyprland `rgba(rrggbbaa)`.
+- **No-`#` 6-digit hex (`rrggbb`)**: Required by **Foot** (`[colors-dark]`, `[csd]`) and **imv** (`[options]`).
+- **Decimal `[r, g, b]` arrays / CSV**: Required by **Chromium** (`manifest.json` `theme.colors` and `chromium.theme`), e.g., `[20, 22, 25]` / `20,22,25` for `#141619`.
 
-### 2.3 Canonical Opaque `alpha-over-#15171a` Surface Stops
-When an application requires opaque tinted surfaces (borders, diffs, diagnostic virtual-text backgrounds, search highlights) and does not support `#rrggbbaa`, use only this minimal calibrated set derived over `#15171a` (`(21, 23, 26)`):
+### 2.3 Approved Derived Cockpit Surfaces, Borders & Badges
+Calibrated in OKLCH to preserve the 4-plane Race-Tex / Vanadium cockpit hierarchy and WCAG AA contrast (`>= 4.5:1`) on filled badges:
 
 | Hex | Role | Derivation / Provenance |
 |---|---|---|
-| `#31353f` | Divider / hairline border | Verbatim `omarchy-carrera-theme/btop.theme` (`div_line`) |
-| `#454954` | Box border / subtle rule | Verbatim `omarchy-carrera-theme/btop.theme` (`cpu_box`..`proc_box`) |
-| `#262930` | Inactive border / hairline | Verbatim `colors.toml` `hyprland_inactive_border` RGB (~16% `#838792` over `#15171a`) |
-| `#3a2429` | Carmine border/selection tint | Verbatim `colors.toml` `hyprland_active_border` stop 2 RGB (~18% `#e1656c` over `#15171a`) |
-| `#222a23` | Diff add background | Canonical opaque green tint (~11% `#89b87f` over `#15171a`) |
-| `#2d1e20` | Diff delete background | Canonical opaque red tint (~12% `#e07476`/`#e1656c` over `#15171a`) |
-| `#202731` | Diff change background | Exact 12% `#74a0d7` over `#15171a` |
-| `#2b3646` | Diff text highlight background | ~23% `#74a0d7` over `#15171a` |
-| `#2b2225` | Diagnostic error virtual-text bg | Exact 10% `#f28a8b` over `#15171a` |
-| `#292722` | Diagnostic warn virtual-text bg | Exact 10% `#dcbb6a` over `#15171a` |
-| `#1e252d` | Diagnostic info virtual-text bg | Exact 10% `#74a0d7` over `#15171a` |
-| `#1e292c` | Diagnostic hint virtual-text bg | Exact 10% `#6fc7cb` over `#15171a` |
-| `#212724` | Diagnostic ok virtual-text bg | Exact 10% `#89b87f` over `#15171a` |
-| `#5b5036` | Search highlight background | Exact 35% `#dcbb6a` over `#15171a` |
+| `#0c0e11` | Deep carbon plane | Recessed sidebar/panel plane (`13.79:1` w/ `#dadad6`) |
+| `#131519` | Race-Tex chrome | Status bar, header, toolbar plane (`13.04:1` w/ `#dadad6`) |
+| `#1a1d23` | Vanadium elevated | Cards, menus, subtle raised surfaces (`12.04:1` w/ `#dadad6`) |
+| `#261b1f` | Smoked Carmine tint | Active row/selection tint (`11.90:1` w/ `#dadad6`) |
+| `#bf3b3e` | Filled Guards Red badge / button | High-emphasis badge & button fill (`4.84:1` AA w/ `#f4f3ef`) |
+| `#f4f3ef` | Badge ink | Crisp warm-neutral ink on filled badges (`4.84:1` on `#bf3b3e`, `10.10:1` on `#363b47`) |
+| `#363b47` | Muted badge fill | Secondary counter/tag fill (`10.10:1` w/ `#f4f3ef`) |
+| `#252932` | Inactive border / hairline | Verbatim `colors.toml` `hyprland_inactive_border` RGB |
+| `#332024` | Active Carmine border stop 2 | Verbatim `colors.toml` `hyprland_active_border` stop 2 RGB |
+| `#2f3440` | Divider / hairline border | Verbatim `omarchy-911-theme/btop.theme` (`div_line`) |
+| `#434854` | Box border / subtle rule | Verbatim `omarchy-911-theme/btop.theme` (`cpu_box`..`proc_box`) |
 
-### 2.4 `cursor` Color Choice (`#e1656c` vs `#eae6dc`)
-- `colors.toml` line 8 defines `cursor = "#e1656c"` (Carmine Red rev needle).
-- Omarchy's runtime helper `/usr/bin/omarchy-theme-color` (line 219) overrides `THEME_COLORS[cursor]` with `bright_foreground` (`#eae6dc`) when rendering Omarchy templates.
-- **Standalone policy**: Standalone Carrera themes in this repository use `cursor = "#e1656c"` per `colors.toml` (Carmine Red needle), while noting the `#eae6dc` Omarchy runtime override in relevant documentation where applicable.
+### 2.4 Canonical Opaque `alpha-over-#141619` Tints (Diff / Diagnostics / Search)
+When an application requires opaque tinted surfaces (diffs, diagnostic virtual-text backgrounds, search highlights) without `#rrggbbaa`, use only this calibrated set blended over `#141619` (`(20, 22, 25)`):
+
+| Hex | Role | Derivation |
+|---|---|---|
+| `#202825` | Diff add background | Exact 11% `#7fb887` over `#141619` (`10.76:1` w/ `#dadad6`) |
+| `#2d2023` | Diff delete background | Exact 12% `#e56c6a` over `#141619` (`11.16:1` w/ `#dadad6`) |
+| `#1f2731` | Diff change background | Exact 12% `#6fa2de` over `#141619` (`10.76:1` w/ `#dadad6`) |
+| `#293646` | Diff text highlight background | Exact 23% `#6fa2de` over `#141619` (`8.76:1` w/ `#dadad6`) |
+| `#2a2124` | Diagnostic error virtual-text bg | Exact 10% `#f48583` over `#141619` |
+| `#282721` | Diagnostic warn virtual-text bg | Exact 10% `#e0be66` over `#141619` |
+| `#1d242d` | Diagnostic info virtual-text bg | Exact 10% `#6fa2de` over `#141619` |
+| `#1d272b` | Diagnostic hint virtual-text bg | Exact 10% `#6ac4cb` over `#141619` |
+| `#1f2624` | Diagnostic ok virtual-text bg | Exact 10% `#7fb887` over `#141619` |
+| `#5b5134` | Search highlight background | Exact 35% `#e0be66` over `#141619` (`6.70:1` w/ `#edede9`) |
+
+### 2.5 `cursor` Color Policy (`#e55c5a` vs `#edede9`)
+- `omarchy-911-theme/colors.toml` defines `accent = "#e55c5a"` without a separate `cursor` key.
+- Omarchy's runtime helper `/usr/bin/omarchy-theme-color` maps `cursor` to `bright_foreground` (`#edede9`) when rendering Omarchy templates.
+- **Standalone policy**: Standalone 911 themes in this repository use `cursor = "#e55c5a"` (Guards/Carmine Red needle) with `#0a0b0d` or `#141619` cursor-text, while noting Omarchy's `#edede9` runtime override where applicable.
 
 ---
 
 ## 3. Target Applications Inventory (36 Apps: 1 R1 + 1 R2 + 20 A1 + 13 A2 + 1 B)
 
-| # | Group | Application | Target File Path(s) | Recommended User Install Path | Isolated Validation Method | Milestone | Status |
-|---|---|---|---|---|---|---|---|
-| 1 | R1 | **Telegram Desktop** | `telegram/carrera.tdesktop-theme`, `telegram/README.md` | Import `carrera.tdesktop-theme` via Telegram Settings → Chat Settings → Theme | Python ZIP/PNG check + 606-key `colors.palette`/`night.tdesktop-theme` parser & dependency order check | M1 | Complete (M1) |
-| 2 | R2 | **Neovim** | `neovim/colors/carrera.lua`, `/home/aryan/.config/nvim/colors/carrera.lua`, `neovim/README.md` | `~/.config/nvim/colors/carrera.lua` (`:colorscheme carrera`) | `cmp -s`, `stylua --check`, `nvim --headless -c 'colorscheme carrera'`, default startup still `aether` | M1 | Complete (M1) |
-| 3 | A1 | **OpenCode** | `opencode/carrera.json`, `opencode/README.md` | `~/.config/opencode/themes/carrera.json` | `jq empty` / `json.load` + OpenCode TUI schema keys check | M3 | Complete (M3) |
-| 4 | A1 | **Cliamp** | `cliamp/carrera.toml`, `cliamp/README.md` | `~/.config/cliamp/themes/carrera.toml` | `tomllib.load` + strict `^#[0-9a-fA-F]{6}$` and required keys check | M3 | Complete (M3) |
-| 5 | A1 | **Starship** | `starship/carrera.toml`, `starship/README.md` | `~/.config/starship.toml` (`[palettes.carrera]`) | `STARSHIP_CONFIG=<file> starship print-config` | M2 | Complete (M2) |
-| 6 | A1 | **K9s** | `k9s/carrera.yaml`, `k9s/README.md` | `~/.config/k9s/skins/carrera.yaml` | `yaml.safe_load` + K9s skin structure check | M3 | Complete (M3) |
-| 7 | A1 | **bat** | `bat/Carrera.tmTheme`, `bat/README.md` | `$(bat --config-dir)/themes/Carrera.tmTheme` | `xml.etree.ElementTree` + isolated `XDG_CONFIG_HOME`/`XDG_CACHE_HOME` `bat cache --build` | M3 | Complete (M3) |
-| 8 | A1 | **Delta** | `delta/carrera.gitconfig`, `delta/README.md` | `~/.config/git/carrera.gitconfig` (`[include]`) | `git config --file <file> --list` | M3 | Complete (M3) |
-| 9 | A1 | **Lazygit** | `lazygit/carrera.yml`, `lazygit/README.md` | `~/.config/lazygit/config.yml` (`gui.theme`) | `yaml.safe_load` + `gui.theme` key check | M3 | Complete (M3) |
-| 10 | A1 | **Lazydocker** | `lazydocker/carrera.yml`, `lazydocker/README.md` | `~/.config/lazydocker/config.yml` (`gui.theme`) | `yaml.safe_load` + `gui.theme` key check | M3 | Complete (M3) |
-| 11 | A1 | **Herdr** | `herdr/carrera.toml`, `herdr/README.md` | `~/.config/herdr/config.toml` (`[theme.custom]`) | `tomllib.load` + `[theme.custom]` hex check | M2 | Complete (M2) |
-| 12 | A1 | **fzf** | `fzf/carrera.sh`, `fzf/README.md` | Source in `~/.zshrc` (`FZF_DEFAULT_OPTS`) | `zsh -n` / `bash -n` + isolated `fzf --filter=""` option check | M2 | Complete (M2) |
-| 13 | A1 | **eza** | `eza/theme.yml`, `eza/README.md` | `~/.config/eza/theme.yml` (`$EZA_CONFIG_DIR`) | `yaml.safe_load` + `EZA_CONFIG_DIR=<dir> eza --color=always` | M3 | Complete (M3) |
-| 14 | A1 | **kubecolor** | `kubecolor/color.yaml`, `kubecolor/README.md` | `~/.kube/color.yaml` | `yaml.safe_load` + `KUBECOLOR_CONFIG=<file> kubecolor` parse check | M3 | Complete (M3) |
-| 15 | A1 | **Atuin** | `atuin/carrera.toml`, `atuin/README.md` | `~/.config/atuin/themes/carrera.toml` | `tomllib.load` + Atuin theme key check | M2 | Complete (M2) |
-| 16 | A1 | **Zen Browser** | `zen-browser/userChrome.css`, `zen-browser/userContent.css`, `zen-browser/README.md` | `~/.config/zen/<profile>/chrome/` | CSS balanced-brace & variable/hex validation | M4 | Complete (M4) |
-| 17 | A1 | **imv** | `imv/carrera.ini`, `imv/README.md` | `~/.config/imv/config` (`[options]`) | `configparser` + 6-digit hex without `#` regex | M4 | Complete (M4) |
-| 18 | A1 | **mpv** | `mpv/mpv.conf`, `mpv/README.md` | `~/.config/mpv/carrera.conf` (`include=~~/carrera.conf` in `~/.config/mpv/mpv.conf`) | `mpv --no-config --include=<file> --idle=no --vo=null --ao=null` | M4 | Complete (M4) |
-| 19 | A1 | **zsh-syntax-highlighting** | `zsh-syntax-highlighting/carrera.zsh`, `zsh-syntax-highlighting/README.md` | Source in `~/.zshrc` | `zsh -n <file>` + subshell `zsh -fc 'source ...'` | M2 | Complete (M2) |
-| 20 | A1 | **GTK 3 / GTK 4** | `gtk/gtk.css`, `gtk/README.md` | `~/.config/gtk-3.0/gtk.css` & `~/.config/gtk-4.0/gtk.css` | CSS syntax & `@define-color` hex validation | M4 | Complete (M4) |
-| 21 | A1 | **pgcli** | `pgcli/carrera.pgclirc`, `pgcli/README.md` | `~/.config/pgcli/config` (`[colors]`) | `configparser` + prompt_toolkit `#rrggbb` syntax check | M3 | Complete (M3) |
-| 22 | A1 | **Fastfetch** | `fastfetch/carrera.jsonc`, `fastfetch/README.md` | `~/.config/fastfetch/carrera.jsonc` (or merge into `~/.config/fastfetch/config.jsonc`) | Comment-stripped `json.loads` + `fastfetch --config <file> --structure Title` | M3 | Complete (M3) |
-| 23 | A2 | **Foot** | `foot/carrera.ini`, `foot/README.md` | `~/.config/foot/themes/carrera.ini` (`include=...`) | `foot -c <file> --check-config` (`[colors-dark]`, no `#`) | M2 | Complete (M2) |
-| 24 | A2 | **Ghostty** | `ghostty/carrera`, `ghostty/README.md` | `~/.config/ghostty/themes/carrera` | `ghostty +validate-config --config-file=<file>` | M2 | Complete (M2) |
-| 25 | A2 | **Alacritty** | `alacritty/carrera.toml`, `alacritty/README.md` | `~/.config/alacritty/themes/carrera.toml` (`general.import`) | `tomllib.load` + Alacritty `[colors.*]` hex check | M2 | Complete (M2) |
-| 26 | A2 | **Kitty** | `kitty/carrera.conf`, `kitty/README.md` | `~/.config/kitty/themes/carrera.conf` (`include`) | Line-oriented key `#rrggbb` parser & key check | M2 | Complete (M2) |
-| 27 | A2 | **tmux** | `tmux/carrera.conf`, `tmux/README.md` | `~/.config/tmux/themes/carrera.conf` (`source-file`) | Isolated `tmux -L carrera-val -f <file> new-session -d -s val true \; kill-server` | M2 | Complete (M2) |
-| 28 | A2 | **Fcitx5** | `fcitx5/carrera/theme.conf`, `fcitx5/README.md` | `~/.local/share/fcitx5/themes/carrera/theme.conf` | `configparser` + `[Metadata]`/`[InputPanel]`/`[Menu]` check | M4 | Complete (M4) |
-| 29 | A2 | **Obsidian** | `obsidian/Carrera/manifest.json`, `obsidian/Carrera/theme.css`, `obsidian/README.md` | `<Vault>/.obsidian/themes/Carrera/` | `json.load` on `manifest.json` + CSS syntax check on `theme.css` | M4 | Complete (M4) |
-| 30 | A2 | **Claude Code** | `claude-code/carrera.json`, `claude-code/README.md` | `~/.claude/themes/carrera.json` | `json.load` + key completeness vs `claude.json.tpl` | M3 | Complete (M3) |
-| 31 | A2 | **Pi Coding Agent** | `pi/carrera.json`, `pi/README.md` | `~/.pi/agent/themes/carrera.json` | `json.load` + `vars`/`colors`/`export` ref check | M3 | Complete (M3) |
-| 32 | A2 | **VS Code / Antigravity IDE** | `vscode/package.json`, `vscode/themes/carrera-color-theme.json`, `vscode/README.md` | `~/.vscode/extensions/` or `~/.antigravity-ide/extensions/` | `json.load` on both files + theme schema check | M4 | Complete (M4) |
-| 33 | A2 | **Chromium** | `chromium/manifest.json`, `chromium/chromium.theme`, `chromium/README.md` | Load unpacked extension in `chrome://extensions` | `json.load` + `[r, g, b]` 0–255 integer range check | M4 | Complete (M4) |
-| 34 | A2 | **Hyprland** | `hyprland/carrera.conf`, `hyprland/README.md` | `~/.config/hypr/carrera.conf` (`source = ...`) | Hyprland `rgba(rrggbbaa)` & config syntax check | M4 | Complete (M4) |
-| 35 | A2 | **Hyprland Preview Share Picker** | `hyprland-preview-share-picker/style.css`, `hyprland-preview-share-picker/README.md` | `~/.config/hyprland-preview-share-picker/style.css` | CSS syntax & `@define-color` hex validation | M4 | Complete (M4) |
-| 36 | B | **btop** | `btop/carrera.theme`, `btop/README.md` | `~/.config/btop/themes/carrera.theme` | Line regex `^theme\[[a-z_]+\]="#[0-9a-fA-F]{6}"$` (42 keys) | M3 | Complete (M3) |
+| # | Group | Application | Target File Path(s) | Applied Workstation Path / Status | Isolated Validation Method | Status |
+|---|---|---|---|---|---|---|
+| 1 | R1 | **Telegram Desktop** | `telegram/911.tdesktop-theme`, `telegram/README.md` | Standalone (617 keys, 4-plane depth, flyline `background.jpg`; manual import) | ZIP/PNG check + 617-key palette parser + 18 WCAG checks | Complete (911) |
+| 2 | R2 | **Neovim** | `neovim/colors/911.lua`, `neovim/README.md` | Installed: `~/.config/nvim/colors/911.lua` (Omarchy `theme.lua` preserved) | `nvim --headless -c 'colorscheme 911'` + `lualine.themes.911` check | Complete (911) |
+| 3 | A1 | **OpenCode** | `opencode/911.json`, `opencode/README.md` | Applied: `~/.config/opencode/themes/911.json` + `opencode.json` (`.bak-911`) | `json.load` + OpenCode TUI schema check | Complete (911) |
+| 4 | A1 | **Cliamp** | `cliamp/911.toml`, `cliamp/README.md` | Applied: `~/.config/cliamp/themes/911.toml` + `config.toml` (`.bak-911`) | `tomllib.load` + `cliamp theme list` (`911`) | Complete (911) |
+| 5 | A1 | **Starship** | `starship/911.toml`, `starship/README.md` | Applied: `~/.config/starship.toml` (`.bak-911`) | `STARSHIP_CONFIG=<file> starship print-config` | Complete (911) |
+| 6 | A1 | **K9s** | `k9s/911.yaml`, `k9s/README.md` | Applied: `~/.config/k9s/skins/911.yaml` + `config.yaml` (`.bak-911`) | `yaml.safe_load` + K9s skin structure check | Complete (911) |
+| 7 | A1 | **bat** | `bat/911.tmTheme`, `bat/README.md` | Applied: `~/.config/bat/themes/911.tmTheme` + `config` (`.bak-911`) + `bat cache --build` | `xml.etree.ElementTree` + `bat --list-themes` & render | Complete (911) |
+| 8 | A1 | **Delta** | `delta/911.gitconfig`, `delta/README.md` | Applied: `~/.config/git/911-delta.gitconfig` + `~/.config/git/config` (`.bak-911`) | `git config --file <file> --list` + `delta` render | Complete (911) |
+| 9 | A1 | **Lazygit** | `lazygit/911.yml`, `lazygit/README.md` | Applied: `~/.config/lazygit/config.yml` (`.bak-911`) | `yaml.safe_load` + `gui.theme` (15 keys) check | Complete (911) |
+| 10 | A1 | **Lazydocker** | `lazydocker/911.yml`, `lazydocker/README.md` | Applied: `~/.config/lazydocker/config.yml` (`.bak-911`) | `yaml.safe_load` + `gui.theme` check | Complete (911) |
+| 11 | A1 | **Herdr** | `herdr/911.toml`, `herdr/README.md` | Applied: `~/.config/herdr/config.toml` (`.bak-911`, live reloaded) | `tomllib.load` + `herdr config check` | Complete (911) |
+| 12 | A1 | **fzf** | `fzf/911.sh`, `fzf/README.md` | Applied: `~/.config/zsh/fzf-911.sh` sourced in `~/.zshrc` (`.bak-911`) | `zsh -n` / `bash -n` + `fzf --filter=alpha` | Complete (911) |
+| 13 | A1 | **eza** | `eza/theme.yml`, `eza/README.md` | Applied: `~/.config/eza/theme.yml` | `yaml.safe_load` + `eza -la --git --color=always` | Complete (911) |
+| 14 | A1 | **kubecolor** | `kubecolor/color.yaml`, `kubecolor/README.md` | Applied: `~/.kube/color.yaml` | `yaml.safe_load` + `KUBECOLOR_CONFIG=<file> kubecolor` | Complete (911) |
+| 15 | A1 | **Atuin** | `atuin/911.toml`, `atuin/README.md` | Applied: `~/.atuin/themes/911.toml` + `~/.atuin/config.toml` (`.bak-911`) | `tomllib.load` + 15 PascalCase `[colors]` keys check | Complete (911) |
+| 16 | A1 | **Zen Browser** | `zen-browser/userChrome.css`, `zen-browser/userContent.css`, `zen-browser/README.md` | Applied: `~/.config/zen/i64rv1pg.Default (release)/chrome/` + `user.js` | CSS balanced-brace & token/hex validation | Complete (911) |
+| 17 | A1 | **imv** | `imv/911.ini`, `imv/README.md` | Applied: `~/.config/imv/config` (`.bak-911`, `[binds]` preserved) | `configparser` + 6-digit no-`#` hex check | Complete (911) |
+| 18 | A1 | **mpv** | `mpv/mpv.conf`, `mpv/README.md` | Applied: `~/.config/mpv/mpv.conf` | `mpv --no-config --include=<file> --idle=no --no-terminal` | Complete (911) |
+| 19 | A1 | **zsh-syntax-highlighting** | `zsh-syntax-highlighting/911.zsh`, `zsh-syntax-highlighting/README.md` | Applied: `~/.config/zsh/zsh-syntax-highlighting-911.zsh` in `~/.zshrc` (`.bak-911`) | `zsh -n`, `zsh -fc`, `zsh -ic 'exit 0'` | Complete (911) |
+| 20 | A1 | **GTK 3 / GTK 4** | `gtk/gtk.css`, `gtk/README.md` | Standalone (`~/.config/gtk-3.0/gtk.css` & `gtk-4.0/gtk.css`) | CSS syntax & `@define-color` hex validation | Complete (911) |
+| 21 | A1 | **pgcli** | `pgcli/911.pgclirc`, `pgcli/README.md` | Applied: `~/.config/pgcli/config` | `ConfigObj` + `pgcli` `style_factory` (62 styles) | Complete (911) |
+| 22 | A1 | **Fastfetch** | `fastfetch/911.jsonc`, `fastfetch/README.md` | Applied: `~/.config/fastfetch/config.jsonc` | Comment-stripped `json.loads` + `fastfetch` render | Complete (911) |
+| 23 | A2 | **Foot** | `foot/911.ini`, `foot/README.md` | Omarchy active `911` include preserved | `foot -c <file> --check-config` (`[colors-dark]` + `[csd]`) | Complete (911) |
+| 24 | A2 | **Ghostty** | `ghostty/911`, `ghostty/README.md` | Omarchy active `911` include preserved | `ghostty +validate-config --config-file=<file>` | Complete (911) |
+| 25 | A2 | **Alacritty** | `alacritty/911.toml`, `alacritty/README.md` | Omarchy active `911` include preserved | `tomllib.load` + `[colors.*]` / `[bell]` check | Complete (911) |
+| 26 | A2 | **Kitty** | `kitty/911.conf`, `kitty/README.md` | Omarchy active `911` include preserved | Line-oriented key `#rrggbb` parser & key check | Complete (911) |
+| 27 | A2 | **tmux** | `tmux/911.conf`, `tmux/README.md` | Applied: `~/.config/tmux/911.conf` sourced in `~/.config/tmux/tmux.conf` (`.bak-911`) | Isolated `tmux -L 911-val -f <file>` load check | Complete (911) |
+| 28 | A2 | **Fcitx5** | `fcitx5/911/theme.conf`, `fcitx5/README.md` | Omarchy active `911` theme preserved | `configparser` + `[Metadata]`/`[InputPanel*]`/`[Menu*]` check | Complete (911) |
+| 29 | A2 | **Obsidian** | `obsidian/911/manifest.json`, `obsidian/911/theme.css`, `obsidian/README.md` | Applied: `~/Documents/Obsidian Vault/.obsidian/themes/911/` + `appearance.json` (`.bak-911`) | `json.load` on `manifest.json` + CSS syntax check on `theme.css` | Complete (911) |
+| 30 | A2 | **Claude Code** | `claude-code/911.json`, `claude-code/README.md` | Omarchy active `911` theme preserved | `json.load` + 37 `overrides` key check | Complete (911) |
+| 31 | A2 | **Pi Coding Agent** | `pi/911.json`, `pi/README.md` | Omarchy active `911` theme preserved | `json.load` + `vars`/`colors`/`export` ref check | Complete (911) |
+| 32 | A2 | **VS Code / Antigravity IDE** | `vscode/package.json`, `vscode/themes/911-color-theme.json`, `vscode/README.md` | Standalone extension (670 workbench colors, 36 semantic tokens, 81 TextMate scopes) | `json.load` on both files + theme schema check | Complete (911) |
+| 33 | A2 | **Chromium** | `chromium/manifest.json`, `chromium/chromium.theme`, `chromium/README.md` | Omarchy active `911` theme preserved | `json.load` + `[r, g, b]` 0–255 integer range check | Complete (911) |
+| 34 | A2 | **Hyprland** | `hyprland/911.conf`, `hyprland/README.md` | Omarchy active `911` theme preserved | `hyprctl configerrors` empty + syntax check | Complete (911) |
+| 35 | A2 | **Hyprland Preview Share Picker** | `hyprland-preview-share-picker/style.css`, `hyprland-preview-share-picker/README.md` | Omarchy active `911` theme preserved | CSS syntax & token/hex validation | Complete (911) |
+| 36 | B | **btop** | `btop/911.theme`, `btop/README.md` | Omarchy active `911` theme preserved (exact byte-for-byte match) | 50-key `theme[key]="#rrggbb"` + `gradient_color_0..7` check | Complete (911) |
 
-*Note: Repo Foundation (`LICENSE`, `colors.toml`, `README.md`, `INVENTORY.md`), all 36 target application themes (M1–M4), and the E2E validation suite (`tests/`, Tiers 1–4) are Complete.*
+*Note: All 36 target application themes, root palette contract & documentation (`colors.toml`, `README.md`, `INVENTORY.md`), and the E2E validation suite (`tests/`) are aligned to **911 (`992.2`) Precision Night Cockpit**.*
 
 ---
 

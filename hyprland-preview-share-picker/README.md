@@ -1,27 +1,21 @@
-# Carrera for Hyprland Preview Share Picker
+# 911 (`992.2`) for Hyprland Preview Share Picker
 
-A GTK 4 stylesheet for `hyprland-preview-share-picker` (`v0.2.1+`) covering all 10 `schema.json` classes:
-translucent Basalt Alcantara window (`#15171a` at 95% alpha), `#1e2025` preview cards, Chalk (`#d6d2c7`) labels,
-and Carmine Red (`#e1656c`) borders and action buttons with `#15171a` dark button labels (`5.37:1` contrast).
+GTK 4 stylesheet for `hyprland-preview-share-picker`, aligned with the **911 (`992.2`) Precision Night Cockpit** palette (`../colors.toml`).
 
-## Install
+## Coverage
 
-Copy `style.css` to `~/.config/hyprland-preview-share-picker/style.css`:
+- Window frame (`#141619` with `#e55c5a` Guards Red border), tabs (`#858a96` inactive / `#e55c5a` active), preview cards (`#1a1d23` resting / `#261b1f` Smoked Carmine selected with `#e55c5a` outline), loading state (`#0f1114`), AA action buttons (`#bf3b3e` / `#f4f3ef`, `4.84:1`), and scrollbars.
 
-```bash
-mkdir -p ~/.config/hyprland-preview-share-picker
-cp hyprland-preview-share-picker/style.css ~/.config/hyprland-preview-share-picker/style.css
-```
+## Installation
 
-Then reference it in `~/.config/hyprland-preview-share-picker/config.yaml`:
+Reference `style.css` in `~/.config/hyprland-preview-share-picker/config.yaml`:
 
 ```yaml
-stylesheets:
-  - ./style.css
+stylesheets: ["/path/to/style.css"]
 ```
+
+> **Omarchy note**: Omarchy's active `911` theme already wires `~/.local/state/omarchy/current/theme/hyprland-preview-share-picker.css` in `~/.config/hyprland-preview-share-picker/config.yaml`.
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
-
-License: [MIT](../LICENSE)
+Not affiliated with or endorsed by Porsche AG. Licensed under [MIT](../LICENSE).

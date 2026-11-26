@@ -1,30 +1,26 @@
-# Carrera for Telegram Desktop
+# 911 (`992.2`) for Telegram Desktop
 
-Porsche 911 Heritage Cockpit (`v2.0.0`) dark theme for Telegram Desktop, built directly from [`../colors.toml`](../colors.toml).
+Porsche 911 (`992.2`) Precision Night Cockpit dark theme for Telegram Desktop, built directly from [`../colors.toml`](../colors.toml) and the derived 4-plane cockpit contract.
 
 ## Files
 
-- `carrera.tdesktop-theme` — Root-level archive containing:
-  - `colors.tdesktop-theme`: Full 606-key palette (`586/586` `lib_ui` `colors.palette` keys in topological dependency order + `20` legacy `night.tdesktop-theme` keys for cross-version compatibility, zero forward references, zero duplicate keys).
-  - `background.png`: Solid Basalt Alcantara (`#15171a`) non-interlaced PNG wallpaper so Telegram's auto-palette adjuster does not shift service/scrollbar hues.
+- `911.tdesktop-theme` — Root-level archive containing:
+  - `colors.tdesktop-theme`: Complete **617-key** palette in topological dependency order (zero forward references, zero duplicate keys, full `lib_ui` + legacy cross-version coverage).
+  - `background.jpg`: Custom Porsche 911 flyline dark cockpit wallpaper calibrated so Telegram's auto-palette adjuster preserves cockpit surface contrast.
 
 ## Palette & Contrast Notes
 
-- **Surfaces**: Basalt Alcantara (`#15171a`) primary canvas, `#101215` recessed chat list/sidebar/compose well, `#0b0c0e` deep shadows/media backdrop, `#1e2025` elevated hover rows & outgoing bubbles, `#2b2e35` active selection, and `#3a2429` smoked Carmine tint for selected outgoing bubbles.
-- **Carmine Red Accessibility**: Filled accent buttons, unread badges, verified checks, and tray counters (`#e1656c`) use `#101215` (`dark_background`) foregrounds (`5.61:1` WCAG AA contrast, vs `2.68:1` if `#eae6dc` were placed on `#e1656c`). `windowFgActive` stays `#eae6dc` for dark selection and overlay surfaces (`#2b2e35`, `#101215e5`).
+- **4-Plane Cockpit Depth**: Deep Carbon (`#0c0e11`), Race-Tex Chrome (`#131519`), Vanadium Elevated (`#1a1d23`), and Smoked Carmine tint (`#261b1f`, `11.90:1` with `#dadad6`), grounded in Race-Tex Charcoal (`#141619`) and `#0f1114` / `#0a0b0d`.
+- **Guards Red Accessibility**: Filled accent buttons, unread badges, verified checks, and tray counters use `#bf3b3e` with `#f4f3ef` ink (`4.84:1` WCAG AA), muted badges use `#363b47` with `#f4f3ef` (`10.10:1`), and all **18 WCAG AA contrast checks pass**.
 
 ## Manual Installation (Non-Activating)
 
 Applying the theme is completely manual and does not touch your running Telegram Desktop instance until you import it yourself:
 
 1. Open **Telegram Desktop**.
-2. Go to **Settings → Chat Settings → Theme** (click the `...` menu) → **Create new theme** / **Import existing theme** (or open `telegram/carrera.tdesktop-theme` directly with Telegram Desktop).
-3. Select `carrera.tdesktop-theme` and click **Keep Changes** when ready.
-
-## Verification
-
-Archive integrity, root-only layout, `#15171a` PNG decoding, 606-key coverage, identifier grammar (`[A-Za-z0-9_]+`), topological ordering, and Carrera v2.0.0 hex provenance are verified against `telegramdesktop/tdesktop` (`window_theme.cpp`) and `desktop-app/lib_ui` (`style_core_palette.cpp`, `colors.palette`) rules.
+2. Go to **Settings → Chat Settings → Theme** (click the `...` menu) → **Import existing theme** (or open `telegram/911.tdesktop-theme` directly with Telegram Desktop).
+3. Select `911.tdesktop-theme` and click **Keep Changes**.
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG. Licensed under [MIT](../LICENSE).
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG. Licensed under [MIT](../LICENSE).

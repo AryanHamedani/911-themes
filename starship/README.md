@@ -1,38 +1,25 @@
-# Carrera for Starship
+# 911 for Starship
 
-A dark, glare-free [Starship](https://starship.rs) prompt theme inspired by the Porsche 911 Heritage Cockpit on a night drive: **Basalt Alcantara** (`#15171a`) surfaces, warm **Chalk (`Kreide`)** (`#d6d2c7`) dial numerals, and a disciplined spark of **Carmine Red** (`#e1656c`).
+A dark, glare-free [Starship](https://starship.rs) prompt theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**: **Race-Tex Charcoal** (`#141619`), **Ice Grey (Crayon)** (`#dadad6`), and **Guards/Carmine Red** (`#e55c5a`).
 
-Calibrated in OKLCH for long daily sessions and tuned to WCAG AA / APCA contrast targets.
+Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast targets.
 
 ## Files Included
 
-- `carrera.toml` — Complete standalone Starship configuration defining `[palettes.carrera]`, `palette = "carrera"`, and styled prompt modules.
+- `911.toml` — Complete Starship configuration with `[palettes.911]` (all base and derived cockpit tokens) and rich module styling for `directory`, `git_branch`, `git_status`, `git_metrics`, `python`, `golang`, `rust`, `nodejs`, `docker_context`, `kubernetes`, `cmd_duration`, `jobs`, `status`, `fill`, `time`, and `character` (including vi-mode indicators).
 
 ## Manual Install
 
-### Option A: Use as your Starship config
-
-1. Back up your existing configuration, then copy `carrera.toml` to `~/.config/starship.toml`:
-
-   ```sh
-   cp -n ~/.config/starship.toml ~/.config/starship.toml.bak 2>/dev/null || true
-   cp carrera.toml ~/.config/starship.toml
-   ```
-
-   Or test it temporarily via `STARSHIP_CONFIG` without modifying `~/.config/starship.toml`:
-
-   ```sh
-   STARSHIP_CONFIG=/path/to/carrera.toml starship print-config
-   ```
-
-### Option B: Add the palette to an existing config
-
-Copy `palette = "carrera"` (near the top of `~/.config/starship.toml`) and the `[palettes.carrera]` table from `carrera.toml` into your existing Starship configuration, then reference tokens such as `accent`, `blue`, `green`, `yellow`, `orange`, `cyan`, `red`, or `muted` in your module `style` fields.
+```sh
+cp ~/.config/starship.toml ~/.config/starship.toml.bak-911
+cp 911.toml ~/.config/starship.toml
+starship print-config > /dev/null
+```
 
 Palette reference: [`../colors.toml`](../colors.toml).
 
 ---
 
-Not affiliated with or endorsed by Porsche AG. Porsche, 911 and Carrera are trademarks of Porsche AG.
+Not affiliated with or endorsed by Porsche AG. Porsche and 911 are trademarks of Porsche AG.
 
 License: [MIT](../LICENSE)
