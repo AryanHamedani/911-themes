@@ -5,9 +5,9 @@ Precision Night Cockpit dark theme for Zen Browser (`userChrome.css` + `userCont
 ## Coverage
 
 - `userChrome.css`:
-  - Full Zen (`1.24.x`) & Firefox LWT/Proton design tokens across the 4-plane cockpit hierarchy (`#0a0b0d` diffuser shadow, `#0c0e11`/`#0f1114` recessed chrome & compact-mode drawer, `#141619`/`#131519` canvas & Race-Tex toolbars, `#1a1d23`/`#1d2026` Vanadium elevated popovers/URL bar, `#261b1f`/`#292d36` Smoked Carmine & Slate selection).
-  - Vertical tabs, pending/unloaded tab dimming, multiselected tabs, pinned tabs separator, Essentials tiles, and Zen Folders (including folder search popup & overflow badges).
-  - Workspace switcher & current workspace header with Guards Red (`#e55c5a`) active indicators.
+  - Full Zen (`1.24.x`) & Firefox LWT/Proton design tokens across the 4-plane cockpit hierarchy (`#0a0b0d` diffuser shadow, unified `#0f1114` recessed chrome & compact-mode drawer with transparent webview wrappers so rounded corners clip cleanly, `#141619`/`#131519` canvas & Race-Tex surfaces, `#1a1d23`/`#1d2026` Vanadium elevated popovers/URL bar, `#261b1f`/`#292d36` Smoked Carmine & Slate selection).
+  - Vertical tabs (sleek `#261b1f` Smoked Carmine active pill with `#332024` hairline), pending/unloaded tab dimming, multiselected tabs, pinned tabs separator, Essentials tiles, and Zen Folders (including folder search popup & overflow badges).
+  - Workspace switcher & current workspace header with padded rounded `#261b1f` active pill and Guards Red (`#e55c5a`) active icon.
   - Floating & docked URL bar with Guards Red focus ring, semantic HTTPS/chromeUI security icons, search-mode AA pill (`#bf3b3e`/`#f4f3ef`), and Smoked Carmine autocomplete selection.
   - Split-view splitters, active pane outline, dropzone, and Zen Glance overlay.
   - Compact Mode floating sidebar drawer, sidebar media controls card, status pill, findbar (including not-found state), context menus, downloads/extensions popups, and thin scrollbars with `prefers-reduced-motion` support.

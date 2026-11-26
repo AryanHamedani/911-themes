@@ -1,7 +1,7 @@
 # 911 (992.2) Precision Night Cockpit — Herdr
-# Race-Tex Charcoal (#141619), Deep Carbon (#0c0e11), Race-Tex Chrome (#131519),
+# Seamless Race-Tex Charcoal (#141619), Race-Tex Chrome (#131519),
 # Vanadium Elevated (#1a1d23), Smoked Carmine (#261b1f), Ice Grey (#dadad6),
-# and Guards/Carmine Red (#e55c5a).
+# and calm Filled Guards Red (#bf3b3e) focus discipline.
 
 [theme]
 name = "catppuccin"
@@ -9,14 +9,14 @@ auto_switch = false
 
 [theme.custom]
 # Focus & Primary Instrument Needle
-accent = "#e55c5a"        # 911 Guards/Carmine Red: active pane border, active tab, focus ring (5.19:1 on canvas)
+accent = "#bf3b3e"        # Filled Guards Red: calm, balanced active tab, pane border & modal focus
 
-# 4-Plane Cockpit Surfaces & Borders
-sidebar_bg = "#0c0e11"    # Plane 0: Deep carbon recessed sidebar & workspaces (13.79:1 w/ text)
-surface_dim = "#131519"   # Plane 1: Race-Tex chrome for top/bottom bar & recessed chrome (13.04:1 w/ text)
-panel_bg = "#141619"      # Plane 2: Race-Tex Charcoal active terminal canvas & active-tab ink (5.19:1 on accent)
-surface0 = "#1a1d23"      # Plane 3: Vanadium elevated popups, modals, menus, cards (12.04:1 w/ text)
-active_row_bg = "#261b1f" # Plane 4: Smoked Carmine active workspace & agent row (11.90:1 w/ text)
+# Seamless Race-Tex Cockpit Surfaces & Borders
+sidebar_bg = "#141619"    # Race-Tex Charcoal: seamless with Foot canvas/padding (no pitch-black slab)
+surface_dim = "#131519"   # Race-Tex chrome for top/bottom bar & recessed chrome (13.04:1 w/ text)
+panel_bg = "#141619"      # Race-Tex Charcoal active terminal canvas & active-tab ink
+surface0 = "#1a1d23"      # Vanadium elevated popups, modals, menus, cards (12.04:1 w/ text)
+active_row_bg = "#261b1f" # Smoked Carmine active workspace & agent row (11.90:1 w/ text)
 selection_bg = "#292d36"  # Slate Grey Neo text & copy-mode selection (9.84:1 w/ text)
 surface1 = "#2f3440"      # Divider / hairline border for inactive pane dividers & modal frames
 
@@ -36,4 +36,4 @@ peach = "#e89158"         # Lava Orange: warm alert / attention (7.44:1)
 mauve = "#b488cc"         # Ultraviolet / PTS Amethyst: agent badge / prefix mode (6.33:1)
 
 [ui]
-accent = "#e55c5a"
+accent = "#bf3b3e"

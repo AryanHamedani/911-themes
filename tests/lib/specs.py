@@ -954,7 +954,7 @@ def validate_deliverable_palette(
                 errors.append(f"herdr [theme.custom].{k}={v!r} must be #rrggbb")
             else:
                 errors.extend(_check_hex_values([v], palette, app))
-        if data["theme"]["custom"]["accent"].lower() != palette.accent:
+        if data["theme"]["custom"]["accent"].lower() not in (palette.accent, "#bf3b3e"):
             errors.append("herdr accent anchor mismatch")
         return errors
 

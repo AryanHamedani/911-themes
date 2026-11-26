@@ -38,14 +38,15 @@
   --button-text-color-primary: #f4f3ef !important;
   --button-primary-color: #f4f3ef !important;
 
-  /* 4-Plane Cockpit Surfaces */
-  --zen-branding-dark: #0c0e11 !important;
+  /* 4-Plane Cockpit Surfaces (unified outer shell on #0f1114) */
+  --zen-branding-dark: #0f1114 !important;
   --zen-branding-bg: #0f1114 !important;
   --zen-branding-bg-reverse: #dadad6 !important;
-  --zen-main-browser-background: #0c0e11 !important;
+  --zen-main-browser-background: #0f1114 !important;
   --zen-main-browser-background-toolbar: #0f1114 !important;
-  --zen-navigator-toolbox-background: #0f1114 !important;
+  --zen-themed-toolbar-bg: #0f1114 !important;
   --zen-themed-toolbar-bg-transparent: #0f1114 !important;
+  --zen-navigator-toolbox-background: #0f1114 !important;
   --zen-colors-primary: #141619 !important;
   --zen-colors-secondary: #1a1d23 !important;
   --zen-colors-tertiary: #0f1114 !important;
@@ -94,7 +95,7 @@
   --toolbarbutton-icon-fill-attention: #e55c5a !important;
   --toolbarbutton-hover-background: #1d2026 !important;
   --toolbarbutton-active-background: #292d36 !important;
-  --lwt-accent-color: #0a0b0d !important;
+  --lwt-accent-color: #0f1114 !important;
   --lwt-text-color: #dadad6 !important;
   --lwt-sidebar-background-color: #0f1114 !important;
   --lwt-sidebar-text-color: #dadad6 !important;
@@ -141,23 +142,29 @@
 /* --------------------------------------------------------------------------
  * 2. Cockpit Shell, Toolbars & Compact Mode Drawer
  * -------------------------------------------------------------------------- */
+/* Unified outer cockpit shell: single recessed #0f1114 plane with zero seams */
 #main-window,
-#browser {
-  background-color: #0c0e11 !important;
+#browser,
+#navigator-toolbox,
+#zen-main-app-wrapper,
+#zen-appcontent-wrapper,
+#zen-tabbox-wrapper {
+  background-color: #0f1114 !important;
+  background-image: none !important;
   color: #dadad6 !important;
 }
 
 #navigator-toolbox {
-  background-color: #0f1114 !important;
-  border-color: #252932 !important;
+  border: none !important;
 }
 
 #nav-bar,
 #zen-appcontent-navbar-container,
 #PersonalToolbar {
-  background-color: #131519 !important;
+  background-color: transparent !important;
+  background-image: none !important;
   color: #dadad6 !important;
-  border-color: #252932 !important;
+  border-color: transparent !important;
 }
 
 #PersonalToolbar {
@@ -172,20 +179,24 @@
 }
 
 :root[zen-compact-mode="true"] #zen-appcontent-navbar-container {
-  background-color: #131519 !important;
+  background-color: #0f1114 !important;
   border-bottom: 1px solid #2f3440 !important;
   box-shadow: 0 8px 24px rgba(10, 11, 13, 0.65) !important;
 }
 
-/* Primary browser canvas frame */
+/* Primary browser viewport: transparent wrappers so Zen's rounded webview
+ * clips cleanly against #0f1114 with zero square corner wedges */
 #tabbrowser-tabpanels,
 .browserSidebarContainer,
-.browserContainer {
-  background-color: #141619 !important;
+.browserContainer,
+.browserStack {
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
-#zen-tabbox-wrapper {
-  background-color: #0c0e11 !important;
+/* Crisp 1px hairline following the rounded webview's exact border-radius */
+.browserSidebarContainer:not(.zen-glance-overlay) .browserStack {
+  box-shadow: 0 0 0 1px #252932 !important;
 }
 
 /* Toolbar icon buttons */
@@ -216,18 +227,19 @@ toolbarbutton.toolbarbutton-1[checked="true"] {
   transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease !important;
 }
 
-/* Active tab: Smoked Carmine tint + 2px Guards Red instrument needle */
+/* Active tab: sleek Smoked Carmine pill + subtle Carmine hairline (no curved inset shadow) */
 .tabbrowser-tab[selected] .tab-background,
 .tabbrowser-tab[visuallyselected] .tab-background {
   background-color: #261b1f !important;
   border-color: #332024 !important;
-  box-shadow: inset 2px 0 0 0 #e55c5a !important;
+  box-shadow: none !important;
 }
 
-.tabbrowser-tab[selected]:hover .tab-background {
+.tabbrowser-tab[selected]:hover .tab-background,
+.tabbrowser-tab[visuallyselected]:hover .tab-background {
   background-color: #261b1f !important;
   border-color: #434854 !important;
-  box-shadow: inset 2px 0 0 0 #e55c5a !important;
+  box-shadow: none !important;
 }
 
 /* Hovered inactive tab: Vanadium elevated */
@@ -321,14 +333,14 @@ toolbarbutton.toolbarbutton-1[checked="true"] {
 #zen-essentials .tabbrowser-tab[selected] .tab-background,
 #zen-essentials .tabbrowser-tab[visuallyselected] .tab-background {
   background-color: #261b1f !important;
-  border-color: #e55c5a !important;
-  box-shadow: 0 0 0 1px rgba(229, 92, 90, 0.25) !important;
+  border-color: #332024 !important;
+  box-shadow: none !important;
 }
 
 /* Pinned tabs separator */
 #vertical-pinned-tabs-splitter {
-  border-color: #2f3440 !important;
-  background-color: #2f3440 !important;
+  border-color: #252932 !important;
+  background-color: #252932 !important;
 }
 
 /* Zen Folders & Folder Popup */
@@ -379,7 +391,7 @@ zen-folder .tab-group-label-container:hover {
  * -------------------------------------------------------------------------- */
 .zen-current-workspace-indicator {
   color: #dadad6 !important;
-  border-bottom: 1px solid #252932 !important;
+  border-bottom: none !important;
 }
 
 .zen-current-workspace-indicator-name {
@@ -395,28 +407,44 @@ zen-folder .tab-group-label-container:hover {
   background-color: #1a1d23 !important;
 }
 
+#zen-sidebar-foot-buttons {
+  padding-bottom: 4px !important;
+}
+
 #zen-workspaces-button {
-  background-color: #0c0e11 !important;
-  border-top: 1px solid #252932 !important;
+  background-color: transparent !important;
+  border-top: none !important;
+  padding: 4px 6px 6px !important;
+  gap: 4px !important;
 }
 
-#zen-workspaces-button toolbarbutton {
+#zen-workspaces-button toolbarbutton,
+#zen-workspaces-button .subviewbutton {
   color: #9297a2 !important;
-  transition: background-color 120ms ease, color 120ms ease !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  padding: 5px 8px !important;
+  min-height: 28px !important;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease !important;
 }
 
-#zen-workspaces-button toolbarbutton:hover {
-  background-color: #1d2026 !important;
+#zen-workspaces-button toolbarbutton:hover,
+#zen-workspaces-button .subviewbutton:hover {
+  background-color: #1a1d23 !important;
+  border-color: #252932 !important;
   color: #dadad6 !important;
 }
 
-#zen-workspaces-button toolbarbutton[active="true"] {
-  background-color: #1a1d23 !important;
-  color: #edede9 !important;
-  box-shadow: inset 0 -2px 0 0 #e55c5a !important;
+#zen-workspaces-button toolbarbutton[active="true"],
+#zen-workspaces-button .subviewbutton[active="true"] {
+  background-color: #261b1f !important;
+  border-color: #332024 !important;
+  color: #e55c5a !important;
+  box-shadow: none !important;
 }
 
-#zen-workspaces-button toolbarbutton[active="true"] .zen-workspace-icon {
+#zen-workspaces-button toolbarbutton[active="true"] .zen-workspace-icon,
+#zen-workspaces-button .subviewbutton[active="true"] .zen-workspace-icon {
   fill: #e55c5a !important;
   color: #e55c5a !important;
 }
@@ -516,11 +544,16 @@ zen-folder .tab-group-label-container:hover {
   background-color: #292d36 !important;
 }
 
-.urlbarView-row[selected] > .urlbarView-row-inner,
 .urlbarView-row[selected] {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.urlbarView-row[selected] > .urlbarView-row-inner {
   background-color: #261b1f !important;
   color: #edede9 !important;
-  box-shadow: inset 2px 0 0 0 #e55c5a !important;
+  border: 1px solid #332024 !important;
+  box-shadow: none !important;
 }
 
 .urlbarView-title {
@@ -553,7 +586,7 @@ zen-folder .tab-group-label-container:hover {
 
 .search-one-offs {
   border-top: 1px solid #252932 !important;
-  background-color: #131519 !important;
+  background-color: transparent !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -562,7 +595,7 @@ zen-folder .tab-group-label-container:hover {
 #sidebar-splitter,
 #zen-sidebar-splitter,
 .zen-split-view-splitter {
-  background-color: #252932 !important;
+  background-color: transparent !important;
   transition: background-color 120ms ease !important;
 }
 
@@ -572,13 +605,12 @@ zen-folder .tab-group-label-container:hover {
   background-color: #e55c5a !important;
 }
 
-#tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer {
-  border: 1px solid #252932 !important;
+#tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer .browserStack {
+  box-shadow: 0 0 0 1px #252932 !important;
 }
 
-#tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer.deck-selected:not(.zen-glance-overlay) {
-  outline: 2px solid #e55c5a !important;
-  outline-offset: -2px !important;
+#tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer.deck-selected:not(.zen-glance-overlay) .browserStack {
+  box-shadow: 0 0 0 2px #e55c5a !important;
 }
 
 .zen-view-splitter-header {
@@ -771,7 +803,7 @@ toolbarseparator {
 }
 
 #downloadsHistory {
-  background-color: #131519 !important;
+  background-color: transparent !important;
   border-top: 1px solid #2f3440 !important;
   color: #dadad6 !important;
 }

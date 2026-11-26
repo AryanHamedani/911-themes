@@ -1,19 +1,19 @@
 # 911 for Herdr
 
-A dark, glare-free [Herdr](https://herdr.dev) terminal multiplexer theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**, engineered for 8-hour daily multi-agent sessions with a strict 4-plane surface hierarchy, restrained **Guards/Carmine Red** (`#e55c5a`) focus discipline, and OKLCH-calibrated agent lifecycle telemetry.
+A dark, glare-free [Herdr](https://herdr.dev) terminal multiplexer theme inspired by the **Porsche 911 (`992.2`) Precision Night Cockpit**, engineered for 8-hour daily multi-agent sessions with a seamless **Race-Tex Charcoal** (`#141619`) surface progression (eliminating harsh sidebar cutouts against translucent terminals like Foot), calm **Filled Guards Red** (`#bf3b3e`) focus discipline, and OKLCH-calibrated agent lifecycle telemetry.
 
 ## Cockpit Architecture
 
-| Plane / Role | Herdr Token | Hex | Contrast (`#dadad6` / `#141619`) |
+| Plane / Role | Herdr Token | Hex | Contrast / Notes |
 |---|---|---|---|
-| **Plane 0** — Recessed sidebar & workspaces | `sidebar_bg` | `#0c0e11` | `13.79:1` |
-| **Plane 1** — Top/bottom bar chrome | `surface_dim` | `#131519` | `13.04:1` |
-| **Plane 2** — Active terminal canvas & active-tab ink | `panel_bg` | `#141619` | `12.93:1` (`5.19:1` on `#e55c5a`) |
-| **Plane 3** — Vanadium elevated popups, modals & menus | `surface0` | `#1a1d23` | `12.04:1` |
-| **Plane 4** — Smoked Carmine active workspace/agent row | `active_row_bg` | `#261b1f` | `11.90:1` |
-| **Selection** — Copy-mode & text highlight | `selection_bg` | `#292d36` | `9.84:1` |
-| **Inactive Border** — Pane divider & modal hairline | `surface1` | `#2f3440` | Crisp subtle rule vs `#e55c5a` focus |
-| **Active Focus** — Active pane border & active tab | `accent` / `[ui].accent` | `#e55c5a` | `5.19:1` on canvas |
+| **Sidebar** — Seamless Race-Tex workspaces & agents | `sidebar_bg` | `#141619` | `12.93:1` w/ `#dadad6`; matches Foot `#141619` padding with zero slab seam |
+| **Chrome Bar** — Top/bottom bar chrome | `surface_dim` | `#131519` | `13.04:1` w/ `#dadad6`; blends cleanly into Race-Tex edges |
+| **Canvas** — Active terminal canvas & active-tab ink | `panel_bg` | `#141619` | `12.93:1` w/ `#dadad6` |
+| **Elevated** — Vanadium popups, modals & menus | `surface0` | `#1a1d23` | `12.04:1` w/ `#dadad6` |
+| **Active Row** — Smoked Carmine active workspace/agent row | `active_row_bg` | `#261b1f` | `11.90:1` w/ `#dadad6` |
+| **Selection** — Copy-mode & text highlight | `selection_bg` | `#292d36` | `9.84:1` w/ `#dadad6` |
+| **Inactive Border** — Pane divider & modal hairline | `surface1` | `#2f3440` | Crisp subtle rule vs `#bf3b3e` focus |
+| **Active Focus** — Active tab fill, pane border & modal focus | `accent` / `[ui].accent` | `#bf3b3e` | Calm Filled Guards Red (`4.84:1` AA badge fill) without coral glare |
 
 ### Typography & Agent Lifecycle Telemetry
 
