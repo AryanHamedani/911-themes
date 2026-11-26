@@ -1,4 +1,6 @@
 # 911 (992.2) Precision Night Cockpit for eza
+# Race-Tex Charcoal surfaces, Ice Grey dial typography, calm metadata chrome,
+# and restrained 911 Guards/Carmine Red accents for critical states.
 colourful: true
 
 filekinds:
@@ -11,17 +13,17 @@ filekinds:
   socket: { foreground: "#b488cc", is_bold: true }
   special: { foreground: "#ad7f66" }
   executable: { foreground: "#7fb887", is_bold: true }
-  mount_point: { foreground: "#e55c5a", is_bold: true, is_underline: true }
+  mount_point: { foreground: "#6fa2de", is_bold: true, is_underline: true }
 
 perms:
-  user_read: { foreground: "#dadad6" }
-  user_write: { foreground: "#e89158" }
+  user_read: { foreground: "#e0be66" }
+  user_write: { foreground: "#e56c6a" }
   user_execute_file: { foreground: "#7fb887" }
   user_execute_other: { foreground: "#7fb887" }
-  group_read: { foreground: "#b4b7be" }
-  group_write: { foreground: "#e0be66" }
+  group_read: { foreground: "#e0be66" }
+  group_write: { foreground: "#e56c6a" }
   group_execute: { foreground: "#7fb887" }
-  other_read: { foreground: "#9297a2" }
+  other_read: { foreground: "#e0be66" }
   other_write: { foreground: "#e56c6a" }
   other_execute: { foreground: "#7fb887" }
   special_user_file: { foreground: "#e55c5a", is_bold: true }
@@ -31,28 +33,28 @@ perms:
 size:
   major: { foreground: "#e89158" }
   minor: { foreground: "#e0be66" }
-  number_byte: { foreground: "#b4b7be" }
-  number_kilo: { foreground: "#7fb887" }
-  number_mega: { foreground: "#e0be66" }
-  number_giga: { foreground: "#e89158" }
+  number_byte: { foreground: "#9297a2" }
+  number_kilo: { foreground: "#b4b7be" }
+  number_mega: { foreground: "#dadad6" }
+  number_giga: { foreground: "#e0be66", is_bold: true }
   number_huge: { foreground: "#e55c5a", is_bold: true }
   unit_byte: { foreground: "#858a96" }
-  unit_kilo: { foreground: "#7fb887" }
-  unit_mega: { foreground: "#e0be66" }
-  unit_giga: { foreground: "#e89158" }
-  unit_huge: { foreground: "#e55c5a", is_bold: true }
+  unit_kilo: { foreground: "#9297a2" }
+  unit_mega: { foreground: "#b4b7be" }
+  unit_giga: { foreground: "#e0be66" }
+  unit_huge: { foreground: "#e55c5a" }
 
 users:
-  user_you: { foreground: "#edede9", is_bold: true }
+  user_you: { foreground: "#b4b7be" }
   user_root: { foreground: "#e55c5a", is_bold: true }
   user_other: { foreground: "#9297a2" }
-  group_yours: { foreground: "#b4b7be" }
+  group_yours: { foreground: "#9297a2" }
   group_other: { foreground: "#858a96" }
   group_root: { foreground: "#e56c6a" }
 
 links:
-  normal: { foreground: "#6ac4cb" }
-  multi_link_file: { foreground: "#84d8de", is_bold: true }
+  normal: { foreground: "#9297a2" }
+  multi_link_file: { foreground: "#6ac4cb", is_bold: true }
 
 git:
   new: { foreground: "#7fb887" }
@@ -61,7 +63,7 @@ git:
   renamed: { foreground: "#6ac4cb" }
   typechange: { foreground: "#b488cc" }
   ignored: { foreground: "#858a96" }
-  conflicted: { foreground: "#f48583", is_bold: true }
+  conflicted: { foreground: "#e55c5a", is_bold: true }
 
 git_repo:
   branch_main: { foreground: "#7fb887", is_bold: true }
@@ -83,22 +85,84 @@ file_type:
   video: { foreground: "#caa2e0" }
   music: { foreground: "#6ac4cb" }
   lossless: { foreground: "#84d8de" }
-  crypto: { foreground: "#98ce9f" }
-  document: { foreground: "#7fb887" }
+  crypto: { foreground: "#e89158" }
+  document: { foreground: "#b4b7be" }
   compressed: { foreground: "#e56c6a" }
   temp: { foreground: "#858a96" }
   compiled: { foreground: "#ad7f66" }
-  build: { foreground: "#e0be66", is_underline: true }
-  source: { foreground: "#f0d282" }
+  build: { foreground: "#e0be66", is_bold: true }
+  source: { foreground: "#dadad6" }
 
 punctuation: { foreground: "#858a96" }
-date: { foreground: "#6fa2de" }
-inode: { foreground: "#9297a2" }
-blocks: { foreground: "#9297a2" }
+date: { foreground: "#9297a2" }
+inode: { foreground: "#858a96" }
+blocks: { foreground: "#858a96" }
 header: { foreground: "#edede9", is_bold: true, is_underline: true }
-octal: { foreground: "#6ac4cb" }
-flags: { foreground: "#b488cc" }
+octal: { foreground: "#858a96" }
+flags: { foreground: "#9297a2" }
 symlink_path: { foreground: "#6ac4cb" }
-control_char: { foreground: "#e56c6a" }
-broken_symlink: { foreground: "#f48583", is_bold: true }
-broken_path_overlay: { is_underline: true }
+control_char: { foreground: "#e56c6a", is_bold: true }
+broken_symlink: { foreground: "#e56c6a", is_bold: true, is_underline: true }
+broken_path_overlay: { foreground: "#e56c6a", is_underline: true }
+
+filenames:
+  README.md:
+    filename: { foreground: "#edede9", is_bold: true }
+    icon:
+      style: { foreground: "#e0be66" }
+  LICENSE:
+    filename: { foreground: "#b4b7be" }
+    icon:
+      style: { foreground: "#9297a2" }
+  Makefile:
+    filename: { foreground: "#e0be66", is_bold: true }
+    icon:
+      style: { foreground: "#e0be66" }
+  Justfile:
+    filename: { foreground: "#e0be66", is_bold: true }
+    icon:
+      style: { foreground: "#e0be66" }
+  justfile:
+    filename: { foreground: "#e0be66", is_bold: true }
+    icon:
+      style: { foreground: "#e0be66" }
+  Dockerfile:
+    filename: { foreground: "#6ac4cb", is_bold: true }
+    icon:
+      style: { foreground: "#6fa2de" }
+  compose.yml:
+    filename: { foreground: "#6ac4cb", is_bold: true }
+    icon:
+      style: { foreground: "#6fa2de" }
+  docker-compose.yml:
+    filename: { foreground: "#6ac4cb", is_bold: true }
+    icon:
+      style: { foreground: "#6fa2de" }
+  docker-compose.yaml:
+    filename: { foreground: "#6ac4cb", is_bold: true }
+    icon:
+      style: { foreground: "#6fa2de" }
+  Cargo.toml:
+    filename: { foreground: "#e0be66" }
+    icon:
+      style: { foreground: "#e0be66" }
+  package.json:
+    filename: { foreground: "#e0be66" }
+    icon:
+      style: { foreground: "#e0be66" }
+  pyproject.toml:
+    filename: { foreground: "#e0be66" }
+    icon:
+      style: { foreground: "#e0be66" }
+  go.mod:
+    filename: { foreground: "#e0be66" }
+    icon:
+      style: { foreground: "#e0be66" }
+  .env:
+    filename: { foreground: "#e89158", is_bold: true }
+    icon:
+      style: { foreground: "#e89158" }
+  .gitignore:
+    filename: { foreground: "#858a96" }
+    icon:
+      style: { foreground: "#858a96" }

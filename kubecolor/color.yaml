@@ -1,8 +1,21 @@
-# 911 (992.2) Precision Night Cockpit for kubecolor
+# 911 (992.2) Precision Night Cockpit for kubecolor (v0.9.0+)
+# Unified triage ladder with K9s 911:
+#   Success / Added / Healthy:  #7fb887  Oak Green Metallic Neo
+#   Modified / Keys / Links:    #6fa2de  Lugano Blue
+#   Secondary / Flags / DryRun: #6ac4cb  Ice Glacier Cyan
+#   Nested Keys / Special Ops:  #b488cc  Ultraviolet
+#   Warning / Pending / Bool:   #e0be66  PCCB Racing Gold
+#   Numbers / Quantities / SSA: #e89158  Lava Orange
+#   Error / Removed / Denied:   #e56c6a  911 Carmine Red (text-weight)
+#   Fatal / Panic:              #f48583  Carmine Glow
+#   Instrument Needle:          #e55c5a  Guards Red (help headers, required)
+#   Typography:                 #dadad6  primary | #b4b7be headers | #9297a2 age | #858a96 muted
+
 preset: dark
 
 theme:
-  default: "#7fb887"
+  default: "#dadad6"
+
   base:
     info: "#dadad6"
     primary: "#b488cc"
@@ -11,12 +24,19 @@ theme:
     warning: "#e0be66"
     danger: "#e56c6a"
     muted: "#858a96:italic"
-    key: "#6fa2de / #6ac4cb"
+    key: "#6fa2de / #6ac4cb / #b488cc"
+
+  shell:
+    comment: "#858a96:italic"
+    command: "#7fb887"
+    arg: "#dadad6"
+    flag: "#6ac4cb"
+
   data:
-    key: "#6fa2de / #6ac4cb"
-    string: "#f0d282"
-    true: "#7fb887"
-    false: "#e56c6a"
+    key: "#6fa2de / #6ac4cb / #b488cc"
+    string: "#7fb887"
+    "true": "#e0be66"
+    "false": "#e0be66"
     number: "#e89158"
     "null": "#858a96:italic"
     quantity: "#e89158"
@@ -26,51 +46,74 @@ theme:
       zero: "#858a96"
       equal: "#7fb887"
       unequal: "#e0be66"
+
   status:
     success: "#7fb887"
     warning: "#e0be66"
     error: "#e56c6a:bold"
+
   table:
-    header: "#edede9:bold"
-    columns: "#6fa2de / #6ac4cb / #dadad6 / #e0be66 / #b488cc"
+    header: "#b4b7be:bold"
+    # Disciplined 3-step cockpit cadence (Ice Grey / Lugano Blue / Brushed Silver)
+    # for effortless horizontal row tracking on wide tables without rainbow clutter
+    columns: "#dadad6 / #6fa2de / #b4b7be"
+
   describe:
-    key: "#6fa2de / #6ac4cb"
+    key: "#6fa2de / #6ac4cb / #b488cc"
+
   explain:
-    key: "#6fa2de / #6ac4cb"
+    key: "#6fa2de / #6ac4cb / #b488cc"
     required: "#e55c5a:bold"
+
   version:
     key: "#6fa2de / #6ac4cb"
+
   stderr:
     error: "#e56c6a:bold"
-    nonefound: "#858a96"
+    nonefound: "#858a96:italic"
     nonefoundnamespace: "#6ac4cb"
+
   options:
     flag: "#6ac4cb"
+
   help:
     header: "#e55c5a:bold"
     flag: "#6ac4cb"
     flagdesc: "#dadad6"
     url: "#6fa2de:underline"
     text: "#dadad6"
+
   apply:
     created: "#7fb887"
-    configured: "#e0be66"
-    unchanged: "#b488cc"
+    configured: "#6fa2de"
+    unchanged: "#858a96"
     serverside: "#e89158"
     pruned: "#e56c6a"
     setlastapplied: "#858a96"
     dryrun: "#6ac4cb"
-    fallback: "#7fb887"
+    fallback: "#dadad6"
+
   delete:
     deleted: "#e56c6a"
     dryrun: "#6ac4cb"
     fallback: "#e56c6a"
+
   diff:
     added: "#7fb887"
     removed: "#e56c6a"
     unchanged: "#858a96"
+
+  rollout:
+    rolledout: "#7fb887"
+    restarted: "#6fa2de"
+    rolledback: "#e0be66"
+    paused: "#b488cc"
+    resumed: "#6ac4cb"
+    dryrun: "#6ac4cb"
+    fallback: "#dadad6"
+
   logs:
-    key: "#6fa2de / #6ac4cb"
+    key: "#6fa2de / #6ac4cb / #b488cc"
     quotedstring: "#7fb887"
     date: "#858a96"
     sourceref: "#858a96"

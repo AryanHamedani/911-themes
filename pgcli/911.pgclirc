@@ -2,39 +2,80 @@
 # Merge [main] and [colors] into ~/.config/pgcli/config.
 
 [main]
+# Cockpit syntax & tabular reading ergonomics
 syntax_style = native
+table_format = psql_unicode
+null_string = '∅'
+row_limit = 1000
+timing = True
+
+# Completion, editing & prompt ergonomics
+smart_completion = True
+auto_suggest = True
+wider_completion_menu = True
+min_num_menu_lines = 6
+keyword_casing = auto
+multi_line = False
+multi_line_mode = psql
+show_bottom_toolbar = True
+prompt = '\u@\h:\d\T> '
+multiline_continuation_char = '·'
 
 [colors]
-# Prompt Toolkit completion menu & scrollbar
-completion-menu.completion.current = 'bg:#292d36 #edede9 bold'
-completion-menu.completion = 'bg:#1d2026 #dadad6'
-completion-menu.meta.completion.current = 'bg:#292d36 #e55c5a'
-completion-menu.meta.completion = 'bg:#0f1114 #9297a2'
-completion-menu.multi-column-meta = 'bg:#1a1d23 #b4b7be'
-scrollbar.arrow = 'bg:#0f1114 #858a96'
+# Completion menu (Vanadium #1a1d23 surface, Smoked Carmine #261b1f active row)
+completion-menu = 'bg:#1a1d23 #dadad6'
+completion-menu.completion = 'bg:#1a1d23 #dadad6'
+completion-menu.completion.current = 'bg:#261b1f #edede9 bold'
+completion-menu.meta.completion = 'bg:#131519 #9297a2'
+completion-menu.meta.completion.current = 'bg:#261b1f #b4b7be'
+completion-menu.multi-column-meta = 'bg:#131519 #b4b7be'
+completion-menu.completion fuzzymatch.outside = 'fg:#9297a2'
+completion-menu.completion fuzzymatch.inside = 'fg:#edede9 bold'
+completion-menu.completion fuzzymatch.inside.character = 'fg:#e55c5a underline'
+completion-menu.completion.current fuzzymatch.outside = 'fg:#b4b7be'
+completion-menu.completion.current fuzzymatch.inside = 'fg:#edede9 bold'
+
+# Scrollbar (Recessed #0f1114 track, muted #434854 thumb)
 scrollbar.background = 'bg:#0f1114'
 scrollbar.button = 'bg:#434854'
+scrollbar.arrow = 'bg:#0f1114 #858a96'
 scrollbar = 'bg:#292d36'
 
-# Selection & incremental search
+# Selection, incremental search, brackets & inline hints
 selected = 'bg:#292d36 #edede9'
 search = 'bg:#5b5134 #edede9'
 search.current = 'bg:#bf3b3e #f4f3ef bold'
+incsearch = 'bg:#5b5134 #edede9'
+incsearch.current = 'bg:#bf3b3e #f4f3ef bold'
+matching-bracket.cursor = 'bg:#261b1f #f48583 bold'
+matching-bracket.other = 'bg:#292d36 #edede9 bold'
+auto-suggestion = '#858a96 italic'
+trailing-whitespace = 'bg:#2d2023 #e56c6a'
+tab = '#434854'
+aborting = '#858a96 bg:default noreverse noitalic nounderline'
+exiting = '#858a96 bg:default noreverse noitalic nounderline'
 
-# Bottom toolbars & transaction state
-bottom-toolbar = 'bg:#0f1114 #9297a2'
-bottom-toolbar.off = 'bg:#0f1114 #858a96'
-bottom-toolbar.on = 'bg:#0f1114 #7fb887 bold'
-search-toolbar = 'bg:#0f1114 #edede9 bold'
-search-toolbar.text = '#dadad6 nobold'
-system-toolbar = 'bg:#0f1114 #e0be66 bold'
-arg-toolbar = 'bg:#0f1114 #6fa2de bold'
-arg-toolbar.text = '#dadad6 nobold'
-bottom-toolbar.transaction.valid = 'bg:#0f1114 #7fb887 bold'
-bottom-toolbar.transaction.failed = 'bg:#0f1114 #e56c6a bold'
+# Bottom toolbars & live transaction state (Race-Tex #131519 chrome)
+bottom-toolbar = 'bg:#131519 #9297a2'
+bottom-toolbar.off = 'bg:#131519 #858a96'
+bottom-toolbar.on = 'bg:#131519 #7fb887 bold'
+bottom-toolbar.transaction.valid = 'bg:#1f2624 #98ce9f bold'
+bottom-toolbar.transaction.failed = 'bg:#bf3b3e #f4f3ef bold'
+search-toolbar = 'bg:#131519 #edede9 bold'
+search-toolbar.text = 'bg:#131519 #dadad6 nobold'
+system-toolbar = 'bg:#131519 #e0be66 bold'
+system-toolbar.text = 'bg:#131519 #dadad6 nobold'
+arg-toolbar = 'bg:#131519 #6fa2de bold'
+arg-toolbar.text = 'bg:#131519 #dadad6 nobold'
+validation-toolbar = 'bg:#bf3b3e #f4f3ef bold'
+window-too-small = 'bg:#bf3b3e #f4f3ef bold'
 
 # Prompt & tabular output
 prompt = '#e55c5a bold'
+prompt.arg = '#6fa2de bold'
+prompt.arg.text = '#dadad6'
+prompt.search = '#e0be66 bold'
+prompt.search.text = '#dadad6'
 continuation = '#858a96'
 output.header = '#edede9 bold'
 output.odd-row = '#dadad6'
@@ -46,7 +87,7 @@ keyword = '#e56c6a bold'
 literal.string = '#7fb887'
 literal.number = '#e89158'
 
-# Pygments SQL token styles (Prompt Toolkit 2.0 pygments.* classes)
+# Pygments PostgreSQL token styles (Prompt Toolkit pygments.* classes)
 pygments.keyword = '#e56c6a bold'
 pygments.keyword.constant = '#e89158 bold'
 pygments.keyword.declaration = '#b488cc bold'
@@ -58,23 +99,29 @@ pygments.operator = '#6ac4cb'
 pygments.operator.word = '#e56c6a bold'
 pygments.punctuation = '#9297a2'
 pygments.name = '#dadad6'
-pygments.name.builtin = '#b488cc'
+pygments.name.builtin = '#e0be66'
 pygments.name.builtin.pseudo = '#b488cc italic'
 pygments.name.class = '#e0be66'
 pygments.name.constant = '#f0d282'
 pygments.name.function = '#6fa2de'
 pygments.name.namespace = '#f0d282'
-pygments.name.variable = '#dadad6'
+pygments.name.variable = '#84d8de'
 pygments.literal.string = '#7fb887'
 pygments.literal.string.single = '#7fb887'
 pygments.literal.string.double = '#8cb9f2'
+pygments.literal.string.name = '#8cb9f2'
 pygments.literal.string.backtick = '#6ac4cb'
 pygments.literal.string.escape = '#84d8de'
+pygments.literal.string.regex = '#98ce9f'
 pygments.literal.number = '#e89158'
 pygments.literal.number.integer = '#e89158'
 pygments.literal.number.float = '#e89158'
+pygments.literal.number.hex = '#e89158'
 pygments.comment = '#858a96 italic'
 pygments.comment.single = '#858a96 italic'
 pygments.comment.multiline = '#858a96 italic'
+pygments.comment.special = '#9297a2 italic'
 pygments.error = 'bg:#bf3b3e #f4f3ef'
 pygments.generic.error = '#e56c6a bold'
+pygments.generic.heading = '#edede9 bold'
+pygments.generic.subheading = '#b4b7be bold'
