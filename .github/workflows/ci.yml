@@ -22,5 +22,10 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install validator dependencies
+        run: sudo apt-get update && sudo apt-get install -y zsh
+
       - name: Run Tier 1 & Tier 2 E2E Suite
+        env:
+          CARRERA_NVIM_COLORSCHEME: ${{ github.workspace }}/neovim/colors/911.lua
         run: python3 tests/run_e2e.py --tier 1 --tier 2
