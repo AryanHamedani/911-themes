@@ -30,4 +30,4 @@ jobs:
           mkdir -p ~/.config/nvim/colors
           cp neovim/colors/911.lua ~/.config/nvim/colors/911.lua
           python3 tests/run_e2e.py --tier 1
-          PYTHONPATH=tests python3 -m unittest -v test_tier2_boundaries.TestTier2PaletteContract test_tier2_boundaries.TestTier2TelegramInvariants
+          PYTHONPATH=tests python3 -m unittest -v test_tier2_boundaries.TestTier2PaletteContract test_tier3_consistency
