@@ -1,23 +1,39 @@
 # 911 (992.2) Precision Night Cockpit — Ghostty
 # Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+# Calibrated in OKLCH to WCAG AA (>= 4.5:1) for 8-hour daily engineering sessions.
 
+# Primary cockpit canvas & dial typography (12.93:1 AAA)
 background = #141619
 foreground = #dadad6
 
+# Cursor — Guards/Carmine Red needle (5.19:1 AA on canvas; 5.63:1 AA cursor ink)
+# Note: Omarchy's runtime template maps cursor to bright_foreground (#edede9).
 cursor-color = #e55c5a
 cursor-text = #0a0b0d
 
+# Selection — Slate Grey Neo surface with pure dial highlight (11.75:1 AAA)
 selection-background = #292d36
 selection-foreground = #edede9
 
-split-divider-color = #252932
+# Splits — Vanadium hairline divider & recessed carbon well dimming
+split-divider-color = #2f3440
 unfocused-split-fill = #0f1114
+unfocused-split-opacity = 0.85
 
+# Search — calibrated 35% PCCB Racing Gold tint (6.70:1 AA) & Guards Red active badge (4.84:1 AA)
 search-foreground = #edede9
 search-background = #5b5134
 search-selected-foreground = #f4f3ef
 search-selected-background = #bf3b3e
 
+# Window chrome — Race-Tex chrome titlebar when `window-theme = ghostty` (13.04:1 AAA)
+window-titlebar-background = #131519
+window-titlebar-foreground = #dadad6
+
+# Faint text — calibrated to ~5.3:1 AA (matching muted #858a96) instead of 0.5 default (4.09:1)
+faint-opacity = 0.6
+
+# Normal ANSI 0-7
 palette = 0=#141619
 palette = 1=#e56c6a
 palette = 2=#7fb887
@@ -26,6 +42,8 @@ palette = 4=#6fa2de
 palette = 5=#b488cc
 palette = 6=#6ac4cb
 palette = 7=#dadad6
+
+# Bright ANSI 8-15
 palette = 8=#858a96
 palette = 9=#f48583
 palette = 10=#98ce9f

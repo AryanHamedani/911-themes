@@ -1,5 +1,9 @@
 # 911 (992.2) Precision Night Cockpit — Alacritty
 # Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+# Standalone policy: Guards Red cursor (#e55c5a); Omarchy runtime may override cursor to #edede9.
+
+[colors]
+draw_bold_text_with_bright_colors = false
 
 [colors.primary]
 background = "#141619"
@@ -28,16 +32,16 @@ foreground = "#0a0b0d"
 background = "#e0be66"
 
 [colors.hints.end]
-foreground = "#dadad6"
-background = "#292d36"
+foreground = "#f4f3ef"
+background = "#363b47"
 
 [colors.line_indicator]
-foreground = "#0a0b0d"
-background = "#e55c5a"
+foreground = "#f4f3ef"
+background = "#bf3b3e"
 
 [colors.footer_bar]
 foreground = "#dadad6"
-background = "#131519"
+background = "#1a1d23"
 
 [colors.selection]
 text = "#edede9"
@@ -76,4 +80,4 @@ white = "#9297a2"
 [bell]
 animation = "EaseOutExpo"
 duration = 120
-color = "#e55c5a"
+color = "#261b1f"

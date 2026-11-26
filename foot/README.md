@@ -6,7 +6,12 @@ Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast tar
 
 ## Files Included
 
-- `911.ini` — Complete `[colors-dark]` + `[csd]` INI theme covering foreground/background, selection, cursor, jump labels, scrollback indicator, search match/no-match badges, URL highlight, bell flash, normal/bright/dim ANSI 0–15, and client-side decorations.
+- `911.ini` — Complete `[colors-dark]` (`RRGGBB`, no `#`) + `[csd]` (`AARRGGBB`, opaque `ff` prefix per `man 5 foot.ini`) INI theme covering foreground/background, selection, cursor, WCAG AA jump labels (`#bf3b3e`/`#f4f3ef`), muted scrollback indicator (`#363b47`/`#f4f3ef`), search match (`#5b5134`/`#edede9`) and no-match (`#bf3b3e`/`#f4f3ef`) badges, Lugano Blue URL highlights, restrained Guards Red bell flash (`0.25` alpha), full `regular0..7` / `bright0..7` / `dim0..7` palettes, and cockpit-matched client-side decorations.
+
+## Cursor Note
+
+- **Standalone (`911.ini`)**: Uses `cursor=0a0b0d e55c5a` (deep diffuser shadow ink on Guards/Carmine Red needle, `5.63:1` AA) per the standalone 911 suite policy.
+- **Omarchy runtime**: When managed by Omarchy's active `911` theme, `/usr/bin/omarchy-theme-color` maps `cursor` to `bright_foreground` (`#edede9`), rendering `cursor=141619 edede9` in `~/.local/state/omarchy/current/theme/foot.ini`.
 
 ## Manual Install
 

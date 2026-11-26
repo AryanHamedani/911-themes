@@ -6,7 +6,7 @@ Calibrated in OKLCH for long daily sessions and verified to WCAG AA contrast tar
 
 ## Files Included
 
-- `911.toml` — Complete `[colors.*]` + `[bell]` TOML theme covering primary, cursor, vi-mode cursor, search matches, hints, line indicator, footer bar, selection, normal/bright/dim ANSI 0–15, and visual bell.
+- `911.toml` — Complete `[colors.*]` + `[bell]` TOML theme covering primary, cursor, vi-mode cursor, search matches, hints, line indicator, elevated Vanadium footer bar, selection, normal/bright/dim ANSI 0–15, `draw_bold_text_with_bright_colors = false`, and Smoked Carmine visual bell.
 
 ## Manual Install
 
