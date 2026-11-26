@@ -1,6 +1,24 @@
-# 911 (992.2) Precision Night Cockpit for Lazygit
-# inactiveBorderColor uses #2f3440 (canonical btop.theme div_line over #141619).
+# 911 (992.2) Precision Night Cockpit for Lazygit (v0.66.2+)
+# Palette contract: Race-Tex Charcoal (#141619), Vanadium Grey (#1d2026),
+# Smoked Carmine active selection (#261b1f), hairline border (#2f3440),
+# Ice Grey dial typography (#dadad6 / #edede9), GT Silver metadata (#9297a2),
+# and disciplined Guards/Carmine Red (#e55c5a) focus needle.
+
 gui:
+  colorScheme: dark
+  nerdFontsVersion: "3"
+  border: rounded
+  showFileTree: true
+  showNumstatInFilesView: true
+  showBranchCommitHash: true
+  showDivergenceFromBaseBranch: arrowAndNumber
+  showRandomTip: false
+  showCommandLog: false
+  showBottomLine: true
+  sidePanelWidth: 0.30
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 2
+  scrollOffMargin: 4
   theme:
     activeBorderColor:
       - "#e55c5a"
@@ -8,22 +26,25 @@ gui:
     inactiveBorderColor:
       - "#2f3440"
     searchingActiveBorderColor:
-      - "#e0be66"
+      - "#6ac4cb"
       - bold
     optionsTextColor:
       - "#6fa2de"
     selectedLineFgColor:
       - "#edede9"
+      - bold
     selectedLineBgColor:
-      - "#292d36"
+      - "#261b1f"
     inactiveViewSelectedLineBgColor:
       - "#1d2026"
     cherryPickedCommitFgColor:
       - "#0a0b0d"
+      - bold
     cherryPickedCommitBgColor:
       - "#6ac4cb"
     markedBaseCommitFgColor:
       - "#0a0b0d"
+      - bold
     markedBaseCommitBgColor:
       - "#e0be66"
     unstagedChangesColor:
@@ -31,11 +52,18 @@ gui:
     defaultFgColor:
       - "#dadad6"
     authorColors:
-      "*": "#6fa2de"
+      "*": "#9297a2"
     branchColorPatterns:
       "^main$": "#e55c5a"
       "^master$": "#e55c5a"
+      "^(develop|dev|staging)$": "#b488cc"
       "^release/": "#e0be66"
       "^hotfix/": "#e89158"
-      "^feat/": "#7fb887"
-      "^fix/": "#6ac4cb"
+      "^(feat|feature)/": "#7fb887"
+      "^(fix|bugfix)/": "#6ac4cb"
+      "^(refactor|perf)/": "#6fa2de"
+      "^(chore|docs|ci|build|test|style)/": "#9297a2"
+
+git:
+  diffRenderers:
+    - command: delta --dark --paging=never

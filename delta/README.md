@@ -4,12 +4,14 @@ Porsche 911 (`992.2`) Precision Night Cockpit theme for [delta](https://github.c
 
 ## Files
 
-- `911.gitconfig` — Named `[delta "911"]` feature include defining diff lines, inline word emphasis, line numbers, file/commit/hunk headers, blame palette, grep/ripgrep styling, merge-conflict headers, and whitespace error highlights.
+- `911.gitconfig` — Named `[delta "911"]` feature include defining precision 2-tier diff highlights, inline word emphasis, tabular line numbers, Guards Red file headers, sculpted hunk headers, 4-step cockpit `blame-palette`, `rg --json | delta` grep styling, `zdiff3` merge-conflict headers, moved-block `map-styles`, OSC 8 `hyperlinks`, `navigate`, and whitespace error badges.
 
 ## Palette Notes
 
-- `plus-style` (`#202825`) and `minus-style` (`#2d2023`) use the canonical `911` opaque diff tints over `#141619`; inline emphasis highlights with `bright_green` (`#98ce9f`) and `bright_red` (`#f48583`) over `#202825` and `#332024`.
-- `syntax-theme = 911` pairs directly with `../bat/911.tmTheme` (install via `bat cache --build`).
+- **2-tier diff highlights**: `plus-style` (`#202825`) and `minus-style` (`#2d2023`) use the canonical `911` opaque tints over `#141619` with full syntax highlighting; inline word emphasis (`plus-emph-style`, `minus-emph-style`) elevates exact changed tokens with `bright_green` (`#98ce9f` bold underline on `#202825`, `8.38:1` AA) and `bright_red` (`#f48583` bold underline on `#332024`, `6.21:1` AA).
+- **4-step blame ladder**: `blame-palette` steps cleanly across `#141619` (canvas) -> `#1a1d23` (Vanadium elevated) -> `#1d2026` (Vanadium lighter) -> `#261b1f` (Smoked Carmine), with `blame-code-style = syntax` keeping source text glare-free.
+- **Moved blocks (`--color-moved`)**: `map-styles` maps git's moved-block ANSI styles to `#261b1f`, `#1f2731`, `#1d272b`, and `#282721` while preserving syntax highlighting.
+- **Syntax theme**: `syntax-theme = 911` pairs directly with `../bat/911.tmTheme` (install via `bat cache --build`).
 
 ## Install
 
@@ -29,10 +31,13 @@ Porsche 911 (`992.2`) Precision Night Cockpit theme for [delta](https://github.c
        features = 911
    ```
 
+   > Note: In `delta`, keys set directly under `[delta]` take precedence over `[delta "<feature>"]` sections. Ensure no earlier included config sets conflicting keys under `[delta]` if you want `[delta "911"]` to control every setting.
+
 ## Validate
 
 ```bash
 git config --file 911.gitconfig --list | grep -q '^delta\.911\.'
+delta --config 911.gitconfig --features 911 --show-config
 ```
 
 ## Disclaimer

@@ -7,7 +7,7 @@
   <key>semanticClass</key>
   <string>theme.dark.911</string>
   <key>comment</key>
-  <string>911 (992.2) Precision Night Cockpit for bat. Base palette from colors.toml (#141619 Race-Tex Charcoal, #dadad6 Ice Grey, #e55c5a Guards/Carmine Red) with canonical derived cockpit planes (#0c0e11, #131519, #1a1d23, #261b1f), borders (#252932, #2f3440, #434854), filled badge (#bf3b3e/#f4f3ef), and opaque alpha-over-#141619 diff/search tints (#202825, #2d2023, #1f2731, #5b5134).</string>
+  <string>911 (992.2) Precision Night Cockpit for bat and delta. Base palette from colors.toml (#141619 Race-Tex Charcoal, #dadad6 Ice Grey, #e55c5a Guards/Carmine Red) with canonical derived cockpit planes (#0c0e11, #131519, #1a1d23, #261b1f), borders (#252932, #2f3440, #434854), filled badge (#bf3b3e/#f4f3ef), and opaque alpha-over-#141619 diff/diagnostic/search tints (#202825, #2d2023, #1f2731, #282721, #5b5134).</string>
   <key>settings</key>
   <array>
     <!-- Global Editor & Cockpit Chrome -->
@@ -73,9 +73,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Documentation Comment</string>
+      <string>Documentation Comment and Docstring</string>
       <key>scope</key>
-      <string>comment.block.documentation, comment.line.documentation</string>
+      <string>comment.block.documentation, comment.line.documentation, string.quoted.docstring</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -86,9 +86,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Documentation Tag</string>
+      <string>Documentation Tag and Keyword</string>
       <key>scope</key>
-      <string>storage.type.class.jsdoc, entity.name.type.instance.jsdoc, comment.block.documentation keyword</string>
+      <string>storage.type.class.jsdoc, entity.name.type.instance.jsdoc, comment.block.documentation keyword, comment.block.documentation storage, comment.block.documentation entity.name.tag</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -112,13 +112,46 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>String Interpolation Punctuation</string>
+      <string>String Prefix (f / r / b / u)</string>
       <key>scope</key>
-      <string>punctuation.section.embedded, punctuation.definition.template-expression</string>
+      <string>storage.type.string, string.quoted.python storage.type.string</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#b488cc</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>String Interpolation Expression Body</string>
+      <key>scope</key>
+      <string>meta.interpolation, meta.template.expression, meta.embedded.line</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#dadad6</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>String Interpolation and Variable Sigil</string>
+      <key>scope</key>
+      <string>punctuation.section.interpolation, punctuation.section.interpolation.begin, punctuation.section.interpolation.end, punctuation.section.embedded, punctuation.definition.template-expression, punctuation.definition.variable.shell</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
         <string>#e55c5a</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>String Format Placeholder</string>
+      <key>scope</key>
+      <string>constant.other.placeholder, storage.modifier.format</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#caa2e0</string>
       </dict>
     </dict>
     <dict>
@@ -134,9 +167,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>String Escape and Character Class</string>
+      <string>String Escape and Regexp Character Class</string>
       <key>scope</key>
-      <string>constant.character.escape, constant.other.character-class.regexp, keyword.operator.quantifier.regexp</string>
+      <string>constant.character.escape, constant.other.character-class.regexp, keyword.operator.quantifier.regexp, keyword.control.anchor.regexp</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -149,7 +182,7 @@
       <key>name</key>
       <string>Number</string>
       <key>scope</key>
-      <string>constant.numeric, constant.numeric.integer, constant.numeric.float, constant.numeric.hex</string>
+      <string>constant.numeric, constant.numeric.integer, constant.numeric.float, constant.numeric.hex, constant.numeric.octal, constant.numeric.binary, constant.numeric punctuation.separator.decimal</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -158,9 +191,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Language Constant</string>
+      <string>Language Constant (Boolean / Null / None)</string>
       <key>scope</key>
-      <string>constant.language, constant.language.boolean, constant.language.null</string>
+      <string>constant.language, constant.language.boolean, constant.language.null, constant.language.none, constant.language.undefined, constant.language.sql</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -181,7 +214,7 @@
       </dict>
     </dict>
 
-    <!-- Variables, Parameters & Properties -->
+    <!-- Variables, Parameters, Properties & Language Variables -->
     <dict>
       <key>name</key>
       <string>Variable</string>
@@ -195,9 +228,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Parameter</string>
+      <string>Parameter and Shell Option</string>
       <key>scope</key>
-      <string>variable.parameter, meta.function.parameters variable</string>
+      <string>variable.parameter, variable.parameter.option</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -208,9 +241,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Property and Member</string>
+      <string>Property, Member, Shell Variable and SQL Identifier</string>
       <key>scope</key>
-      <string>variable.other.property, variable.other.member, variable.other.object.property, meta.property-name, support.type.property-name</string>
+      <string>variable.other.property, variable.other.member, variable.other.object.property, meta.property-name, support.type.property-name, variable.other.readwrite.shell, variable.other.positional.shell, variable.other.special.shell, constant.other.table-name.sql, constant.other.database-name.sql</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -219,9 +252,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Language Variable (this / self / super)</string>
+      <string>Language Variable (self / cls / this / super)</string>
       <key>scope</key>
-      <string>variable.language, variable.language.this, variable.language.self, variable.language.super</string>
+      <string>variable.language, variable.language.this, variable.language.self, variable.language.super, variable.parameter.function.language.special, variable.parameter.self</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -234,7 +267,7 @@
       <key>name</key>
       <string>Constant Variable</string>
       <key>scope</key>
-      <string>variable.other.constant</string>
+      <string>variable.other.constant, constant.other.caps</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -245,9 +278,9 @@
     <!-- Keywords, Storage & Operators -->
     <dict>
       <key>name</key>
-      <string>Keyword</string>
+      <string>Keyword and Control Flow</string>
       <key>scope</key>
-      <string>keyword, keyword.control, keyword.other</string>
+      <string>keyword, keyword.control, keyword.other, keyword.control.import, keyword.control.export, keyword.control.from, keyword.package, keyword.import, keyword.other.DML.sql, keyword.other.DDL.sql, keyword.other.create.sql, keyword.other.sql, keyword.other.special-method.dockerfile, keyword.control.dockerfile</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -256,9 +289,31 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>Logical and Word Operator</string>
+      <key>scope</key>
+      <string>keyword.operator.logical, keyword.operator.word, keyword.operator.new, keyword.operator.expression, keyword.operator.instanceof, keyword.operator.typeof, keyword.operator.in, keyword.operator.as, keyword.operator.alias.sql, keyword.operator.assignment.alias.sql</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#e56c6a</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Subtle Symbolic Operator</string>
+      <key>scope</key>
+      <string>keyword.operator, keyword.operator.assignment, keyword.operator.arithmetic, keyword.operator.comparison, keyword.operator.bitwise, keyword.operator.channel, keyword.operator.range</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#9297a2</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>Storage Type and Modifier</string>
       <key>scope</key>
-      <string>storage, storage.type, storage.modifier</string>
+      <string>storage, storage.type, storage.modifier, storage.type.function, storage.type.class, storage.modifier.lifetime</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -267,20 +322,20 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Operator and Accessor Punctuation</string>
+      <string>Primitive and SQL Storage Type</string>
       <key>scope</key>
-      <string>keyword.operator, punctuation.separator, punctuation.accessor</string>
+      <string>storage.type.primitive, storage.type.numeric, storage.type.builtin, storage.type.sql</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#6ac4cb</string>
+        <string>#e0be66</string>
       </dict>
     </dict>
     <dict>
       <key>name</key>
-      <string>Structural Punctuation</string>
+      <string>Structural Punctuation and Accessor</string>
       <key>scope</key>
-      <string>punctuation.definition.tag, punctuation.section, punctuation.terminator, punctuation.definition.block, punctuation.definition.parameters</string>
+      <string>punctuation.separator, punctuation.accessor, punctuation.definition.tag, punctuation.section, punctuation.terminator, punctuation.definition.block, punctuation.definition.parameters, punctuation.definition.brackets, punctuation.definition.group</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -293,7 +348,7 @@
       <key>name</key>
       <string>Function and Method</string>
       <key>scope</key>
-      <string>entity.name.function, entity.name.method, support.function, meta.function-call, variable.function</string>
+      <string>entity.name.function, entity.name.method, meta.function-call.generic, variable.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -302,13 +357,37 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Type, Class, Struct, Enum, Interface</string>
+      <string>Builtin Function and Macro</string>
       <key>scope</key>
-      <string>entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.interface, entity.name.trait, entity.other.inherited-class, support.type, support.class</string>
+      <string>support.function, support.function.builtin, support.function.aggregate.sql, support.function.scalar.sql, support.macro, entity.name.function.macro, meta.macro.rust variable.function</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6ac4cb</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Type, Class, Struct, Enum, Interface, Trait</string>
+      <key>scope</key>
+      <string>entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.interface, entity.name.trait, support.type, support.class, meta.type.go storage.type.go</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
         <string>#e0be66</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Inherited Class</string>
+      <key>scope</key>
+      <string>entity.other.inherited-class</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#f0d282</string>
+        <key>fontStyle</key>
+        <string>italic</string>
       </dict>
     </dict>
     <dict>
@@ -350,7 +429,7 @@
       <key>name</key>
       <string>CSS Selector and Class</string>
       <key>scope</key>
-      <string>entity.other.attribute-name.class.css, entity.other.attribute-name.id.css, entity.other.attribute-name.pseudo-class.css</string>
+      <string>entity.other.attribute-name.class.css, entity.other.attribute-name.id.css, entity.other.attribute-name.pseudo-class.css, entity.other.attribute-name.pseudo-element.css</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -369,12 +448,12 @@
       </dict>
     </dict>
 
-    <!-- JSON / YAML / TOML Structured Keys -->
+    <!-- JSON / YAML / TOML Structured Keys & Tables -->
     <dict>
       <key>name</key>
       <string>JSON, YAML and TOML Key</string>
       <key>scope</key>
-      <string>support.type.property-name.json, entity.name.tag.yaml, keyword.key.toml, support.type.property-name.toml, meta.mapping.key string.quoted</string>
+      <string>support.type.property-name.json, meta.mapping.key.json string.quoted, meta.mapping.key.yaml string.unquoted, meta.mapping.key.yaml string.quoted, entity.name.tag.yaml, keyword.key.toml, entity.name.tag.toml, meta.mapping.key.toml, meta.tag.key.toml, support.type.property-name.toml, meta.mapping.key string.quoted</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -383,9 +462,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>TOML Table Header and YAML Anchor</string>
+      <string>TOML Table Header and YAML Anchor / Alias</string>
       <key>scope</key>
-      <string>entity.other.attribute-name.table.toml, entity.other.attribute-name.table.array.toml, entity.name.type.anchor.yaml, variable.other.alias.yaml</string>
+      <string>entity.name.section.toml, entity.name.table.toml, entity.other.attribute-name.table.toml, entity.other.attribute-name.table.array.toml, meta.tag.table.toml, entity.name.type.anchor.yaml, entity.name.other.anchor.yaml, variable.other.alias.yaml, punctuation.definition.anchor.yaml, punctuation.definition.alias.yaml</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -395,12 +474,12 @@
       </dict>
     </dict>
 
-    <!-- Preprocessor, Decorators & Builtins -->
+    <!-- Decorators, Annotations, Preprocessor & Builtins -->
     <dict>
       <key>name</key>
-      <string>Preprocessor and Decorator</string>
+      <string>Decorator, Annotation and Preprocessor</string>
       <key>scope</key>
-      <string>meta.preprocessor, keyword.control.import, keyword.control.directive, entity.name.decorator, punctuation.decorator, storage.type.annotation</string>
+      <string>meta.decorator, entity.name.decorator, entity.name.function.decorator, punctuation.definition.decorator, punctuation.decorator, meta.annotation, variable.annotation, punctuation.definition.annotation, storage.type.annotation, meta.preprocessor, keyword.control.directive</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -409,7 +488,7 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Builtin and Support</string>
+      <string>Builtin Support Constant and Variable</string>
       <key>scope</key>
       <string>support.constant, support.variable, support.other</string>
       <key>settings</key>
@@ -452,9 +531,100 @@
     <!-- Markdown & Markup -->
     <dict>
       <key>name</key>
-      <string>Markdown Heading</string>
+      <string>Markdown Heading Fallback</string>
       <key>scope</key>
-      <string>markup.heading, punctuation.definition.heading</string>
+      <string>markup.heading, entity.name.section.markdown</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#edede9</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Heading 1</string>
+      <key>scope</key>
+      <string>markup.heading.1, markup.heading.1 entity.name.section.markdown, heading.1.markdown, markup.heading.setext.1</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#e55c5a</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Heading 2</string>
+      <key>scope</key>
+      <string>markup.heading.2, markup.heading.2 entity.name.section.markdown, heading.2.markdown, markup.heading.setext.2</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#e0be66</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Heading 3</string>
+      <key>scope</key>
+      <string>markup.heading.3, markup.heading.3 entity.name.section.markdown, heading.3.markdown</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6fa2de</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Heading 4</string>
+      <key>scope</key>
+      <string>markup.heading.4, markup.heading.4 entity.name.section.markdown, heading.4.markdown</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6ac4cb</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Heading 5</string>
+      <key>scope</key>
+      <string>markup.heading.5, markup.heading.5 entity.name.section.markdown, heading.5.markdown</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#b488cc</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Heading 6</string>
+      <key>scope</key>
+      <string>markup.heading.6, markup.heading.6 entity.name.section.markdown, heading.6.markdown</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#9297a2</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Heading Marker</string>
+      <key>scope</key>
+      <string>punctuation.definition.heading</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -491,6 +661,19 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>Markdown Bold Italic</string>
+      <key>scope</key>
+      <string>markup.bold markup.italic, markup.italic markup.bold</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#edede9</string>
+        <key>fontStyle</key>
+        <string>bold italic</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>Markdown Strikethrough</string>
       <key>scope</key>
       <string>markup.strikethrough</string>
@@ -502,13 +685,37 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Markdown Code</string>
+      <string>Markdown Inline Code</string>
       <key>scope</key>
-      <string>markup.inline.raw, markup.fenced_code, markup.raw.block</string>
+      <string>markup.raw.inline, markup.inline.raw</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
         <string>#7fb887</string>
+        <key>background</key>
+        <string>#1a1d23</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Fenced Code Block</string>
+      <key>scope</key>
+      <string>markup.raw.code-fence, markup.fenced_code, markup.raw.block</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#dadad6</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Code Fence Delimiter and Language</string>
+      <key>scope</key>
+      <string>punctuation.definition.raw.code-fence, constant.other.language-name.markdown, fenced_code.block.language</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6ac4cb</string>
       </dict>
     </dict>
     <dict>
@@ -528,7 +735,7 @@
       <key>name</key>
       <string>Markdown Link Title</string>
       <key>scope</key>
-      <string>string.other.link.title.markdown, string.other.link.description.markdown</string>
+      <string>meta.link.inline.description, string.other.link.title, string.other.link.description</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -539,7 +746,7 @@
       <key>name</key>
       <string>Markdown Quote</string>
       <key>scope</key>
-      <string>markup.quote</string>
+      <string>markup.quote, punctuation.definition.blockquote</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -550,13 +757,24 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Markdown List and Separator</string>
+      <string>Markdown List Bullet</string>
       <key>scope</key>
-      <string>markup.list, punctuation.definition.list_item, meta.separator.markdown</string>
+      <string>markup.list.numbered.bullet, markup.list.unnumbered.bullet, punctuation.definition.list_item, punctuation.definition.list.begin</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
         <string>#e55c5a</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Markdown Horizontal Separator</string>
+      <key>scope</key>
+      <string>meta.separator.markdown, meta.separator</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#434854</string>
       </dict>
     </dict>
 
@@ -565,7 +783,7 @@
       <key>name</key>
       <string>Diff Inserted</string>
       <key>scope</key>
-      <string>markup.inserted, diff.inserted</string>
+      <string>markup.inserted, diff.inserted, punctuation.definition.inserted.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -578,7 +796,7 @@
       <key>name</key>
       <string>Diff Deleted</string>
       <key>scope</key>
-      <string>markup.deleted, diff.deleted</string>
+      <string>markup.deleted, diff.deleted, punctuation.definition.deleted.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -602,13 +820,54 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Diff Header and Range</string>
+      <string>Diff Header and Index</string>
       <key>scope</key>
-      <string>meta.diff.header, meta.diff.range</string>
+      <string>meta.diff.header, meta.diff.header.git, meta.diff.index</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#edede9</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Diff Header From File</string>
+      <key>scope</key>
+      <string>meta.diff.header.from-file</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#e56c6a</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Diff Header To File</string>
+      <key>scope</key>
+      <string>meta.diff.header.to-file</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#7fb887</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Diff Hunk Range</string>
+      <key>scope</key>
+      <string>meta.diff.range, meta.diff.range.unified</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
         <string>#6fa2de</string>
+        <key>background</key>
+        <string>#1f2731</string>
         <key>fontStyle</key>
         <string>bold</string>
       </dict>

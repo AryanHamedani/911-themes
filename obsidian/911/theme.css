@@ -1,69 +1,184 @@
-/* 911 (992.2) Precision Night Cockpit Theme for Obsidian
- * Surfaces: #0a0b0d / #0c0e11 / #0f1114 / #131519 / #141619 / #1a1d23 / #1d2026
- * Typography: Ice Grey (#dadad6), Pure Highlight (#edede9), GT Silver (#9297a2), Muted (#858a96)
- * Accent: 911 Guards/Carmine Red (#e55c5a), Filled Badge (#bf3b3e / #f4f3ef, 4.84:1 AA)
- */
+/* ============================================================================
+ * 911 (992.2) Precision Night Cockpit Theme for Obsidian
+ * ============================================================================
+ * Design System : GitHub Primer + Porsche 911 (992.2) Night Cockpit
+ * 4-Plane Depth : #0a0b0d (shadow) / #0c0e11 (ribbon) / #0f1114 (sidebars)
+ *                 #131519 (Race-Tex chrome) / #141619 (canvas)
+ *                 #1a1d23 & #1d2026 (Vanadium elevated) / #261b1f (Smoked Carmine)
+ * Typography    : #edede9 (focal) -> #dadad6 (primary) -> #b4b7be (secondary)
+ *                 #9297a2 (tertiary) -> #858a96 (quiet/muted)
+ * Accent (1%)   : #e55c5a (Guards Red needle), #bf3b3e + #f4f3ef (4.84:1 AA fill)
+ * ============================================================================ */
 
 .theme-dark {
   color-scheme: dark;
 
-  /* 4-plane cockpit surfaces */
+  /* --------------------------------------------------------------------------
+   * 1. Core Base Scale & Accent Tokens (Obsidian 1.x / 1.14+)
+   * -------------------------------------------------------------------------- */
+  --mono-0: #0a0b0d;
+  --mono-100: #edede9;
+  --mono-rgb-0: 10, 11, 13;
+  --mono-rgb-100: 237, 237, 233;
+
+  --color-base-00: #0c0e11;
+  --color-base-05: #0f1114;
+  --color-base-10: #131519;
+  --color-base-20: #141619;
+  --color-base-25: #1a1d23;
+  --color-base-30: #1d2026;
+  --color-base-35: #292d36;
+  --color-base-40: #2f3440;
+  --color-base-50: #434854;
+  --color-base-60: #9297a2;
+  --color-base-70: #b4b7be;
+  --color-base-100: #edede9;
+
+  --accent-h: 359;
+  --accent-s: 53%;
+  --accent-l: 49%;
+  --color-accent: #bf3b3e;
+  --color-accent-1: #e55c5a;
+  --color-accent-2: #f48583;
+  --color-accent-hsl: 359, 53%, 49%;
+
+  /* --------------------------------------------------------------------------
+   * 2. 4-Plane Cockpit Surfaces, Borders & Elevation Shadows
+   * -------------------------------------------------------------------------- */
   --background-primary: #141619;
   --background-primary-alt: #1a1d23;
   --background-secondary: #0f1114;
   --background-secondary-alt: #0c0e11;
+
   --background-modifier-form-field: #1a1d23;
-  --background-modifier-cover: rgba(10, 11, 13, 0.82);
+  --background-modifier-form-field-hover: #1d2026;
+  --background-modifier-cover: rgba(10, 11, 13, 0.78);
+  --background-modifier-box-shadow: rgba(10, 11, 13, 0.45);
+
   --background-modifier-border: #252932;
   --background-modifier-border-hover: #434854;
   --background-modifier-border-focus: #e55c5a;
-  --background-modifier-hover: rgba(218, 218, 214, 0.08);
-  --background-modifier-active-hover: rgba(229, 92, 90, 0.16);
+
+  --background-modifier-hover: rgba(218, 218, 214, 0.06);
+  --background-modifier-active-hover: rgba(229, 92, 90, 0.14);
+
   --background-modifier-error: #bf3b3e;
   --background-modifier-error-rgb: 191, 59, 62;
   --background-modifier-error-hover: #e55c5a;
   --background-modifier-success: #7fb887;
   --background-modifier-success-rgb: 127, 184, 135;
+  --background-modifier-warning: #e0be66;
+  --background-modifier-warning-hover: #f0d282;
+  --background-modifier-info: #6fa2de;
   --background-modifier-message: #131519;
-  --divider-color: #2f3440;
-  --divider-color-hover: #434854;
 
-  /* Typography & selection */
+  --divider-color: #252932;
+  --divider-color-hover: #434854;
+  --divider-width: 1px;
+  --divider-width-hover: 2px;
+
+  --shadow-xs:
+    0 1px 4px rgba(10, 11, 13, 0.25),
+    0 2px 12px rgba(10, 11, 13, 0.35),
+    0 0 0 1px #252932;
+  --shadow-s:
+    0 2px 6px rgba(10, 11, 13, 0.32),
+    0 8px 24px rgba(10, 11, 13, 0.45),
+    0 0 0 1px #2f3440;
+  --shadow-l:
+    0 4px 12px rgba(10, 11, 13, 0.36),
+    0 16px 48px rgba(10, 11, 13, 0.62),
+    0 0 0 1px #434854;
+  --input-shadow:
+    inset 0 1px 0 rgba(237, 237, 233, 0.04),
+    0 1px 2px rgba(10, 11, 13, 0.35);
+  --input-shadow-hover:
+    inset 0 1px 0 rgba(237, 237, 233, 0.07),
+    0 1px 3px rgba(10, 11, 13, 0.45);
+
+  /* --------------------------------------------------------------------------
+   * 3. 5-Step Typographic Hierarchy & Selection
+   * -------------------------------------------------------------------------- */
   --text-normal: #dadad6;
   --text-muted: #9297a2;
   --text-faint: #858a96;
-  --text-selection: rgba(41, 45, 54, 0.88);
-  --text-highlight-bg: rgba(91, 81, 52, 0.78);
-  --text-highlight-bg-active: rgba(224, 190, 102, 0.35);
   --text-on-accent: #f4f3ef;
   --text-on-accent-inverted: #0a0b0d;
+
   --text-error: #f48583;
   --text-error-hover: #e56c6a;
   --text-warning: #e0be66;
   --text-success: #7fb887;
-  --bold-color: #edede9;
-  --italic-color: #b4b7be;
 
-  /* Interactive controls & accents */
+  --text-selection: rgba(41, 45, 54, 0.92);
+  --text-highlight-bg: #5b5134;
+  --text-highlight-bg-active: rgba(224, 190, 102, 0.36);
+
+  --bold-color: #edede9;
+  --bold-weight: 600;
+  --italic-color: #b4b7be;
+  --line-height-normal: 1.65;
+  --line-height-tight: 1.35;
+
+  /* --------------------------------------------------------------------------
+   * 4. Interactive Controls, Inputs, Toggles & Icons (90/9/1 Discipline)
+   * -------------------------------------------------------------------------- */
   --interactive-normal: #1a1d23;
   --interactive-hover: #292d36;
   --interactive-accent: #bf3b3e;
   --interactive-accent-hsl: 359, 53%, 49%;
   --interactive-accent-hover: #e55c5a;
+
   --text-accent: #e55c5a;
   --text-accent-hover: #f48583;
   --caret-color: #e55c5a;
 
-  /* Links */
+  --icon-color: #9297a2;
+  --icon-color-hover: #dadad6;
+  --icon-color-active: #e55c5a;
+  --icon-color-focused: #edede9;
+  --icon-opacity: 0.9;
+  --icon-opacity-hover: 1;
+  --icon-opacity-active: 1;
+
+  --input-radius: 6px;
+  --input-border-width: 1px;
+  --input-unfocused-border-color: #252932;
+  --input-hover-border-color: #434854;
+  --input-focus-border-color: #e55c5a;
+  --input-placeholder-color: #858a96;
+
+  --dropdown-background: #1a1d23;
+  --dropdown-background-hover: #1d2026;
+
+  --toggle-thumb-color: #f4f3ef;
+  --slider-track-background: #252932;
+  --slider-fill-background: #bf3b3e;
+  --slider-thumb-background: #edede9;
+  --slider-thumb-background-hover: #f4f3ef;
+  --slider-thumb-border-color: #434854;
+
+  /* --------------------------------------------------------------------------
+   * 5. Links
+   * -------------------------------------------------------------------------- */
   --link-color: #6fa2de;
   --link-color-hover: #8cb9f2;
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+  --link-decoration-thickness: 1px;
   --link-external-color: #6ac4cb;
   --link-external-color-hover: #84d8de;
+  --link-external-decoration: none;
+  --link-external-decoration-hover: underline;
   --link-unresolved-color: #9297a2;
-  --link-unresolved-opacity: 0.75;
+  --link-unresolved-opacity: 0.8;
+  --link-unresolved-decoration-color: #434854;
+  --link-unresolved-decoration-style: dashed;
   --text-link: #6fa2de;
 
-  /* Semantic & callout colors (Obsidian 1.x RGB variables) */
+  /* --------------------------------------------------------------------------
+   * 6. Semantic Colors (Full Hex + Legacy RGB Triplets)
+   * -------------------------------------------------------------------------- */
   --color-red: #e56c6a;
   --color-red-rgb: 229, 108, 106;
   --color-orange: #e89158;
@@ -81,39 +196,92 @@
   --color-pink: #e55c5a;
   --color-pink-rgb: 229, 92, 90;
 
-  /* Callouts */
-  --callout-default: 111, 162, 222;
-  --callout-info: 111, 162, 222;
-  --callout-summary: 106, 196, 203;
-  --callout-tip: 106, 196, 203;
-  --callout-todo: 232, 145, 88;
-  --callout-important: 180, 136, 204;
-  --callout-success: 127, 184, 135;
-  --callout-question: 224, 190, 102;
-  --callout-warning: 224, 190, 102;
-  --callout-fail: 229, 108, 106;
-  --callout-error: 229, 92, 90;
-  --callout-bug: 244, 133, 131;
-  --callout-example: 180, 136, 204;
-  --callout-quote: 133, 138, 150;
+  /* --------------------------------------------------------------------------
+   * 7. All 14 Callouts (Obsidian 1.14+ Color Values)
+   * -------------------------------------------------------------------------- */
+  --callout-border-width: 1px;
+  --callout-border-opacity: 0.28;
+  --callout-radius: 6px;
+  --callout-padding: 12px 16px 12px 16px;
+  --callout-title-padding: 0;
+  --callout-content-padding: 4px 0 0 0;
+  --callout-title-weight: 600;
+  --callout-blend-mode: normal;
 
-  /* Headings (Obsidian 1.x + legacy aliases) */
-  --h1-color: #f48583;
-  --h2-color: #e89158;
-  --h3-color: #e0be66;
-  --h4-color: #7fb887;
-  --h5-color: #6fa2de;
-  --h6-color: #b488cc;
-  --text-title-h1: #f48583;
-  --text-title-h2: #e89158;
-  --text-title-h3: #e0be66;
-  --text-title-h4: #7fb887;
-  --text-title-h5: #6fa2de;
-  --text-title-h6: #b488cc;
+  --callout-default: #6fa2de;
+  --callout-info: #6fa2de;
+  --callout-summary: #6ac4cb;
+  --callout-tip: #6ac4cb;
+  --callout-todo: #e89158;
+  --callout-important: #b488cc;
+  --callout-success: #7fb887;
+  --callout-question: #e0be66;
+  --callout-warning: #e0be66;
+  --callout-fail: #e56c6a;
+  --callout-error: #e55c5a;
+  --callout-bug: #f48583;
+  --callout-example: #b488cc;
+  --callout-quote: #858a96;
 
-  /* Code & syntax */
-  --code-background: #0f1114;
-  --code-normal: #6ac4cb;
+  /* --------------------------------------------------------------------------
+   * 8. Editorial Heading Hierarchy (Restrained Monochrome Precision — No Rainbow)
+   * -------------------------------------------------------------------------- */
+  --heading-formatting: #858a96;
+  --heading-spacing: 1.85em;
+
+  --h1-color: #edede9;
+  --h1-size: 1.72em;
+  --h1-weight: 700;
+  --h1-line-height: 1.22;
+  --h1-letter-spacing: -0.022em;
+
+  --h2-color: #edede9;
+  --h2-size: 1.4em;
+  --h2-weight: 650;
+  --h2-line-height: 1.28;
+  --h2-letter-spacing: -0.016em;
+
+  --h3-color: #dadad6;
+  --h3-size: 1.2em;
+  --h3-weight: 620;
+  --h3-line-height: 1.34;
+  --h3-letter-spacing: -0.01em;
+
+  --h4-color: #dadad6;
+  --h4-size: 1.06em;
+  --h4-weight: 600;
+  --h4-line-height: 1.4;
+  --h4-letter-spacing: -0.004em;
+
+  --h5-color: #b4b7be;
+  --h5-size: 0.96em;
+  --h5-weight: 600;
+  --h5-line-height: 1.45;
+  --h5-letter-spacing: 0.008em;
+
+  --h6-color: #9297a2;
+  --h6-size: 0.86em;
+  --h6-weight: 600;
+  --h6-line-height: 1.5;
+  --h6-letter-spacing: 0.045em;
+
+  /* Legacy heading aliases */
+  --text-title-h1: #edede9;
+  --text-title-h2: #edede9;
+  --text-title-h3: #dadad6;
+  --text-title-h4: #dadad6;
+  --text-title-h5: #b4b7be;
+  --text-title-h6: #9297a2;
+
+  /* --------------------------------------------------------------------------
+   * 9. Code & Syntax Tokens (Aligned with 911 Neovim / VS Code)
+   * -------------------------------------------------------------------------- */
+  --code-background: #1a1d23;
+  --code-border-color: #252932;
+  --code-border-width: 1px;
+  --code-radius: 6px;
+  --code-size: 0.875em;
+  --code-normal: #dadad6;
   --code-comment: #858a96;
   --code-function: #6fa2de;
   --code-important: #e89158;
@@ -124,145 +292,847 @@
   --code-string: #7fb887;
   --code-tag: #e0be66;
   --code-value: #e89158;
+  --code-bracket-background: rgba(229, 92, 90, 0.16);
 
-  /* Tags, lists, blockquotes, checkboxes, tables */
-  --tag-color: #6ac4cb;
-  --tag-background: #1d272b;
-  --tag-background-hover: rgba(106, 196, 203, 0.24);
+  /* --------------------------------------------------------------------------
+   * 10. Tags, Pills, Lists, Blockquotes, Checkboxes, Tables & Rules
+   * -------------------------------------------------------------------------- */
+  --tag-color: #f4f3ef;
+  --tag-color-hover: #edede9;
+  --tag-background: #363b47;
+  --tag-background-hover: #261b1f;
   --tag-border-color: #2f3440;
-  --list-marker-color: #6ac4cb;
+  --tag-border-color-hover: #332024;
+  --tag-border-width: 1px;
+  --tag-padding-x: 0.55em;
+  --tag-padding-y: 0.12em;
+  --tag-radius: 999px;
+  --tag-size: 0.84em;
+  --tag-weight: 500;
+
+  --pill-color: #f4f3ef;
+  --pill-color-hover: #edede9;
+  --pill-color-remove: #9297a2;
+  --pill-color-remove-hover: #e55c5a;
+  --pill-background: #363b47;
+  --pill-background-hover: #261b1f;
+  --pill-border-color: #2f3440;
+  --pill-border-color-hover: #332024;
+  --pill-border-width: 1px;
+  --pill-radius: 999px;
+
+  --list-marker-color: #858a96;
   --list-marker-color-hover: #e55c5a;
   --list-marker-color-collapsed: #e0be66;
+  --list-spacing: 0.12em;
+
   --blockquote-border-color: #e55c5a;
+  --blockquote-border-thickness: 2px;
   --blockquote-background-color: #131519;
+  --blockquote-color: #b4b7be;
+  --blockquote-font-style: normal;
+
   --checkbox-color: #bf3b3e;
   --checkbox-color-hover: #e55c5a;
   --checkbox-border-color: #434854;
   --checkbox-border-color-hover: #e55c5a;
   --checkbox-marker-color: #f4f3ef;
+  --checkbox-radius: 4px;
   --checklist-done-color: #858a96;
+  --checklist-done-decoration: line-through;
+
   --table-background: transparent;
-  --table-header-background: #1a1d23;
+  --table-header-background: #131519;
   --table-header-background-hover: #1d2026;
-  --table-row-alt-background: #131519;
-  --table-border-color: #2f3440;
-  --table-selection: rgba(41, 45, 54, 0.65);
+  --table-header-color: #edede9;
+  --table-header-weight: 600;
+  --table-header-border-color: #252932;
+  --table-header-border-width: 1px;
+  --table-border-color: #252932;
+  --table-border-width: 1px;
+  --table-row-alt-background: rgba(19, 21, 25, 0.45);
+  --table-row-background-hover: rgba(26, 29, 35, 0.85);
+  --table-row-alt-background-hover: rgba(26, 29, 35, 0.85);
+  --table-selection: rgba(41, 45, 54, 0.72);
   --table-selection-border-color: #e55c5a;
-  --hr-color: #2f3440;
+  --table-add-button-background: #131519;
+  --table-add-button-border-color: #252932;
+
+  --hr-color: #252932;
+  --hr-thickness: 1px;
   --indentation-guide-color: #252932;
   --indentation-guide-color-active: #434854;
 
-  /* Graph view & Canvas */
+  --embed-background: #131519;
+  --embed-border-left: 2px solid #2f3440;
+  --embed-padding: 12px 16px;
+
+  /* --------------------------------------------------------------------------
+   * 11. Frontmatter / Properties Panel
+   * -------------------------------------------------------------------------- */
+  --metadata-background: #131519;
+  --metadata-border-color: #252932;
+  --metadata-border-width: 1px;
+  --metadata-border-radius: 6px;
+  --metadata-padding: 10px 14px;
+  --metadata-divider-color: #252932;
+  --metadata-divider-color-hover: #434854;
+  --metadata-divider-color-focus: #e55c5a;
+  --metadata-label-text-color: #9297a2;
+  --metadata-label-text-color-hover: #dadad6;
+  --metadata-label-font-weight: 500;
+  --metadata-label-background-hover: rgba(29, 32, 38, 0.65);
+  --metadata-input-text-color: #dadad6;
+  --metadata-input-background: transparent;
+  --metadata-input-background-hover: #1a1d23;
+  --metadata-input-background-active: #261b1f;
+  --metadata-property-background: transparent;
+  --metadata-property-background-hover: rgba(26, 29, 35, 0.75);
+  --metadata-property-background-active: rgba(38, 27, 31, 0.75);
+  --metadata-property-radius: 4px;
+
+  /* --------------------------------------------------------------------------
+   * 12. Obsidian Bases (Table, Cards & Kanban)
+   * -------------------------------------------------------------------------- */
+  --bases-header-border-width: 1px;
+  --bases-embed-border-color: #252932;
+  --bases-embed-border-radius: 6px;
+  --bases-table-border-color: #252932;
+  --bases-table-header-background: #131519;
+  --bases-table-header-background-hover: #1d2026;
+  --bases-table-header-color: #9297a2;
+  --bases-table-header-weight: 600;
+  --bases-table-row-background-hover: rgba(26, 29, 35, 0.8);
+  --bases-table-cell-background-active: #261b1f;
+  --bases-table-cell-background-selected: rgba(41, 45, 54, 0.72);
+  --bases-table-summary-background: #131519;
+  --bases-table-summary-background-hover: #1a1d23;
+  --bases-cards-container-background: #141619;
+  --bases-cards-background: #1a1d23;
+  --bases-cards-cover-background: #0f1114;
+  --bases-cards-radius: 6px;
+  --bases-cards-shadow: 0 0 0 1px #252932;
+  --bases-cards-shadow-hover: 0 0 0 1px #434854;
+  --bases-kanban-container-background: #141619;
+  --bases-kanban-column-background: #0f1114;
+  --bases-kanban-column-header-background: #131519;
+  --bases-kanban-card-background: #1a1d23;
+  --bases-kanban-card-shadow: 0 0 0 1px #252932;
+  --bases-kanban-card-shadow-hover: 0 0 0 1px #434854;
+  --bases-kanban-card-shadow-focus: 0 0 0 1px #e55c5a;
+  --bases-filter-input-background: #1a1d23;
+
+  /* --------------------------------------------------------------------------
+   * 13. Graph View & Canvas
+   * -------------------------------------------------------------------------- */
   --graph-line: #2f3440;
   --graph-text: #dadad6;
-  --graph-node: #e55c5a;
+  --graph-node: #b4b7be;
   --graph-node-unresolved: #858a96;
-  --graph-node-focused: #6fa2de;
+  --graph-node-focused: #e55c5a;
   --graph-node-tag: #6ac4cb;
   --graph-node-attachment: #7fb887;
+
   --canvas-background: #0f1114;
   --canvas-dot-pattern: #252932;
   --canvas-card-label-color: #9297a2;
+  --canvas-color-1: #e56c6a;
+  --canvas-color-2: #e89158;
+  --canvas-color-3: #e0be66;
+  --canvas-color-4: #7fb887;
+  --canvas-color-5: #6ac4cb;
+  --canvas-color-6: #b488cc;
 
-  /* Chrome, tabs, ribbon, status bar, modals, scrollbars */
+  /* --------------------------------------------------------------------------
+   * 14. Workspace Chrome: Ribbon, Titlebar, Tabs, Statusbar, Nav, Modals, Search
+   * -------------------------------------------------------------------------- */
   --ribbon-background: #0c0e11;
   --ribbon-background-collapsed: #0c0e11;
+
   --titlebar-background: #0c0e11;
   --titlebar-background-focused: #0c0e11;
+  --titlebar-border-color: #252932;
+  --titlebar-border-width: 1px;
   --titlebar-text-color: #9297a2;
   --titlebar-text-color-focused: #dadad6;
+
+  --tab-container-background: #131519;
+  --tab-background: #131519;
+  --tab-background-hover: #1a1d23;
   --tab-background-active: #141619;
   --tab-text-color: #858a96;
   --tab-text-color-active: #dadad6;
-  --tab-text-color-focused: #dadad6;
+  --tab-text-color-focused: #b4b7be;
   --tab-text-color-focused-active: #edede9;
   --tab-text-color-focused-active-current: #edede9;
   --tab-outline-color: #252932;
   --tab-divider-color: #252932;
+  --tab-radius: 6px;
+  --tab-radius-active: 6px 6px 0 0;
+
   --status-bar-background: #131519;
   --status-bar-border-color: #252932;
+  --status-bar-border-width: 1px 0 0 1px;
   --status-bar-text-color: #9297a2;
+
   --nav-item-color: #b4b7be;
   --nav-item-color-hover: #edede9;
   --nav-item-color-active: #edede9;
+  --nav-item-color-selected: #edede9;
   --nav-item-background-hover: #1a1d23;
   --nav-item-background-active: #261b1f;
   --nav-item-background-selected: #292d36;
-  --modal-background: #131519;
+  --nav-item-weight-active: 500;
+  --nav-item-radius: 5px;
+  --nav-indentation-guide-color: #252932;
+  --nav-collapse-icon-color: #858a96;
+  --nav-collapse-icon-color-collapsed: #858a96;
+  --nav-heading-color: #9297a2;
+  --nav-heading-color-hover: #dadad6;
+  --nav-tag-background: #1a1d23;
+  --nav-tag-color: #9297a2;
+  --nav-tag-color-hover: #dadad6;
+  --nav-tag-color-active: #edede9;
+
+  --modal-background: #1a1d23;
+  --modal-sidebar-background: #131519;
   --modal-border-color: #434854;
+  --modal-border-width: 1px;
+  --modal-radius: 10px;
+  --modal-shadow: var(--shadow-l);
+
+  --prompt-background: #1a1d23;
   --prompt-border-color: #434854;
-  --tooltip-background: #1a1d23;
-  --tooltip-color: #dadad6;
+  --prompt-border-width: 1px;
+
+  --tooltip-background: #1d2026;
+  --tooltip-color: #edede9;
+  --tooltip-radius: 6px;
+  --tooltip-shadow: var(--shadow-s);
+
   --scrollbar-bg: transparent;
-  --scrollbar-thumb-bg: rgba(67, 72, 84, 0.55);
+  --scrollbar-thumb-bg: rgba(67, 72, 84, 0.45);
   --scrollbar-active-thumb-bg: rgba(229, 92, 90, 0.72);
+  --scrollbar-width: 8px;
+
   --search-clear-button-color: #9297a2;
   --search-icon-color: #9297a2;
   --search-result-background: #131519;
+
+  --pdf-background: #0f1114;
+  --pdf-sidebar-background: #0f1114;
+  --pdf-shadow: 0 0 0 1px #252932;
+  --pdf-thumbnail-shadow: 0 0 0 1px #252932;
+
+  --sync-avatar-color-1: #e55c5a;
+  --sync-avatar-color-2: #6fa2de;
+  --sync-avatar-color-3: #7fb887;
+  --sync-avatar-color-4: #e0be66;
+  --sync-avatar-color-5: #6ac4cb;
+  --sync-avatar-color-6: #b488cc;
+  --sync-avatar-color-7: #e89158;
+  --sync-avatar-color-8: #ad7f66;
+  --sync-avatar-color-current-user: #bf3b3e;
 }
 
-/* Headings */
-.theme-dark .cm-header-1,
-.theme-dark .markdown-rendered h1 { color: var(--h1-color); }
-.theme-dark .cm-header-2,
-.theme-dark .markdown-rendered h2 { color: var(--h2-color); }
-.theme-dark .cm-header-3,
-.theme-dark .markdown-rendered h3 { color: var(--h3-color); }
-.theme-dark .cm-header-4,
-.theme-dark .markdown-rendered h4 { color: var(--h4-color); }
-.theme-dark .cm-header-5,
-.theme-dark .markdown-rendered h5 { color: var(--h5-color); }
-.theme-dark .cm-header-6,
-.theme-dark .markdown-rendered h6 { color: var(--h6-color); }
+/* ============================================================================
+ * 15. Editorial Typography & Reading / Writing Surface Polish
+ * ============================================================================ */
 
-/* Code & syntax highlighting */
-.theme-dark .markdown-rendered code {
-  color: var(--code-normal);
-  background-color: var(--code-background);
+/* Inline note title */
+.theme-dark .inline-title {
+  color: #edede9;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin-bottom: 0.65em;
+}
+
+/* Headings — GitHub Primer + iA Writer structural hierarchy */
+.theme-dark .markdown-rendered h1,
+.theme-dark .HyperMD-header-1,
+.theme-dark .cm-header-1 {
+  color: var(--h1-color);
+  letter-spacing: var(--h1-letter-spacing);
+}
+
+.theme-dark .markdown-rendered h1 {
+  padding-bottom: 0.28em;
+  border-bottom: 1px solid #252932;
+}
+
+.theme-dark .markdown-rendered h2,
+.theme-dark .HyperMD-header-2,
+.theme-dark .cm-header-2 {
+  color: var(--h2-color);
+  letter-spacing: var(--h2-letter-spacing);
+}
+
+.theme-dark .markdown-rendered h2 {
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid rgba(37, 41, 50, 0.7);
+}
+
+.theme-dark .markdown-rendered h3,
+.theme-dark .HyperMD-header-3,
+.theme-dark .cm-header-3 {
+  color: var(--h3-color);
+  letter-spacing: var(--h3-letter-spacing);
+}
+
+.theme-dark .markdown-rendered h4,
+.theme-dark .HyperMD-header-4,
+.theme-dark .cm-header-4 {
+  color: var(--h4-color);
+}
+
+.theme-dark .markdown-rendered h5,
+.theme-dark .HyperMD-header-5,
+.theme-dark .cm-header-5 {
+  color: var(--h5-color);
+}
+
+.theme-dark .markdown-rendered h6,
+.theme-dark .HyperMD-header-6,
+.theme-dark .cm-header-6 {
+  color: var(--h6-color);
+  text-transform: uppercase;
+  letter-spacing: var(--h6-letter-spacing);
+}
+
+/* Subtle active editor line for long writing sessions */
+.theme-dark .cm-s-obsidian .cm-active.cm-line {
+  background-color: rgba(29, 32, 38, 0.42);
+  border-radius: 3px;
+}
+
+/* Quiet Markdown formatting characters in Live Preview & Source */
+.theme-dark .cm-s-obsidian span.cm-formatting,
+.theme-dark .cm-s-obsidian span.cm-formatting-header,
+.theme-dark .cm-s-obsidian span.cm-formatting-strong,
+.theme-dark .cm-s-obsidian span.cm-formatting-em,
+.theme-dark .cm-s-obsidian span.cm-formatting-link,
+.theme-dark .cm-s-obsidian span.cm-formatting-link-string,
+.theme-dark .cm-s-obsidian span.cm-formatting-code,
+.theme-dark .cm-s-obsidian span.cm-formatting-quote {
+  color: #858a96;
+}
+
+/* Highlighted text (==highlight==) */
+.theme-dark .markdown-rendered mark,
+.theme-dark .cm-s-obsidian span.cm-highlight {
+  background-color: #5b5134;
+  color: #edede9;
+  padding: 0.04em 0.22em;
+  border-radius: 3px;
+}
+
+/* ============================================================================
+ * 16. Inline Code, Fenced Code Blocks & Full CM6 + Prism Syntax Highlighting
+ * ============================================================================ */
+
+/* Inline code */
+.theme-dark .markdown-rendered :not(pre) > code,
+.theme-dark .cm-s-obsidian span.cm-inline-code:not(.cm-formatting) {
+  color: #84d8de;
+  background-color: #1a1d23;
+  border: 1px solid #252932;
+  border-radius: 4px;
+  padding: 0.08em 0.36em;
+  font-size: 0.875em;
+}
+
+.theme-dark .cm-s-obsidian span.cm-inline-code.cm-formatting {
+  color: #858a96;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Fenced code blocks (Reading View) */
+.theme-dark .markdown-rendered pre {
+  background-color: #1a1d23;
+  border: 1px solid #252932;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+.theme-dark .markdown-rendered pre code {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #dadad6;
+}
+
+/* Fenced code blocks (Live Preview / Source) */
+.theme-dark .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  background-color: #1a1d23;
+  border-left: 1px solid #252932;
+  border-right: 1px solid #252932;
+}
+
+.theme-dark .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
+  border-top: 1px solid #252932;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.theme-dark .markdown-source-view.mod-cm6 .HyperMD-codeblock-end {
+  border-bottom: 1px solid #252932;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* Code block copy button */
+.theme-dark .markdown-rendered button.copy-code-button {
+  background-color: #131519;
+  color: #9297a2;
+  border: 1px solid #252932;
+  border-radius: 5px;
+}
+
+.theme-dark .markdown-rendered button.copy-code-button:hover {
+  background-color: #1d2026;
+  color: #edede9;
+  border-color: #434854;
+}
+
+/* Full CodeMirror 6 + Prism Syntax Highlighting (911 Semantic Palette) */
+.theme-dark .cm-s-obsidian span.cm-comment,
+.theme-dark .token.comment,
+.theme-dark .token.prolog,
+.theme-dark .token.doctype,
+.theme-dark .token.cdata {
+  color: #858a96;
+  font-style: italic;
 }
 
 .theme-dark .cm-s-obsidian span.cm-keyword,
-.theme-dark .token.keyword { color: var(--code-keyword); }
+.theme-dark .token.keyword,
+.theme-dark .token.atrule,
+.theme-dark .token.important {
+  color: #e56c6a;
+}
+
 .theme-dark .cm-s-obsidian span.cm-string,
-.theme-dark .token.string { color: var(--code-string); }
+.theme-dark .cm-s-obsidian span.cm-string-2,
+.theme-dark .token.string,
+.theme-dark .token.char,
+.theme-dark .token.attr-value,
+.theme-dark .token.inserted {
+  color: #7fb887;
+}
+
 .theme-dark .cm-s-obsidian span.cm-number,
-.theme-dark .token.number { color: var(--code-value); }
-.theme-dark .cm-s-obsidian span.cm-comment,
-.theme-dark .token.comment { color: var(--code-comment); font-style: italic; }
-.theme-dark .cm-s-obsidian span.cm-operator,
-.theme-dark .token.operator { color: var(--code-operator); }
+.theme-dark .cm-s-obsidian span.cm-atom,
+.theme-dark .token.number,
+.theme-dark .token.boolean,
+.theme-dark .token.constant {
+  color: #e89158;
+}
+
 .theme-dark .cm-s-obsidian span.cm-def,
-.theme-dark .token.function { color: var(--code-function); }
+.theme-dark .token.function {
+  color: #6fa2de;
+}
+
+.theme-dark .cm-s-obsidian span.cm-type,
+.theme-dark .cm-s-obsidian span.cm-builtin,
+.theme-dark .cm-s-obsidian span.cm-tag,
 .theme-dark .token.class-name,
-.theme-dark .token.builtin { color: var(--code-tag); }
-.theme-dark .token.property { color: var(--code-property); }
-
-/* Links & blockquotes */
-.theme-dark .markdown-rendered a {
-  color: var(--link-color);
+.theme-dark .token.builtin,
+.theme-dark .token.tag,
+.theme-dark .token.namespace {
+  color: #e0be66;
 }
 
+.theme-dark .cm-s-obsidian span.cm-property,
+.theme-dark .cm-s-obsidian span.cm-attribute,
+.theme-dark .token.property,
+.theme-dark .token.property-access,
+.theme-dark .token.attr-name,
+.theme-dark .token.selector {
+  color: #6ac4cb;
+}
+
+.theme-dark .cm-s-obsidian span.cm-operator,
+.theme-dark .token.operator,
+.theme-dark .token.entity,
+.theme-dark .token.url {
+  color: #8cb9f2;
+}
+
+.theme-dark .cm-s-obsidian span.cm-variable,
+.theme-dark .token.variable,
+.theme-dark .token.parameter {
+  color: #dadad6;
+}
+
+.theme-dark .cm-s-obsidian span.cm-variable-2,
+.theme-dark .cm-s-obsidian span.cm-variable-3,
+.theme-dark .cm-s-obsidian span.cm-qualifier,
+.theme-dark .cm-s-obsidian span.cm-meta,
+.theme-dark .token.symbol,
+.theme-dark .token.regex {
+  color: #b488cc;
+}
+
+.theme-dark .cm-s-obsidian span.cm-bracket,
+.theme-dark .token.punctuation {
+  color: #9297a2;
+}
+
+.theme-dark .cm-s-obsidian span.cm-error,
+.theme-dark .token.deleted {
+  color: #f48583;
+}
+
+/* ============================================================================
+ * 17. Blockquotes, Callouts, Tables, Checkboxes, Tags & Frontmatter
+ * ============================================================================ */
+
+/* Blockquotes — 2px Guards Red rail, warm #b4b7be ink */
 .theme-dark .markdown-rendered blockquote {
-  border-left-color: var(--blockquote-border-color);
-  background-color: var(--blockquote-background-color);
+  border-left: 2px solid #e55c5a;
+  background-color: #131519;
+  color: #b4b7be;
+  padding: 10px 16px;
+  border-radius: 0 6px 6px 0;
+  margin-block: 1em;
 }
 
-/* Active navigation, tabs & search */
-.theme-dark .workspace-tab-header.is-active {
-  border-top: 2px solid #e55c5a;
+.theme-dark .markdown-rendered blockquote blockquote {
+  border-left-color: #434854;
+  background-color: #0f1114;
 }
 
-.theme-dark .workspace-leaf.mod-active .workspace-leaf-header-title,
-.theme-dark .search-result-file-title {
-  color: var(--text-accent);
+.theme-dark .cm-s-obsidian .HyperMD-quote {
+  color: #b4b7be;
 }
 
-.theme-dark .nav-file-title.is-active {
-  background-color: var(--nav-item-background-active);
+/* Callouts — Crisp 1px tinted border + 3px left semantic rail */
+.theme-dark .callout {
+  border: 1px solid color-mix(in srgb, var(--callout-color) 24%, #252932);
+  border-left: 3px solid var(--callout-color);
+  background-color: color-mix(in srgb, var(--callout-color) 8%, #131519);
+  border-radius: 6px;
+}
+
+.theme-dark .callout-title {
+  color: var(--callout-color);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.theme-dark .callout-content {
+  color: #dadad6;
+}
+
+/* Tables — Subtle #131519 header plane, hairline #252932 borders, hover tint */
+.theme-dark .markdown-rendered table {
+  border-collapse: collapse;
+  border: 1px solid #252932;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.theme-dark .markdown-rendered thead tr {
+  background-color: #131519;
+}
+
+.theme-dark .markdown-rendered th {
   color: #edede9;
+  font-weight: 600;
+  font-size: 0.9em;
+  border-color: #252932;
+  padding: 8px 12px;
+}
+
+.theme-dark .markdown-rendered td {
+  border-color: #252932;
+  padding: 8px 12px;
+  color: #dadad6;
+}
+
+.theme-dark .markdown-rendered tbody tr:hover {
+  background-color: rgba(26, 29, 35, 0.85);
+}
+
+/* Checkboxes & Task Lists */
+.theme-dark input[type="checkbox"].task-list-item-checkbox {
+  border: 1.5px solid #434854;
+  border-radius: 4px;
+  background-color: #131519;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.theme-dark input[type="checkbox"].task-list-item-checkbox:hover {
+  border-color: #e55c5a;
+}
+
+.theme-dark input[type="checkbox"].task-list-item-checkbox:checked {
+  background-color: #bf3b3e;
+  border-color: #bf3b3e;
+}
+
+.theme-dark input[type="checkbox"].task-list-item-checkbox:checked:hover {
+  background-color: #e55c5a;
+  border-color: #e55c5a;
+}
+
+/* Tags & Pills */
+.theme-dark a.tag,
+.theme-dark .cm-s-obsidian span.cm-hashtag {
+  background-color: #363b47;
+  color: #f4f3ef;
+  border-top: 1px solid #2f3440;
+  border-bottom: 1px solid #2f3440;
+  font-weight: 500;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.theme-dark a.tag {
+  border: 1px solid #2f3440;
+  border-radius: 999px;
+}
+
+.theme-dark a.tag:hover {
+  background-color: #261b1f;
+  border-color: #332024;
+  color: #edede9;
+}
+
+.theme-dark .cm-s-obsidian span.cm-hashtag-begin {
+  border-left: 1px solid #2f3440;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+  padding-left: 0.55em;
+}
+
+.theme-dark .cm-s-obsidian span.cm-hashtag-end {
+  border-right: 1px solid #2f3440;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  padding-right: 0.55em;
+}
+
+/* Frontmatter / Properties Panel */
+.theme-dark .metadata-container {
+  background-color: #131519;
+  border: 1px solid #252932;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 1.25em;
+}
+
+.theme-dark .metadata-properties-heading {
+  color: #9297a2;
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
+}
+
+.theme-dark .metadata-property-key .metadata-property-icon {
+  color: #858a96;
+}
+
+.theme-dark .metadata-property:focus-within {
+  background-color: rgba(38, 27, 31, 0.55);
+  box-shadow: inset 0 0 0 1px #332024;
+}
+
+/* ============================================================================
+ * 18. Workspace Chrome: Ribbon, Tabs, Sidebars, Statusbar, Modals, Palette
+ * ============================================================================ */
+
+/* Left Ribbon — Recessed #0c0e11 plane */
+.theme-dark .workspace-ribbon.mod-left {
+  background-color: #0c0e11;
+  border-right: 1px solid #252932;
+}
+
+/* Active Tab Indicator — Guards Red needle on focused active tab */
+.theme-dark .workspace-tab-header-container {
+  background-color: #131519;
+  border-bottom: 1px solid #252932;
+}
+
+.theme-dark .workspace-tab-header.is-active {
+  background-color: #141619;
+  box-shadow: inset 0 2px 0 0 #2f3440;
+}
+
+.theme-dark .workspace-tabs.mod-active .workspace-tab-header.is-active {
+  box-shadow: inset 0 2px 0 0 #e55c5a;
+}
+
+.theme-dark .workspace-tab-header:hover:not(.is-active) {
+  background-color: #1a1d23;
+  color: #dadad6;
+}
+
+/* Sidebar Navigation — Smoked Carmine active state with Guards Red rail */
+.theme-dark .nav-file-title.is-active,
+.theme-dark .tree-item-self.is-active {
+  background-color: #261b1f;
+  color: #edede9;
+  box-shadow: inset 2px 0 0 0 #e55c5a;
+}
+
+.theme-dark .nav-file-title:hover:not(.is-active),
+.theme-dark .nav-folder-title:hover,
+.theme-dark .tree-item-self.is-clickable:hover:not(.is-active) {
+  background-color: #1a1d23;
+  color: #edede9;
+}
+
+/* Active pane header */
+.theme-dark .workspace-leaf.mod-active .view-header-title {
+  color: #edede9;
+}
+
+.theme-dark .view-header {
+  background-color: #141619;
+  border-bottom: 1px solid #252932;
+}
+
+/* Statusbar — Tabular telemetry numerals on Race-Tex chrome */
+.theme-dark .status-bar {
+  background-color: #131519;
+  border-color: #252932;
+  color: #9297a2;
+  font-variant-numeric: tabular-nums;
+}
+
+.theme-dark .status-bar-item.mod-clickable:hover {
+  background-color: #1a1d23;
+  color: #edede9;
+}
+
+/* Command Palette, Quick Switcher & Suggestion Popovers */
+.theme-dark .prompt {
+  background-color: #1a1d23;
+  border: 1px solid #434854;
+  box-shadow: var(--shadow-l);
+}
+
+.theme-dark .prompt-input-container {
+  background-color: #131519;
+  border-bottom: 1px solid #252932;
+}
+
+.theme-dark input.prompt-input {
+  background-color: transparent;
+  color: #edede9;
+}
+
+.theme-dark .suggestion-container,
+.theme-dark .menu {
+  background-color: #1a1d23;
+  border: 1px solid #434854;
+  box-shadow: var(--shadow-s);
+}
+
+.theme-dark .suggestion-item.is-selected,
+.theme-dark .menu-item.selected:not(.is-disabled) {
+  background-color: #261b1f;
+  color: #edede9;
+  box-shadow: inset 2px 0 0 0 #e55c5a;
+}
+
+.theme-dark .suggestion-item .suggestion-highlight {
+  color: #f0d282;
+  font-weight: 600;
+}
+
+.theme-dark .suggestion-hotkey {
+  background-color: #131519;
+  color: #9297a2;
+  border: 1px solid #252932;
+  border-radius: 4px;
+}
+
+/* Hover Page Preview Popover */
+.theme-dark .popover.hover-popover {
+  background-color: #1a1d23;
+  border: 1px solid #434854;
+  box-shadow: var(--shadow-l);
+  border-radius: 8px;
+}
+
+/* Modals & Settings */
+.theme-dark .modal {
+  background-color: #1a1d23;
+  border: 1px solid #434854;
+  box-shadow: var(--shadow-l);
+}
+
+.theme-dark .vertical-tab-header {
+  background-color: #131519;
+  border-right: 1px solid #252932;
+}
+
+.theme-dark .vertical-tab-nav-item.is-active {
+  background-color: #261b1f;
+  color: #edede9;
+  box-shadow: inset 2px 0 0 0 #e55c5a;
+}
+
+.theme-dark .vertical-tab-nav-item:hover:not(.is-active) {
+  background-color: #1a1d23;
+  color: #edede9;
+}
+
+/* Primary CTA Buttons & Notices */
+.theme-dark button.mod-cta {
+  background-color: #bf3b3e;
+  color: #f4f3ef;
+  font-weight: 500;
+}
+
+.theme-dark button.mod-cta:hover {
+  background-color: #e55c5a;
+  color: #f4f3ef;
+}
+
+.theme-dark .notice {
+  background-color: #1d2026;
+  color: #edede9;
+  border: 1px solid #434854;
+  border-left: 3px solid #e55c5a;
+  box-shadow: var(--shadow-s);
+}
+
+/* Search, Backlinks & Outline */
+.theme-dark .search-result-file-title {
+  color: #edede9;
+  font-weight: 600;
+}
+
+.theme-dark .search-result-file-matches {
+  background-color: #131519;
+  border: 1px solid #252932;
+  border-radius: 6px;
 }
 
 .theme-dark .search-result-file-matched-text {
   background-color: #5b5134;
   color: #edede9;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* Canvas Cards & Arrows */
+.theme-dark .canvas-node-container {
+  background-color: #1a1d23;
+  border-color: #252932;
+}
+
+.theme-dark .canvas-node.is-focused .canvas-node-container {
+  border-color: #e55c5a;
+}
+
+.theme-dark .canvas-controls {
+  background-color: #131519;
+  border: 1px solid #252932;
+  box-shadow: var(--shadow-xs);
 }
