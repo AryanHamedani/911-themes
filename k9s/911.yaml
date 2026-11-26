@@ -48,8 +48,8 @@ k9s:
     fieldFgColor: "#edede9"
   frame:
     border:
-      fgColor: "#434854"
-      focusColor: "#e55c5a"
+      fgColor: "#2f3440"
+      focusColor: "#434854"
     menu:
       fgColor: "#9297a2"
       fgStyle: "normal"

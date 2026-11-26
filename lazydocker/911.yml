@@ -1,6 +1,6 @@
 # 911 (992.2) Precision Night Cockpit for Lazydocker (v0.25.2+)
 # Palette contract: Race-Tex Charcoal (#141619), Smoked Carmine selection (#261b1f),
-# cockpit box border (#434854), Ice Grey dial typography (#dadad6),
+# hairline border (#2f3440), Ice Grey dial typography (#dadad6),
 # Lugano Blue options chrome (#6fa2de), and Guards/Carmine Red (#e55c5a) focus needle.
 
 gui:
@@ -18,7 +18,7 @@ gui:
       - "#e55c5a"
       - bold
     inactiveBorderColor:
-      - "#434854"
+      - "#2f3440"
     selectedLineBgColor:
       - "#261b1f"
     optionsTextColor:

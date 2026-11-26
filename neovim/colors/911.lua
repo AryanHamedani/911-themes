@@ -621,7 +621,7 @@ local groups = {
   SnacksNotifierTitleTrace = { fg = p.magenta, bold = true },
   SnacksNotifierBorderInfo = { fg = p.blue, bg = d.vanadium_elevated },
   SnacksNotifierBorderWarn = { fg = p.yellow, bg = d.vanadium_elevated },
-  SnacksNotifierBorderError = { fg = p.bright_red, bg = d.vanadium_elevated },
+  SnacksNotifierBorderError = { fg = d.badge_red, bg = d.vanadium_elevated },
   SnacksNotifierBorderDebug = { fg = d.box_border, bg = d.vanadium_elevated },
   SnacksNotifierBorderTrace = { fg = p.magenta, bg = d.vanadium_elevated },
   SnacksNotifierFooterInfo = { fg = p.muted, bg = d.vanadium_elevated },
@@ -928,7 +928,7 @@ local groups = {
 
   -- nvim-notify
   NotifyBackground = { bg = d.vanadium_elevated },
-  NotifyERRORBorder = { fg = p.bright_red, bg = d.vanadium_elevated },
+  NotifyERRORBorder = { fg = d.badge_red, bg = d.vanadium_elevated },
   NotifyWARNBorder = { fg = p.yellow, bg = d.vanadium_elevated },
   NotifyINFOBorder = { fg = p.blue, bg = d.vanadium_elevated },
   NotifyDEBUGBorder = { fg = d.box_border, bg = d.vanadium_elevated },
@@ -1162,7 +1162,7 @@ local groups = {
   GrugFarResultsDiffSeparatorIndicator = { fg = d.div_line },
   GrugFarResultsMatch = { fg = p.darker_bg, bg = p.yellow, bold = true },
   GrugFarResultsMatchAdded = { fg = p.darker_bg, bg = p.green, bold = true },
-  GrugFarResultsMatchRemoved = { fg = p.darker_bg, bg = p.bright_red, bold = true },
+  GrugFarResultsMatchRemoved = { fg = d.badge_ink, bg = d.badge_red, bold = true },
   GrugFarResultsPath = { fg = p.cyan, underline = true },
   GrugFarResultsLineNo = { fg = p.dark_fg },
   GrugFarResultsLineColumn = { fg = p.muted },
