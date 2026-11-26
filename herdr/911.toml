@@ -1,29 +1,39 @@
 # 911 (992.2) Precision Night Cockpit — Herdr
-# Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
+# Race-Tex Charcoal (#141619), Deep Carbon (#0c0e11), Race-Tex Chrome (#131519),
+# Vanadium Elevated (#1a1d23), Smoked Carmine (#261b1f), Ice Grey (#dadad6),
+# and Guards/Carmine Red (#e55c5a).
 
 [theme]
 name = "catppuccin"
+auto_switch = false
 
 [theme.custom]
-accent = "#e55c5a"
-panel_bg = "#141619"
-sidebar_bg = "#0f1114"
-active_row_bg = "#1d2026"
-selection_bg = "#292d36"
-surface0 = "#1a1d23"
-surface1 = "#292d36"
-surface_dim = "#0a0b0d"
-overlay0 = "#858a96"
-overlay1 = "#9297a2"
-text = "#dadad6"
-subtext0 = "#b4b7be"
-mauve = "#b488cc"
-green = "#7fb887"
-yellow = "#e0be66"
-red = "#e56c6a"
-blue = "#6fa2de"
-teal = "#6ac4cb"
-peach = "#e89158"
+# Focus & Primary Instrument Needle
+accent = "#e55c5a"        # 911 Guards/Carmine Red: active pane border, active tab, focus ring (5.19:1 on canvas)
+
+# 4-Plane Cockpit Surfaces & Borders
+sidebar_bg = "#0c0e11"    # Plane 0: Deep carbon recessed sidebar & workspaces (13.79:1 w/ text)
+surface_dim = "#131519"   # Plane 1: Race-Tex chrome for top/bottom bar & recessed chrome (13.04:1 w/ text)
+panel_bg = "#141619"      # Plane 2: Race-Tex Charcoal active terminal canvas & active-tab ink (5.19:1 on accent)
+surface0 = "#1a1d23"      # Plane 3: Vanadium elevated popups, modals, menus, cards (12.04:1 w/ text)
+active_row_bg = "#261b1f" # Plane 4: Smoked Carmine active workspace & agent row (11.90:1 w/ text)
+selection_bg = "#292d36"  # Slate Grey Neo text & copy-mode selection (9.84:1 w/ text)
+surface1 = "#2f3440"      # Divider / hairline border for inactive pane dividers & modal frames
+
+# Typographic Hierarchy (all >= 4.5:1 WCAG AA across cockpit planes)
+text = "#dadad6"          # Ice Grey (Crayon): primary readable text (12.93:1 on canvas)
+subtext0 = "#b4b7be"      # Brushed dark silver: secondary labels, branches, agent metadata (9.03:1)
+overlay1 = "#9297a2"      # GT Silver in shadow: tertiary chrome, inactive tabs (6.19:1)
+overlay0 = "#858a96"      # Unlit gauge markings: muted timestamps, idle state, quiet hints (5.24:1)
+
+# Agent Lifecycle & Semantic Telemetry (OKLCH-calibrated for 50ms scanability)
+red = "#e56c6a"           # 911 Carmine Red: blocked / needs input / error (5.77:1)
+yellow = "#e0be66"        # PCCB Racing Gold: working / in-progress / warning (10.12:1)
+green = "#7fb887"         # Oak Green Metallic Neo: done / ready / success (7.86:1)
+blue = "#6fa2de"          # Lugano Blue: info / workspace / navigation (6.82:1)
+teal = "#6ac4cb"          # Ice Glacier Cyan: remote / telemetry / hint (8.95:1)
+peach = "#e89158"         # Lava Orange: warm alert / attention (7.44:1)
+mauve = "#b488cc"         # Ultraviolet / PTS Amethyst: agent badge / prefix mode (6.33:1)
 
 [ui]
 accent = "#e55c5a"

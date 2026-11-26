@@ -1,23 +1,28 @@
 # 911 (992.2) Precision Night Cockpit — Atuin
 # Race-Tex Charcoal (#141619), Ice Grey (#dadad6), Guards/Carmine Red (#e55c5a)
-# Uses Atuin PascalCase Meaning keys under [colors].
+# Complete 15-key Atuin PascalCase Meaning palette calibrated in OKLCH (WCAG AA >= 4.5:1).
 
 [theme]
 name = "911"
 
 [colors]
-AlertInfo = "#7fb887"
-AlertWarn = "#e0be66"
-AlertError = "#e56c6a"
-Annotation = "#6fa2de"
-Base = "#dadad6"
-Guidance = "#9297a2"
-Important = "#e55c5a"
-Title = "#edede9"
-Muted = "#858a96"
-SyntaxCommand = "#7fb887"
-SyntaxFlag = "#b4b7be"
-SyntaxString = "#e0be66"
-SyntaxVariable = "#6ac4cb"
-SyntaxOperator = "#e89158"
-SyntaxComment = "#858a96"
+# Alerts, durations, exit codes & search-match highlight
+AlertInfo = "#7fb887"      # Oak Green Metallic Neo — success duration, exit 0, info (7.86:1)
+AlertWarn = "#e0be66"      # PCCB Racing Gold — search match chars on selected row, warnings (10.12:1)
+AlertError = "#e56c6a"     # Carmine Red (text-weight) — selected command row, failed duration/exit (5.77:1)
+
+# 5-step typographic hierarchy & instrument-needle focus
+Title = "#edede9"          # Pure dial highlight — section & view headers (15.44:1)
+Base = "#dadad6"           # Ice Grey (Crayon) — primary command text & version (12.93:1)
+Annotation = "#b4b7be"     # Brushed dark silver — preview pane, keymap hints, count, dir/datetime/host (9.03:1)
+Guidance = "#9297a2"       # GT Silver in shadow — relative timestamps & contextual guidance (6.19:1)
+Muted = "#858a96"          # Unlit gauge markings — subdued chrome & borders (5.24:1)
+Important = "#e55c5a"      # Guards/Carmine Red — active tab needle & inspector emphasis (5.19:1)
+
+# Shell syntax highlighting (synchronized 1:1 with zsh-syntax-highlighting 911)
+SyntaxCommand = "#7fb887"  # Oak Green Metallic Neo — executables & aliases (7.86:1)
+SyntaxFlag = "#b4b7be"     # Brushed dark silver — short & long flags (9.03:1)
+SyntaxString = "#e0be66"   # PCCB Racing Gold — quoted strings (10.12:1)
+SyntaxVariable = "#6ac4cb" # Ice Glacier Cyan — $VAR & expansions (8.95:1)
+SyntaxOperator = "#e89158" # Lava Orange — pipes, redirections & logic ops (7.44:1)
+SyntaxComment = "#858a96"  # Unlit gauge markings — inline shell comments (5.24:1)
