@@ -2,6 +2,11 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 3
+    },
     "color": {
       "1": "#e55c5a",
       "2": "#edede9",
@@ -15,15 +20,26 @@
     }
   },
   "display": {
-    "separator": " › ",
+    "separator": " │ ",
     "color": {
-      "keys": "#e55c5a",
-      "title": "#edede9",
+      "keys": "#b4b7be",
+      "title": "#e55c5a",
       "output": "#dadad6",
       "separator": "#858a96"
     },
+    "duration": {
+      "abbreviation": true,
+      "spaceBeforeUnit": "never"
+    },
+    "size": {
+      "ndigits": 1
+    },
+    "freq": {
+      "ndigits": 1
+    },
     "percent": {
-      "type": 3,
+      "type": 11,
+      "ndigits": 0,
       "color": {
         "green": "#7fb887",
         "yellow": "#e0be66",
@@ -31,8 +47,9 @@
       }
     },
     "bar": {
+      "width": 10,
       "char": {
-        "elapsed": "■",
+        "elapsed": "━",
         "total": "─"
       },
       "border": {
@@ -40,17 +57,96 @@
         "right": "]"
       },
       "color": {
-        "elapsed": "#e55c5a",
         "total": "#292d36",
         "border": "#434854"
       }
     },
     "temp": {
+      "unit": "C",
+      "ndigits": 0,
       "color": {
         "green": "#7fb887",
         "yellow": "#e0be66",
         "red": "#e56c6a"
       }
     }
-  }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "color": {
+        "user": "#e55c5a",
+        "at": "#858a96",
+        "host": "#edede9"
+      }
+    },
+    {
+      "type": "separator",
+      "string": "─",
+      "outputColor": "#434854"
+    },
+    {
+      "type": "os",
+      "key": "OS      "
+    },
+    {
+      "type": "kernel",
+      "key": "Kernel  "
+    },
+    {
+      "type": "uptime",
+      "key": "Uptime  "
+    },
+    {
+      "type": "packages",
+      "key": "Packages"
+    },
+    {
+      "type": "shell",
+      "key": "Shell   "
+    },
+    {
+      "type": "wm",
+      "key": "WM      "
+    },
+    {
+      "type": "terminal",
+      "key": "Terminal"
+    },
+    {
+      "type": "cpu",
+      "key": "CPU     ",
+      "temp": true,
+      "showPeCoreCount": true
+    },
+    {
+      "type": "gpu",
+      "key": "GPU     ",
+      "temp": true
+    },
+    {
+      "type": "memory",
+      "key": "Memory  "
+    },
+    {
+      "type": "disk",
+      "key": "Disk    ",
+      "folders": "/"
+    },
+    {
+      "type": "battery",
+      "key": "Battery "
+    },
+    {
+      "type": "localip",
+      "key": "Local IP",
+      "compact": true,
+      "showPrefixLen": false
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle"
+    }
+  ]
 }

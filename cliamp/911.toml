@@ -1,8 +1,25 @@
 # 911 (992.2) Precision Night Cockpit for Cliamp
+# Center-console audio instrument: Race-Tex Charcoal canvas, Ice Grey & dial-white
+# readouts, disciplined Guards/Carmine Red playhead & focus, and an OKLCH-calibrated
+# Oak Green -> PCCB Gold -> Carmine Red spectrum/VU/EQ ramp. All 7 tokens pass WCAG AA.
+
+# Cockpit surface — Race-Tex Charcoal
 bg = "#141619"
+
+# Active playhead, progress needle & focus — 911 Guards/Carmine Red (5.19:1 AA on bg)
 accent = "#e55c5a"
+
+# Track titles & primary dial readouts — Pure dial highlight (15.44:1 AAA on bg)
 bright_fg = "#edede9"
+
+# Playlist rows, metadata & switchgear — Ice Grey / Crayon (12.93:1 AAA on bg)
 fg = "#dadad6"
+
+# Spectrum / VU / EQ low band — Oak Green Metallic Neo (7.86:1 AAA on bg)
 green = "#7fb887"
+
+# Spectrum / VU / EQ mid band — PCCB Racing Gold / Satin Neodyme (10.12:1 AAA on bg)
 yellow = "#e0be66"
+
+# Spectrum / VU / EQ peak & redline — 911 Carmine Red (5.77:1 AA on bg)
 red = "#e56c6a"

@@ -1,13 +1,42 @@
-# 911 (992.2) Precision Night Cockpit for Lazydocker
-# inactiveBorderColor uses #2f3440 (canonical btop.theme div_line over #141619).
+# 911 (992.2) Precision Night Cockpit for Lazydocker (v0.25.2+)
+# Palette contract: Race-Tex Charcoal (#141619), Smoked Carmine selection (#261b1f),
+# cockpit box border (#434854), Ice Grey dial typography (#dadad6),
+# Lugano Blue options chrome (#6fa2de), and Guards/Carmine Red (#e55c5a) focus needle.
+
 gui:
+  border: rounded
+  scrollHeight: 2
+  scrollPastBottom: false
+  wrapMainPanel: true
+  returnImmediately: false
+  sidePanelWidth: 0.30
+  expandFocusedSidePanel: true
+  showBottomLine: true
+  containerStatusHealthStyle: long
   theme:
     activeBorderColor:
       - "#e55c5a"
       - bold
     inactiveBorderColor:
-      - "#2f3440"
+      - "#434854"
     selectedLineBgColor:
-      - "#292d36"
+      - "#261b1f"
     optionsTextColor:
       - "#6fa2de"
+
+logs:
+  timestamps: false
+  since: "60m"
+  tail: "300"
+
+stats:
+  # Lazydocker's stats.graphs[].color uses ANSI color names (fatih/color), not hex.
+  # Under a 911 terminal palette: cyan = #6ac4cb (Ice Glacier Cyan), green = #7fb887 (Oak Green).
+  graphs:
+    - caption: CPU (%)
+      statPath: DerivedStats.CPUPercentage
+      color: cyan
+    - caption: Memory (%)
+      statPath: DerivedStats.MemoryPercentage
+      color: green
+  maxDuration: 3m
