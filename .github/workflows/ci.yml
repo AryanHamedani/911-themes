@@ -26,8 +26,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y zsh lua5.4
 
       - name: Run Tier 1 Structure, Format & Palette Contract E2E Suite
-        env:
-          CARRERA_NVIM_COLORSCHEME: ${{ github.workspace }}/neovim/colors/911.lua
         run: |
+          mkdir -p ~/.config/nvim/colors
+          cp neovim/colors/911.lua ~/.config/nvim/colors/911.lua
           python3 tests/run_e2e.py --tier 1
-          PYTHONPATH=. python3 -m unittest -v tests.test_tier2_boundaries.TestTier2PaletteContract tests.test_tier2_boundaries.TestTier2TelegramInvariants
+          PYTHONPATH=tests python3 -m unittest -v test_tier2_boundaries.TestTier2PaletteContract test_tier2_boundaries.TestTier2TelegramInvariants
