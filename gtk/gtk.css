@@ -1,11 +1,19 @@
 /* 911 (992.2) Precision Night Cockpit — Shared GTK 3 & GTK 4 / libadwaita palette
- * Surfaces: #0a0b0d / #0c0e11 / #0f1114 / #131519 / #141619 / #1a1d23 / #1d2026
- * Typography: Ice Grey (#dadad6), Pure Highlight (#edede9), GT Silver (#9297a2), Muted (#858a96)
- * Accent: 911 Guards/Carmine Red (#e55c5a), Filled Badge/Control (#bf3b3e / #f4f3ef, 4.84:1 AA)
- * Pure @define-color rules for cross-compatibility with GTK 3 and GTK 4.
+ * 4-plane cockpit hierarchy:
+ *   Plane 0 (Recessed well / backdrop): #0a0b0d (shadow) / #0c0e11 (backdrop) / #0f1114 (views, sidebar)
+ *   Plane 1 (Race-Tex canvas / chrome): #131519 (headerbar, secondary sidebar) / #141619 (window canvas)
+ *   Plane 2 (Vanadium elevated):        #1a1d23 (cards, dialogs, thumbnails) / #1d2026 (popovers, tooltips)
+ *   Plane 3 (Slate trim / active):      #292d36 (selection) / #261b1f (Smoked Carmine active)
+ * 5-step foreground hierarchy:
+ *   #edede9 (highlight) -> #dadad6 (Ice Grey) -> #b4b7be (switchgear) -> #9297a2 (GT Silver) -> #858a96 (muted)
+ * Accent: 911 Guards/Carmine Red (#e55c5a text/focus; #bf3b3e + #f4f3ef filled control, 4.84:1 AA)
+ * Pure @define-color rules for seamless cross-compatibility with GTK 3 and GTK 4 / libadwaita.
  */
 
-/* Accent & semantic colors */
+/* ==========================================================================
+ * 1. Accent & Semantic Status (libadwaita / GTK 4 & GTK 3)
+ * ========================================================================== */
+
 @define-color accent_bg_color #bf3b3e;
 @define-color accent_fg_color #f4f3ef;
 @define-color accent_color #e55c5a;
@@ -26,13 +34,20 @@
 @define-color error_fg_color #f4f3ef;
 @define-color error_color #f48583;
 
-/* Window & view surfaces */
+/* ==========================================================================
+ * 2. Window & View Surfaces (Planes 0 & 1)
+ * ========================================================================== */
+
 @define-color window_bg_color #141619;
 @define-color window_fg_color #dadad6;
+
 @define-color view_bg_color #0f1114;
 @define-color view_fg_color #dadad6;
 
-/* Headerbar */
+/* ==========================================================================
+ * 3. Header Bar (Race-Tex Chrome -> Deep Carbon Backdrop)
+ * ========================================================================== */
+
 @define-color headerbar_bg_color #131519;
 @define-color headerbar_fg_color #dadad6;
 @define-color headerbar_border_color #2f3440;
@@ -40,7 +55,10 @@
 @define-color headerbar_shade_color rgba(10, 11, 13, 0.36);
 @define-color headerbar_darker_shade_color rgba(10, 11, 13, 0.72);
 
-/* Sidebars */
+/* ==========================================================================
+ * 4. Sidebars (libadwaita 1.4+)
+ * ========================================================================== */
+
 @define-color sidebar_bg_color #0f1114;
 @define-color sidebar_fg_color #dadad6;
 @define-color sidebar_backdrop_color #0c0e11;
@@ -53,17 +71,20 @@
 @define-color secondary_sidebar_shade_color rgba(10, 11, 13, 0.25);
 @define-color secondary_sidebar_border_color #252932;
 
-/* Cards, dialogs, popovers, thumbnails */
+/* ==========================================================================
+ * 5. Elevated Planes: Cards, Dialogs, Popovers, Thumbnails (Plane 2)
+ * ========================================================================== */
+
 @define-color card_bg_color #1a1d23;
 @define-color card_fg_color #dadad6;
 @define-color card_shade_color rgba(10, 11, 13, 0.36);
 
-@define-color dialog_bg_color #131519;
+@define-color dialog_bg_color #1a1d23;
 @define-color dialog_fg_color #dadad6;
 
-@define-color popover_bg_color #1a1d23;
+@define-color popover_bg_color #1d2026;
 @define-color popover_fg_color #dadad6;
-@define-color popover_shade_color rgba(10, 11, 13, 0.42);
+@define-color popover_shade_color rgba(10, 11, 13, 0.48);
 
 @define-color thumbnail_bg_color #1a1d23;
 @define-color thumbnail_fg_color #dadad6;
@@ -71,7 +92,10 @@
 @define-color shade_color rgba(10, 11, 13, 0.36);
 @define-color scrollbar_outline_color rgba(10, 11, 13, 0.90);
 
-/* GTK 3 Adwaita-dark & OSD compatibility aliases */
+/* ==========================================================================
+ * 6. GTK 3 Adwaita-dark Core Aliases & States
+ * ========================================================================== */
+
 @define-color theme_bg_color @window_bg_color;
 @define-color theme_fg_color @window_fg_color;
 @define-color theme_base_color @view_bg_color;
@@ -79,10 +103,18 @@
 @define-color theme_selected_bg_color #292d36;
 @define-color theme_selected_fg_color #edede9;
 
+@define-color bg_color @window_bg_color;
+@define-color fg_color @window_fg_color;
+@define-color base_color @view_bg_color;
+@define-color text_color @view_fg_color;
+@define-color selected_bg_color @theme_selected_bg_color;
+@define-color selected_fg_color @theme_selected_fg_color;
+
 @define-color insensitive_bg_color #141619;
 @define-color insensitive_fg_color #858a96;
 @define-color insensitive_base_color #0f1114;
 @define-color unfocused_insensitive_color #858a96;
+@define-color placeholder_text_color #858a96;
 
 @define-color theme_unfocused_bg_color @window_bg_color;
 @define-color theme_unfocused_fg_color #9297a2;
@@ -93,18 +125,39 @@
 
 @define-color borders #2f3440;
 @define-color unfocused_borders #252932;
+@define-color focus_border_color @accent_color;
 @define-color content_view_bg #0f1114;
 @define-color text_view_bg #0f1114;
 
-@define-color wm_bg #131519;
-@define-color wm_unfocused_bg #0c0e11;
+@define-color link_color #6fa2de;
+@define-color link_visited_color #b488cc;
+
+/* ==========================================================================
+ * 7. GTK 3 Window Manager (CSD), OSD & Tooltips
+ * ========================================================================== */
+
 @define-color wm_title #dadad6;
 @define-color wm_unfocused_title #9297a2;
+@define-color wm_highlight rgba(218, 218, 214, 0.06);
+@define-color wm_borders_edge rgba(218, 218, 214, 0.06);
+@define-color wm_bg #131519;
+@define-color wm_bg_a #131519;
+@define-color wm_bg_b #131519;
+@define-color wm_unfocused_bg #0c0e11;
+@define-color wm_shadow rgba(10, 11, 13, 0.55);
 @define-color wm_border #2f3440;
 @define-color wm_unfocused_border #252932;
+@define-color wm_button_hover_color_a #1d2026;
+@define-color wm_button_hover_color_b #1a1d23;
+@define-color wm_button_active_color_a #292d36;
+@define-color wm_button_active_color_b #292d36;
+@define-color wm_button_active_color_c #261b1f;
 
 @define-color osd_bg rgba(15, 17, 20, 0.92);
 @define-color osd_fg #dadad6;
 @define-color osd_border #434854;
-@define-color tooltip_bg_color #1a1d23;
+@define-color osd_text_shadow rgba(10, 11, 13, 0.85);
+
+@define-color tooltip_bg_color #1d2026;
 @define-color tooltip_fg_color #edede9;
+@define-color tooltip_border_color #2f3440;
