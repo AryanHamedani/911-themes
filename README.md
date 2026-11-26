@@ -12,6 +12,37 @@ A standalone, shareable collection of **36 Precision Night Cockpit themes** insp
 
 Built from [`colors.toml`](colors.toml) (canonical source: [**`omarchy-911-theme`**](https://github.com/AryanHamedani/omarchy-911-theme), which also ships the six `2560×1440` night-drive wallpapers, boot unlock screen, and Omarchy desktop integration), engineered with GitHub-Primer-grade 4-plane depth, OKLCH syntax uniformity, and WCAG AA contrast across every readable text and badge role for 10+ hour daily sessions.
 
+## Live App Showcases
+
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Neovim (LazyVim + Lualine)</strong><br>
+      <img src="docs/previews/neovim.png" alt="Neovim 911 theme">
+    </td>
+    <td width="50%">
+      <strong>Lazygit + Delta</strong><br>
+      <img src="docs/previews/lazygit.png" alt="Lazygit and Delta 911 theme">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Obsidian</strong><br>
+      <img src="docs/previews/obsidian.png" alt="Obsidian 911 theme">
+    </td>
+    <td width="50%">
+      <strong>Starship + eza + Delta</strong><br>
+      <img src="docs/previews/shell-delta.png" alt="Starship, eza, and Delta 911 theme">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <strong>Fastfetch Cockpit Telemetry</strong><br>
+      <img src="docs/previews/fastfetch.png" alt="Fastfetch 911 theme" width="85%">
+    </td>
+  </tr>
+</table>
+
 ## Palette & Contrast
 
 ![911 Palette](docs/palette.png)
