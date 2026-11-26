@@ -1,10 +1,20 @@
 # 911 (`992.2`) Precision Night Cockpit Themes
 
-A standalone, shareable collection of **911 (`992.2`) Precision Night Cockpit** themes inspired by the Porsche 911 (992.2) cockpit on a night drive: Race-Tex Charcoal surfaces (`#141619`), crisp Ice Grey (`Crayon`) dial typography (`#dadad6`), Vanadium Grey elevated trim (`#1d2026`), brushed dark silver switchgear (`#b4b7be`), and a single disciplined spark of 911 Guards/Carmine Red (`#e55c5a`) for the lightbar, redline, and focus state.
+[![E2E Theme Validation](https://github.com/AryanHamedani/911-themes/actions/workflows/ci.yml/badge.svg)](https://github.com/AryanHamedani/911-themes/actions/workflows/ci.yml)
+[![Apps](https://img.shields.io/badge/apps-36-bf3b3e?style=flat&labelColor=131519)](INVENTORY.md)
+[![WCAG AA](https://img.shields.io/badge/contrast-WCAG%20AA%20%E2%89%A5%204.5%3A1-7fb887?style=flat&labelColor=131519)](#palette--contrast)
+[![Omarchy](https://img.shields.io/badge/omarchy-911%20desktop%20theme-6fa2de?style=flat&labelColor=131519)](https://github.com/AryanHamedani/omarchy-911-theme)
+[![License: MIT](https://img.shields.io/badge/license-MIT-858a96?style=flat&labelColor=131519)](LICENSE)
 
-Built from [`colors.toml`](colors.toml) (canonical source: [`omarchy-911-theme`](https://github.com/AryanHamedani/omarchy-911-theme), formerly Carrera), calibrated in OKLCH for long daily coding sessions: perceptually uniform syntax hues, glare-free contrast tuned to avoid halation, and WCAG AA conformance across every readable text and badge role.
+![911 Precision Night Cockpit Preview](docs/preview.png)
+
+A standalone, shareable collection of **36 Precision Night Cockpit themes** inspired by the Porsche 911 (`992.2`) cockpit on a night drive: Race-Tex Charcoal surfaces (`#141619`), crisp Ice Grey (`Crayon`) dial typography (`#dadad6`), Vanadium Grey elevated trim (`#1d2026`), brushed dark silver switchgear (`#b4b7be`), and a single disciplined spark of 911 Guards/Carmine Red (`#e55c5a`) for the lightbar, redline, and focus state.
+
+Built from [`colors.toml`](colors.toml) (canonical source: [**`omarchy-911-theme`**](https://github.com/AryanHamedani/omarchy-911-theme), which also ships the six `2560×1440` night-drive wallpapers, boot unlock screen, and Omarchy desktop integration), engineered with GitHub-Primer-grade 4-plane depth, OKLCH syntax uniformity, and WCAG AA contrast across every readable text and badge role for 10+ hour daily sessions.
 
 ## Palette & Contrast
+
+![911 Palette](docs/palette.png)
 
 Every readable text role — including comments (`#858a96` at `5.24:1` on canvas / `4.72:1` on elevated), Carmine Red accents (`#e55c5a` at `5.19:1` / `4.67:1`), and Truffle Club Leather (`#ad7f66` at `5.18:1` / `4.67:1`) — clears **WCAG AA (`>= 4.5:1`)** on both the Race-Tex Charcoal canvas (`#141619`) and Vanadium Grey elevated surface (`#1d2026`). Primary Ice Grey text sits at **`12.93:1`** for crisp, glare-free readability.
 

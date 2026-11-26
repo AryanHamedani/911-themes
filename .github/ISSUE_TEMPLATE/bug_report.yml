@@ -1,0 +1,27 @@
+name: Bug / Contrast Report
+description: Report a color contrast issue, broken syntax scope, or config error in one of the 36 themes.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: Application & Version
+      description: Which app theme is affected, and what version of the app are you running?
+      placeholder: "e.g., Neovim 0.11 / LazyVim, K9s v0.51.0, Zen Browser 1.12"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the visual defect, contrast issue, or config error.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot or Config Output
+      description: Paste a screenshot or relevant CLI/validator output if available.
+    validations:
+      required: false

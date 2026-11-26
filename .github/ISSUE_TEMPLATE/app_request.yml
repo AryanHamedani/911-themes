@@ -1,0 +1,26 @@
+name: New App Theme Request
+description: Request a new 911 (992.2) Precision Night Cockpit port for another application.
+title: "[App Request]: "
+labels: ["enhancement", "app-request"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: Application Name & URL
+      placeholder: "e.g., Helix (https://helix-editor.com)"
+    validations:
+      required: true
+  - type: textarea
+    id: format
+    attributes:
+      label: Theme File Format / Docs
+      description: Link to the app's official theming documentation or example theme file.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Context
+      description: Any special UI elements, plugins, or syntax scopes worth covering.
+    validations:
+      required: false

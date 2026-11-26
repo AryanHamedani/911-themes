@@ -1,0 +1,26 @@
+name: E2E Theme Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Palette, Structure & Syntax E2E
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run Tier 1 & Tier 2 E2E Suite
+        run: python3 tests/run_e2e.py --tier 1 --tier 2

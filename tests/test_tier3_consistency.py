@@ -85,11 +85,11 @@ class TestTier3Consistency(unittest.TestCase):
                     f"INVENTORY.md path does not exist on disk: {root / rel}",
                 )
 
-        # Verify no extra undocumented top-level app directories exist (excluding tests/ and hidden)
+        # Verify no extra undocumented top-level app directories exist (excluding tests/, docs/, and hidden)
         for child in root.iterdir():
             if not child.is_dir():
                 continue
-            if child.name.startswith(".") or child.name in ("tests", "__pycache__"):
+            if child.name.startswith(".") or child.name in ("tests", "docs", "__pycache__"):
                 continue
             self.assertIn(
                 child.name,
