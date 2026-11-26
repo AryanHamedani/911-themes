@@ -5,14 +5,15 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-DEFAULT_PROJECT_ROOT = Path("/home/aryan/teamwork_projects/carrera_themes")
-DEFAULT_NVIM_COLORSCHEME = Path("/home/aryan/.config/nvim/colors/911.lua")
-DEFAULT_REFERENCE_COLORS = Path(
-    "/home/aryan/Work/personal/AryanHamedani/omarchy-911-theme/colors.toml"
-)
-DEFAULT_REFERENCE_REPO = Path(
+DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_NVIM_COLORSCHEME = Path.home() / ".config/nvim/colors/911.lua"
+_LOCAL_OMARCHY_911 = Path(
     "/home/aryan/Work/personal/AryanHamedani/omarchy-911-theme"
 )
+DEFAULT_REFERENCE_REPO = (
+    _LOCAL_OMARCHY_911 if _LOCAL_OMARCHY_911.is_dir() else DEFAULT_PROJECT_ROOT
+)
+DEFAULT_REFERENCE_COLORS = DEFAULT_REFERENCE_REPO / "colors.toml"
 
 
 def get_project_root() -> Path:
